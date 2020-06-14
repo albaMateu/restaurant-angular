@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/style.scss"
             ],
             "scripts": []
           }
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Restaurant"
+    }
+  },
+  "defaultProject": "Restaurant",
+  "cli": {
+    "analytics": false
+  }
 }

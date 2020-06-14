@@ -4,6 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+/*CURS
+import {routing, appRoutingProviders} from './app-routing';
+afegir routing en imports i appRoutingProviders en providers
+*/
+
 @NgModule({
   declarations: [
     AppComponent
