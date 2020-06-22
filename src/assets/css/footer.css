@@ -1,0 +1,152 @@
+#footer{
+  /* width: 100%;
+  border-top: 3px solid grey;
+  padding-top: 10px;*/
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  font-size: 0.9em;
+  margin-top: 50px;
+  padding: 70px 0 0;
+  position: relative;
+  clear: both;
+  color: #777;
+}
+
+#footer .container .row > div {
+  margin-bottom: 25px;
+}
+
+.light{
+  padding-top: 60px;
+  background-color: white;
+  border-top: 1px solid #DDD;
+}
+
+.container{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+   margin-right: auto;
+  margin-left: auto;
+}
+
+#footer .contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#footer .contact i {
+  display: block;
+  float: left;
+  font-size: 1.2em;
+  position: relative;
+  width: 16px;
+  margin-right: 5px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+
+/* Social Icons */
+.social-icons {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.social-icons li{
+  display: inline-block;
+  margin: -1px 5px 0 0;
+  padding: 0;
+  border-radius: 100%;
+  overflow: visible;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.social-icons li a {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: #FFF;
+  border-radius: 100%;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  color: #333 !important;
+  text-decoration: none;
+}
+
+.social-icons li:hover a {
+  background: #171717;
+  color: #FFF !important;
+}
+
+.social-icons li:hover.social-icons-facebook a {
+  background: #3b5a9a;
+}
+
+.social-icons li:hover.social-icons-twitter a {
+  background: #1aa9e1;
+}
+.social-icons li:hover.social-icons-linkedin a {
+  background: #0073b2;
+}
+
+/* footer copyright */
+
+.footer-copyright {
+  margin-top: 15px;
+  padding: 0 !important;
+  margin-bottom: 0;
+}
+
+.footer-copyright li{
+  margin: -1px 1px 0 0;
+  text-decoration: none;
+}
+
+#footer .logo {
+  display: block;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+#footer .footer-copyright p {
+  padding-top: 15%;
+}
+
+#sub-menu{
+  float: right;
+}
+
+#sub-menu ul {
+  list-style: none;
+  margin: 0;
+  padding-top: 40%;
+}
+
+#sub-menu ul li {
+    border-left: 1px solid #505050;
+    display: inline-block;
+    line-height: 12px;
+    margin: 0;
+    padding: 0 8px;
+}
+#sub-menu ul li:first-child {
+  border: medium none;
+  padding-left: 0;
+}
+
+
+

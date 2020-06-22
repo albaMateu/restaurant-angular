@@ -14,10 +14,40 @@
   <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css"/>
   <script type="text/javascript" src="assets/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="assets/style.scss">
+  <link rel="stylesheet"  href="./assets/css/style.css"/>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <base href="/">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Cargando...</span>
+      </div>
+    </div>
+  </app-root>
+
+  <!-- Boton hacia arriba -->
+  <a class="ir-arriba fixed-bottom"  javascript:void(0) title="Volver arriba">
+    <span class="fa-stack">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
 </body>
 </html>
+
+<script>
+  $(document).ready(function(){ //Hacia arriba
+  irArriba();
+  });
+
+  function irArriba(){
+    $('.ir-arriba').click(function(){ $('body,html').animate({ scrollTop:'0px' },1000); });
+    $(window).scroll(function(){
+      if($(this).scrollTop() > 0){ $('.ir-arriba').slideDown(600); }else{ $('.ir-arriba').slideUp(600); }
+    });
+    $('.ir-abajo').click(function(){ $('body,html').animate({ scrollTop:'1000px' },1000); });
+  }
+</script>

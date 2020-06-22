@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/style.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }

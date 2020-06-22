@@ -1,3 +1,5 @@
+import { homeComponent } from './components/home.component';
+import { footerComponent } from './components/footer.component';
 import { menuNavComponent } from './components/menu-nav.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +20,9 @@ afegir routing en imports i appRoutingProviders en providers
 @NgModule({
   declarations: [
     AppComponent,
-    menuNavComponent
+    menuNavComponent,
+    footerComponent,
+    homeComponent
   ],
   imports: [
     BrowserModule,

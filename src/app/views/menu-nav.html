@@ -1,28 +1,20 @@
-<nav class="navbar navbar-expand-sm fixed-top navbar-light">
-  <a class="navbar-brand" href="#">
-    <img id="logo" src="../assets/images/logo.jpg" width="50" height="50" class="d-inline-block align-middle" alt="logotipo">
-    {{nom}}
-  </a>
-  <!-- data-target i aria-controls es el nom del id del div que volem ocultar, per aixo porta #davant -->
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar"
-  aria-controls="#navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-<div class="collapse navbar-collapse" id="navbar">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link active" href="#">Home </a>
-    <a class="nav-item nav-link" href="#">Features</a>
-    <a class="nav-item nav-link" href="#">Pricing</a>
+  <nav id="navMenu" class="navbar navbar-expand-sm navbar-light">
+    <a class=" titulo navbar-brand" href="#">
+      <img id="logo" src="../assets/images/logo.jpg" width="70" height="70" class="d-inline-block align-middle" alt="logotipo">
+      {{nom}}
+    </a>
+    <!-- data-target i aria-controls es el nom del id del div que volem ocultar, per aixo porta #davant -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar"
+    aria-controls="#navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse menu" id="navbar">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/home']" [routerLinkActive]="['activado']">Home </a>
+      <a class="nav-item nav-link" [routerLink]="['/carta']" [routerLinkActive]="['activado']">Carta</a>
+      <a class="nav-item nav-link" [routerLink]="['/reserva']" [routerLinkActive]="['activado']">Reservar</a>
+      <a class="nav-item nav-link" [routerLink]="['/contacte']" [routerLinkActive]="['activado']">Contacte</a>
+    </div>
   </div>
-</div>
-</nav>
-
-
-
-
-<!-- <nav id="nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <ul>
-    <li><a [routerLink]="['/home']" [routerLinkActive]="['activado']"></a></li>
-  </ul>
-</nav> -->
+  </nav>
 

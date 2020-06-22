@@ -4,11 +4,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'menu-nav',
-  templateUrl: '../views/menu-nav.html',
-  styleUrls: ['../../assets/menu-nav.scss']
+  templateUrl: '../views/menu-nav.html'
 })
 export class menuNavComponent{
-  public nom;
+  public nom:string;
 
   constructor(){
     this.nom=GLOBAL.nom;
