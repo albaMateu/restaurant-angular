@@ -10,11 +10,13 @@
   position: relative;
   clear: both;
   color: #777;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2em;
 }
 
-#footer .container .row > div {
+/* #footer .container .row > div {
   margin-bottom: 25px;
-}
+} */
 
 .light{
   padding-top: 60px;
@@ -26,13 +28,18 @@
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-   margin-right: auto;
+  margin-right: auto;
   margin-left: auto;
 }
 
 #footer .contact {
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+#footer .contact li p{
+  margin: 1.5%;
   padding: 0;
 }
 
@@ -45,6 +52,20 @@
   margin-right: 5px;
   text-align: center;
   margin-top: 1px;
+}
+
+#maps{
+  position:relative;
+  padding-right:20%;
+  height: 100%;
+}
+
+#maps iframe{
+  height:100%;
+  width:100%;
+  top:0px;
+  left:0px;
+  border-radius: 5%;
 }
 
 
@@ -98,9 +119,10 @@
 /* footer copyright */
 
 .footer-copyright {
-  margin-top: 15px;
-  padding: 0 !important;
+  margin-top: 70px;
+  padding-top: 0;;
   margin-bottom: 0;
+  vertical-align: middle;
 }
 
 .footer-copyright li{
@@ -110,6 +132,7 @@
 
 #footer .logo {
   display: block;
+  width: 70%;
 }
 
 .img-fluid {
@@ -123,17 +146,19 @@ img {
 }
 
 #footer .footer-copyright p {
-  padding-top: 15%;
+  padding-top:8%;
 }
 
 #sub-menu{
-  float: right;
+  text-align: center;
+  width: 100%;
 }
 
 #sub-menu ul {
   list-style: none;
   margin: 0;
-  padding-top: 40%;
+  padding-top: 11%;
+  padding-left: 0 !important;;
 }
 
 #sub-menu ul li {
@@ -143,10 +168,48 @@ img {
     margin: 0;
     padding: 0 8px;
 }
+
 #sub-menu ul li:first-child {
   border: medium none;
   padding-left: 0;
 }
 
+@media (max-width: 991.98px){
+  #footer{
+    padding-top: 40px;
+  }
 
+  #footer .logo {
+    width: 50%;
+  }
+  .footer-copyright {
+    margin-top: 30px;
+  }
+
+  #sub-menu ul {
+    padding-top: 1%;
+    margin-bottom: 5%;
+  }
+
+  #footer .footer-copyright p {
+    padding-top: 0;
+  }
+
+  #footer .container .row > div {
+    text-align: center;
+  }
+  .contact li i{
+    visibility: hidden;
+  }
+
+  #footer .contact i {
+    text-align: center;
+  }
+
+  #maps{
+    padding: 0;
+  }
+
+
+}
 
