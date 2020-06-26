@@ -12,6 +12,7 @@ export var GLOBAL = {
   long:''
 }
 
+
 //datos configuració BD i backend
 export var CONFIG = {
 

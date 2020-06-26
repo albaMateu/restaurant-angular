@@ -1,0 +1,26 @@
+#navMenu{
+  /* background-color: #1976d2; */
+  background-color: whitesmoke;
+  border-bottom-color: grey;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+}
+
+#navMenu a{
+  font-size: 120%;
+}
+.titulo{
+  font-size: x-large !important;
+  font-weight: bold;
+  font-style: italic;
+}
+.menu{
+  text-align: left;
+}
+
+#logo{
+/*width:7%;
+  height:7%; */
+  border-radius: 50%;
+}

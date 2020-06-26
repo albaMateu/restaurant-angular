@@ -5,7 +5,7 @@
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
   font-size: 0.9em;
-  margin-top: 50px;
+  margin-top: 3px;
   padding: 70px 0 0;
   position: relative;
   clear: both;
@@ -177,6 +177,7 @@ img {
 @media (max-width: 991.98px){
   #footer{
     padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   #footer .logo {

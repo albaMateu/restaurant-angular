@@ -1,3 +1,4 @@
+import { errorComponent } from './components/error.component';
 import { homeComponent } from './components/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +12,7 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   {path: '', component: homeComponent},
   {path: 'home', component: homeComponent},
-  {path: '**', component: homeComponent}
+  {path: '**', component: errorComponent}
 ];
 
 @NgModule({
