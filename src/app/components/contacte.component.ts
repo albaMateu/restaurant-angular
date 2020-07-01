@@ -1,13 +1,13 @@
 import { GLOBAL } from './../services/global';
 import { Component } from "@angular/core";
-import { Router } from '@angular/router';
+
 
 @Component({
-  selector: 'footer-comp',
-  templateUrl: '../views/footer.html',
-  styleUrls: ['../../assets/css/footer.css']
+  selector: 'contacte',
+  templateUrl: '../views/contacte.html',
+  styleUrls: ['../../assets/css/contacte.css']
 })
-export class footerComponent{
+export class contacteComponent{
   public adreca:string;
   public cp:number;
   public poblacio:string;
@@ -15,7 +15,7 @@ export class footerComponent{
   public tel: string;
   public email:string;
 
-  constructor(public _router : Router){
+  constructor(){
     this.adreca= GLOBAL.adreca;
     this.cp=GLOBAL.cp;
     this.poblacio= GLOBAL.poblacio;
@@ -23,11 +23,8 @@ export class footerComponent{
     this.tel= GLOBAL.tel;
     this.email=GLOBAL.email;
 
-  }
-  ngOnInit() {
-    console.log('Footer en marxa');
-  }
+    console.log("Contacte funciona");
 
-
+  }
 
 }

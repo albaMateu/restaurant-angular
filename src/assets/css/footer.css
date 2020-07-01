@@ -4,14 +4,15 @@
   padding-top: 10px;*/
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
-  font-size: 0.9em;
   margin-top: 3px;
-  padding: 70px 0 0;
+  /* padding: 70px 0 0; */
   position: relative;
   clear: both;
   color: #777;
   font-family: 'Dancing Script', cursive;
   font-size: 1.2em;
+  position: absolute;
+  width: 100%;
 }
 
 /* #footer .container .row > div {
@@ -19,17 +20,18 @@
 } */
 
 .light{
-  padding-top: 60px;
-  background-color: white;
-  border-top: 1px solid #DDD;
+  padding: 70px 0 0;
+  margin-bottom: 70px;
 }
 
 .container{
+  /* padding: 70px 0 0; */
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: white;
 }
 
 #footer .contact {
@@ -119,10 +121,11 @@
 /* footer copyright */
 
 .footer-copyright {
-  margin-top: 70px;
+  /* margin-top: 70px; */
   padding-top: 0;;
   margin-bottom: 0;
   vertical-align: middle;
+  border-top: 1px solid #DDD;
 }
 
 .footer-copyright li{
@@ -176,15 +179,16 @@ img {
 
 @media (max-width: 991.98px){
   #footer{
-    padding-top: 40px;
     padding-bottom: 40px;
   }
 
   #footer .logo {
     width: 50%;
   }
-  .footer-copyright {
-    margin-top: 30px;
+
+  .light{
+    padding-top: 20px;
+    margin-bottom: 30px;
   }
 
   #sub-menu ul {
@@ -199,6 +203,7 @@ img {
   #footer .container .row > div {
     text-align: center;
   }
+
   .contact li i{
     visibility: hidden;
   }
@@ -208,7 +213,7 @@ img {
   }
 
   #maps{
-    padding: 0;
+    padding: 10px;
   }
 
 

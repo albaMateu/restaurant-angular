@@ -1,6 +1,6 @@
-<footer id="footer" class="light">
-  <div class="container">
-    <div class="row">
+<footer id="footer"  >
+  <div class="container light" *ngIf="_router.url != '/contacte'">
+    <div class="row" >
       <div class="col-lg-4 col-xs-12">
         <div class="contact-details">
           <h4><strong>Contacte</strong></h4>
@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright light">
+  <div class="footer-copyright">
     <div class="container">
       <div class="row ">
         <div class="col-lg-2 col-xs-12">
@@ -47,7 +47,7 @@
             <ul>
               <li><a href="page-faq.html">FAQ's</a></li>
               <li><a href="sitemap.html">Sitemap</a></li>
-              <li><a routerLink="/contacte">Contact</a></li>
+              <li><a routerLink="/contacte">Contacte</a></li>
             </ul>
           </nav>
         </div>

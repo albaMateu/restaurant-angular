@@ -1,3 +1,4 @@
+import { contacteComponent } from './components/contacte.component';
 import { errorComponent } from './components/error.component';
 import { homeComponent } from './components/home.component';
 import { footerComponent } from './components/footer.component';
@@ -24,7 +25,8 @@ afegir routing en imports i appRoutingProviders en providers
     menuNavComponent,
     footerComponent,
     homeComponent,
-    errorComponent
+    errorComponent,
+    contacteComponent
   ],
   imports: [
     BrowserModule,

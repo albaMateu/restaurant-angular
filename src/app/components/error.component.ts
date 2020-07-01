@@ -9,7 +9,7 @@ export class errorComponent{
   public titulo:string;
 
   constructor(){
-    this.titulo="Error 404. Pàgina no trobada";
+    this.titulo="Ooops! La pàgina que busques pot ser se l'han menjada, dona-li al botó per tornar.";
   }
 
 }

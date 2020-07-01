@@ -7,7 +7,7 @@ export var GLOBAL = {
   poblacio: 'Almoines',
   provincia: 'València',
   email: 'hola@restirestaurant.com',
-  tel: '962805555',
+  tel: '96 280 55 55',
   lat: '',
   long:''
 }
