@@ -1,3 +1,4 @@
+import { cartaComponent } from './components/carta.component';
 import { contacteComponent } from './components/contacte.component';
 import { errorComponent } from './components/error.component';
 import { homeComponent } from './components/home.component';
@@ -26,7 +27,8 @@ afegir routing en imports i appRoutingProviders en providers
     footerComponent,
     homeComponent,
     errorComponent,
-    contacteComponent
+    contacteComponent,
+    cartaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+#imagen-logo{
+  padding: 25px;
+}
+
+#imagen-logo img{
+  box-shadow: lightgray 10px 10px 20px;
+  border-radius: 10%;
+  width: 15%;
+  margin: 25px;
+}
+
+#carta h3{
+  text-align: center;
+  margin: 3%;
+}
+
+@media (max-width: 991.98px){
+ #imagen-logo img{
+    width: 30%;
+  }
+  #carta{
+
+  }
+}
