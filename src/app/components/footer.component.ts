@@ -14,6 +14,7 @@ export class footerComponent{
   public provincia:string;
   public tel: string;
   public email:string;
+  public autora:string;
 
   constructor(public _router : Router){
     this.adreca= GLOBAL.adreca;
@@ -22,6 +23,7 @@ export class footerComponent{
     this.provincia= GLOBAL.provincia;
     this.tel= GLOBAL.tel;
     this.email=GLOBAL.email;
+    this.autora = "Alba Mateu";
 
   }
   ngOnInit() {

@@ -1,3 +1,4 @@
+import { reservarComponent } from './components/reservar.component';
 import { cartaComponent } from './components/carta.component';
 import { contacteComponent } from './components/contacte.component';
 import { errorComponent } from './components/error.component';
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   {path: 'home', component: homeComponent},
   {path: 'contacte', component: contacteComponent},
   {path: 'carta', component: cartaComponent},
+  {path: 'reservar', component: reservarComponent},
   {path: '**', component: errorComponent}
 ];
 

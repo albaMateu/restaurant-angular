@@ -9,7 +9,6 @@
   position: relative;
   clear: both;
   font-size: 1.2em;
-  position: absolute;
   width: 100%;
 }
 
@@ -133,7 +132,7 @@
 
 #footer .logo {
   display: block;
-  width: 70%;
+  width: 50%;
 }
 
 .img-fluid {
@@ -141,13 +140,8 @@
   height: auto;
 }
 
-img {
-  vertical-align: middle;
-  border-style: none;
-}
-
-#footer .footer-copyright p {
-  padding-top:8%;
+.vertical, .vertical p{
+ margin: auto !important;
 }
 
 #sub-menu{
@@ -158,16 +152,20 @@ img {
 #sub-menu ul {
   list-style: none;
   margin: 0;
-  padding-top: 11%;
   padding-left: 0 !important;;
 }
 
 #sub-menu ul li {
-    border-left: 1px solid #505050;
+    border-left: 1px solid grey;
     display: inline-block;
-    line-height: 12px;
-    margin: 0;
+    line-height: 15px; /*altura de la linia que dibuixa entre els li*/
     padding: 0 8px;
+    vertical-align: text-bottom;
+}
+
+a, a:hover{
+  color: grey !important;
+  text-decoration: none;
 }
 
 #sub-menu ul li:first-child {
@@ -181,7 +179,7 @@ img {
   }
 
   #footer .logo {
-    width: 50%;
+    width: 30%;
   }
 
   .light{

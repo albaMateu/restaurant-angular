@@ -1,3 +1,4 @@
+import { reservarComponent } from './components/reservar.component';
 import { cartaComponent } from './components/carta.component';
 import { contacteComponent } from './components/contacte.component';
 import { errorComponent } from './components/error.component';
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 
+
 /*CURS
 import {routing, appRoutingProviders} from './app-routing';
 afegir routing en imports i appRoutingProviders en providers
@@ -28,7 +30,8 @@ afegir routing en imports i appRoutingProviders en providers
     homeComponent,
     errorComponent,
     contacteComponent,
-    cartaComponent
+    cartaComponent,
+    reservarComponent
   ],
   imports: [
     BrowserModule,
