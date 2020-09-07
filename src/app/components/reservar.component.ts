@@ -10,7 +10,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'reservar',
   templateUrl: '../views/reservar.html',
-  styleUrls: ['../../assets/css/reservar.css']
+  styleUrls: ['../../assets/css/reservar.css'],
+  providers: [ReservaService]
 })
 export class reservarComponent{
   public sales: Array<any>[];
