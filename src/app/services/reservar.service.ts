@@ -19,7 +19,7 @@ export class ReservaService{
   }
 
 
-  getSales(): Observable <any>{
+  getSales(){
     return this._http.get(this.url+'/sales');
   }
 

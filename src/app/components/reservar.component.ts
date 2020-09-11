@@ -1,5 +1,5 @@
 import { sala } from './../models/sala';
-import { Time } from '@angular/common';
+
 import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
@@ -39,14 +39,15 @@ export class reservarComponent{
   //mostra les sales
   getSales(){
     this._reservaService.getSales().subscribe(
-      (result:any) => {
-        if (result.code != 200) {
+      result => {
+         if (result.code != 200) {
           console.log (result);
         }else{
           this.sales= result.data;
+          console.log("es bien");
         }
       },
-      (error) =>{
+      error =>{
         console.log("error de reservar.component: ");
         console.log( <any>error);
       }

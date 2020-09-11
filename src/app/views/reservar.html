@@ -16,7 +16,7 @@
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva">
           <label>Sala</label> <br>
           <select #sala="ngModel" name= "sala" [(ngModel)]="reserva.sala">
-            <option *ngFor="let sala of sales" [value]="sala.id">{{ sala }}</option>
+            <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom}}</option>
           </select>
 
 
