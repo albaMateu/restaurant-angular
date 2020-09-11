@@ -13,8 +13,16 @@
       </div>
       <div id="carta" class="card col-lg-5 offset-lg-2 pb-3 mb-5">
         <h5>informació per a recopilar</h5>
+        <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva">
+          <label>Sala</label> <br>
+          <select #sala="ngModel" name= "sala" [(ngModel)]="reserva.sala">
+            <option *ngFor="let sala of sales" [value]="sala.id">{{ sala }}</option>
+          </select>
 
-        
+
+
+
+        </form> <!-- fi formulari -->
 
       </div>
     </div>

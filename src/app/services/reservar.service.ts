@@ -4,9 +4,9 @@ import { CONFIG } from './global';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { getTranslationDeclStmts } from '@angular/compiler/src/render3/view/template';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class ReservaService{
@@ -20,9 +20,8 @@ export class ReservaService{
 
 
   getSales(): Observable <any>{
-    return this._http.get(this.url+'sales');
+    return this._http.get(this.url+'/sales');
   }
-
 
 
 } //fin ReservaService
