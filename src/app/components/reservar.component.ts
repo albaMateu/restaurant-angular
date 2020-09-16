@@ -8,7 +8,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 
-
 @Component({
   selector: 'reservar',
   templateUrl: '../views/reservar.html',

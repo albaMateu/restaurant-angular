@@ -1,3 +1,6 @@
+import { calendarComponent } from './calendar/calendar.component';
+import { MyCalendarModule } from './calendar/calendar.module';
+
 import { reservarComponent } from './components/reservar.component';
 import { cartaComponent } from './components/carta.component';
 import { contacteComponent } from './components/contacte.component';
@@ -33,14 +36,16 @@ afegir routing en imports i appRoutingProviders en providers
     errorComponent,
     contacteComponent,
     cartaComponent,
-    reservarComponent
+    reservarComponent,
+    calendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    MyCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,9 +2,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 
 @Component({
-  selector: 'mwl-demo-component',
+  selector: 'calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: '../views/calendar.html',
+  templateUrl: 'calendar.html',
 })
 export class calendarComponent {
   view: CalendarView = CalendarView.Month;
