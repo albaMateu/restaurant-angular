@@ -25,6 +25,15 @@
   background-color: rgb(229, 227, 223);
 }
 
+label, select{
+  font-size: 18px;
+}
+
+.jumbotron{
+  background-color: white !important;
+  border: 1px solid lightgray !important;
+}
+
 
 
 @media(min-width: 1550px){

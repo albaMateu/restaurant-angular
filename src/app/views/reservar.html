@@ -1,23 +1,43 @@
 <div class="container-fluid">
   <div id="imagen">
-    <img class="mx-auto d-block" src="../../assets/images/plato.jpg" alt="logotipo restaurant">
+    <img class="mx-auto d-block" src="../../assets/images/reserva.jpg" alt="logotipo restaurant">
   </div>
-  <h2 class="text-center mb-5">
+  <h2 class="text-center">
     <strong>Reservar</strong>
   </h2>
   <br>
-  <div id="cartes col-xs-12">
-    <div class="row col-lg-10 offset-lg-1 mx-auto">
-      <div id="carta" class="card col-lg-5 pb-3 mb-5">
-        <h5>Calendari per a seleccionar dia i hora</h5>
+  <div class="cartes col-xs-12">
+    <div class="row col-lg-10 offset-lg-1 mx-auto jumbotron">
+      <div id="carta" class="col-lg-4 pb-3 mb-5">
+        <h5 class="text-center">Calendari per a seleccionar dia i hora</h5>
+        <div class="md-form">
+          <label for="input">Seleciona una data</label>
+          <input type="date" id="input" class="form-control" mdbInput>
+        </div>
       </div>
-      <div id="carta" class="card col-lg-5 offset-lg-2 pb-3 mb-5">
-        <h5>informació per a recopilar</h5>
-        <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva">
-          <label>Sala</label> <br>
-          <select #sala="ngModel" name= "sala" [(ngModel)]="reserva.sala">
-            <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom}}</option>
-          </select>
+      <div id="carta" class="col-lg-4 offset-lg-2 pb-3 mb-5">
+        <h5 class="text-center">Informació per a recopilar</h5>
+        <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
+
+          <div class="form-group row">
+            <label class="col-lg-5 text-right pt-2">Número de persones</label>
+            <div class="col-lg-7">
+              <input type="number" name="pers" id="pers" max="40" min="1" class="form-control" required>
+            </div>
+          </div> <!-- fin num persones -->
+
+          <div class="form-group row">
+            <label class="col-lg-5 text-right pt-2">Sala</label>
+            <div class="col-lg-7">
+              <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control">
+                <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom}}</option>
+              </select>
+            </div>
+          </div> <!-- fin select group -->
+
+
+
+
 
 
 
