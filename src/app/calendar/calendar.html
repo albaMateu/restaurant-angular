@@ -1,68 +1,72 @@
-<!-- <div class="row text-center">
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <button
+        class="btn btn-primary"
+        (click)="decrement()"
+        [disabled]="prevBtnDisabled"
+      >
+        Previous
+      </button>
+      <button class="btn btn-outline-secondary" (click)="today()">Today</button>
+      <button
+        class="btn btn-primary"
+        (click)="increment()"
+        [disabled]="nextBtnDisabled"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+  </div>
   <div class="col-md-4">
     <div class="btn-group">
       <div
         class="btn btn-primary"
-        mwlCalendarPreviousView
-        [view]="view"
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)"
+        (click)="changeView('month')"
+        [class.active]="view === 'month'"
       >
-        Previous
-      </div>
-      <div
-        class="btn btn-outline-secondary"
-        mwlCalendarToday
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)"
-      >
-        Today
+        Month
       </div>
       <div
         class="btn btn-primary"
-        mwlCalendarNextView
-        [view]="view"
-        [(viewDate)]="viewDate"
-        (viewDateChange)="viewDateChange.next(viewDate)"
+        (click)="changeView('week')"
+        [class.active]="view === 'week'"
       >
-        Next
+        Week
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="changeView('day')"
+        [class.active]="view === 'day'"
+      >
+        Day
       </div>
     </div>
   </div>
-</div> -->
-
-<div class="alert alert-info">
-  Click on a day or time slot on the view.
-  <strong *ngIf="clickedDate"
-    >You clicked on this time: {{ clickedDate | date:'medium' }}</strong
-  >
-  <strong *ngIf="clickedColumn != null"
-    >You clicked on this column: {{ clickedColumn }}</strong
-  >
 </div>
+<br />
 
 <div [ngSwitch]="view">
   <mwl-calendar-month-view
     *ngSwitchCase="'month'"
     [viewDate]="viewDate"
     [events]="events"
-    (columnHeaderClicked)="clickedColumn = $event.isoDayNumber"
-    (dayClicked)="clickedDate = $event.day.date"
+    (beforeViewRender)="beforeMonthViewRender($event)"
   >
   </mwl-calendar-month-view>
   <mwl-calendar-week-view
     *ngSwitchCase="'week'"
     [viewDate]="viewDate"
     [events]="events"
-    (dayHeaderClicked)="clickedDate = $event.day.date"
-    (hourSegmentClicked)="clickedDate = $event.date"
   >
   </mwl-calendar-week-view>
   <mwl-calendar-day-view
     *ngSwitchCase="'day'"
     [viewDate]="viewDate"
     [events]="events"
-    (hourSegmentClicked)="clickedDate = $event.date"
   >
   </mwl-calendar-day-view>
 </div>
