@@ -1,3 +1,4 @@
+import { calendarComponent } from './../calendar/calendar.component';
 import { sala } from './../models/sala';
 
 import { ReservaService } from './../services/reservar.service';
