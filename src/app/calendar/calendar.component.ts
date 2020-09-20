@@ -1,7 +1,7 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  ViewEncapsulation,
+  ViewEncapsulation, Input, EventEmitter, Output
 } from '@angular/core';
 import {
   CalendarEvent,
@@ -80,6 +80,18 @@ export class calendarComponent {
   prevBtnDisabled: boolean = false;
 
   nextBtnDisabled: boolean = false;
+
+  @Input() view: CalendarView;
+
+  @Input() viewDate: Date;
+
+  @Input() locale: string = 'en';
+
+  @Output() viewChange = new EventEmitter<CalendarView>();
+
+  @Output() viewDateChange = new EventEmitter<Date>();
+
+  CalendarView = CalendarView;
 
   constructor() {
     this.dateOrViewChanged();
