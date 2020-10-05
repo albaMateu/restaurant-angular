@@ -1,0 +1,20 @@
+.cal-disabled {
+  background-color: #eee;
+  pointer-events: none;
+}
+
+.cal-disabled .cal-day-number {
+  opacity: 0.1;
+}
+
+.cal-month-view .cal-cell-row .cal-cell:hover{
+ background-color: lightpink;
+}
+
+.cal-month-view .cal-day-cell{
+  min-height: auto;
+}
+
+.cal-month-view .cal-header .cal-cell:hover{
+  background-color: white !important;
+}

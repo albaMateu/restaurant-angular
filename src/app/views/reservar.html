@@ -7,14 +7,16 @@
   </h2>
   <br>
   <div class="cartes col-xs-12">
-    <div class="row col-lg-10 offset-lg-1 mx-auto jumbotron">
-      <div id="carta" class="col-lg-4 pb-3 mb-5">
+    <div class="row col-lg-8 offset-lg-2 mx-auto jumbotron">
+
+      <div id="carta" class="col-lg-5 offset-lg-1 pb-3 mb-5">
         <h5 class="text-center">Calendari per a seleccionar dia i hora</h5>
-        <div class="md-form">
+        <div class="md-form col-lg-12">
           <calendar></calendar>
         </div>
-      </div>
-      <div id="carta" class="col-lg-4 offset-lg-2 pb-3 mb-5">
+      </div><!-- fin carta 1 -->
+
+      <div id="carta" class="col-lg-4 offset-lg-1 pb-3 mb-3">
         <h5 class="text-center">Informació per a recopilar</h5>
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
 
@@ -35,7 +37,7 @@
           </div> <!-- fin select group -->
         </form> <!-- fi formulari -->
 
-      </div>
+      </div> <!-- fin carta 2 -->
     </div>
   </div>
 </div>

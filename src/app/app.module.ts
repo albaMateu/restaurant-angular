@@ -1,3 +1,4 @@
+
 /*calendar*/
 /* Hi ha que instalar npm install --save core-js @* per a que vaja
  i el calendar s'instala en ng add angular-calendar */
@@ -5,8 +6,11 @@ import 'zone.js/dist/zone';
 import { calendarComponent } from './calendar/calendar.component';
 import { MyCalendarModule } from './calendar/calendar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { CalendarModule, DateAdapter, CalendarDateFormatter,CalendarMomentDateFormatter, MOMENT} from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+/*import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import * as moment from 'moment';*/
+
 /* fi calendar*/
 
 import { reservarComponent } from './components/reservar.component';
@@ -18,7 +22,7 @@ import { footerComponent } from './components/footer.component';
 import { menuNavComponent } from './components/menu-nav.component';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,8 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
+import localeEs from '@angular/common/locales/ca';
+import { registerLocaleData } from '@angular/common';
 
-
+registerLocaleData(localeEs);
 
 /*CURS
 import {routing, appRoutingProviders} from './app-routing';
@@ -51,10 +57,12 @@ afegir routing en imports i appRoutingProviders en providers
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CalendarModule.forRoot(
+      { provide: DateAdapter, useFactory: adapterFactory },
+     ),
     MyCalendarModule
   ],
-  providers: [],
+  providers: [ {provide: LOCALE_ID, useValue: "ca"}],
   bootstrap: [AppComponent, calendarComponent]
 })
 export class AppModule { }

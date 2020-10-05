@@ -1,4 +1,17 @@
 <div class="row text-center">
+
+  <div class="alert alert-info col-md-12" >
+    <div *ngIf= "!clickedDate; else exist">
+      <strong>Selecciona dia a reservar </strong>
+    </div>
+    <ng-template #exist>
+      <strong >Dia seleccionat: {{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | uppercase}}</strong>
+    </ng-template>
+  </div>
+
+
+
+
   <div class="col-md-12">
     <div class="btn-group">
       <button
@@ -8,7 +21,7 @@
       >
         Anterior
       </button>
-      <button class="btn btn-outline-secondary" (click)="today()">Today</button>
+      <button class="btn btn-outline-secondary" (click)="today()">Hui</button>
       <button
         class="btn btn-primary"
         (click)="increment()"
@@ -20,54 +33,17 @@
   </div>
   <br>
   <div class="col-md-12">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
   </div>
 </div>
- <!-- <div class="col-md-4">
-    <div class="btn-group">
-      <div
-        class="btn btn-primary"
-        (click)="changeView('month')"
-        [class.active]="view === 'month'"
-      >
-        Mes
-      </div>
-      <div
-        class="btn btn-primary"
-        (click)="changeView('week')"
-        [class.active]="view === 'week'"
-      >
-        Semana
-      </div>
-      <div
-        class="btn btn-primary"
-        (click)="changeView('day')"
-        [class.active]="view === 'day'"
-      >
-        Dia
-      </div>
-    </div>
-  </div>
-</div> -->
 
-<div [ngSwitch]="view">
   <mwl-calendar-month-view
-    *ngSwitchCase="'month'"
     [viewDate]="viewDate"
-    [events]="events"
+    [locale]="locale"
+    [weekStartsOn]="weekStartsOn"
+    [weekendDays]="weekendDays"
     (beforeViewRender)="beforeMonthViewRender($event)"
+    (dayClicked)="clickedDate = $event.day.date"
   >
   </mwl-calendar-month-view>
-<!--   <mwl-calendar-week-view
-    *ngSwitchCase="'week'"
-    [viewDate]="viewDate"
-    [events]="events"
-  >
-  </mwl-calendar-week-view>
-  <mwl-calendar-day-view
-    *ngSwitchCase="'day'"
-    [viewDate]="viewDate"
-    [events]="events"
-  >
-  </mwl-calendar-day-view> -->
-</div>
+
