@@ -4,9 +4,11 @@
     <div *ngIf= "!clickedDate; else exist">
       <h5>Selecciona dia a reservar </h5>
     </div>
-    <ng-template #exist class="alert alert-info ">
+    <ng-template #exist >
+      <div class="alert alert-info">
         <label>Dia seleccionat: </label> <br>
-        <strong>{{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | lowercase}}</strong>
+        <h4>{{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | lowercase}}</h4>
+      </div>
     </ng-template>
 
   </div>
