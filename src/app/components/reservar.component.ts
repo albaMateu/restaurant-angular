@@ -5,7 +5,7 @@ import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -31,6 +31,7 @@ export class reservarComponent{
   ngOnInit() {
     console.log("reserva en marxa");
     this.getSales();
+    console.log(this.reserva);
   }
 
   onSubmit(){

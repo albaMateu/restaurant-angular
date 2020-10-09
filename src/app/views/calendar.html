@@ -5,12 +5,15 @@
       <strong>Selecciona dia a reservar </strong>
     </div>
     <ng-template #exist>
-      <strong >Dia seleccionat: {{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | uppercase}}</strong>
+        <label>Dia seleccionat: </label>
+        <div class="form-group row text-center">
+        <p><strong>{{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | uppercase}}</strong></p>
+        <button type="button" (click)="sendDate()" class="btn btn-light"> Confirmar dia </button>
+      </div>
+
     </ng-template>
+
   </div>
-
-
-
 
   <div class="col-md-12">
     <div class="btn-group">

@@ -81,6 +81,7 @@ export class calendarComponent {
 
   constructor() {
     this.dateOrViewChanged();
+    console.log(this.clickedDate);
   }
 
   sendDate(){
