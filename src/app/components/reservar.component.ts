@@ -1,4 +1,4 @@
-import { calendarComponent } from './../calendar/calendar.component';
+import { calendarComponent } from './calendar.component';
 import { sala } from './../models/sala';
 
 import { ReservaService } from './../services/reservar.service';
@@ -18,13 +18,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class reservarComponent{
   public sales: sala[];
   public reserva: Reserva;
+  public clickedDate: Date;
 
   constructor(
     private _route:ActivatedRoute,
     private _router: Router,
     private _reservaService: ReservaService
   ) {
-      this.reserva= new Reserva(1,1,"","",new Date(Date.now()),"",1,"","");
+      this.reserva= new Reserva(1,1,"","",this.clickedDate,"",1,"","");
    }
 
   ngOnInit() {
@@ -34,6 +35,11 @@ export class reservarComponent{
 
   onSubmit(){
     console.log("Form enviado");
+  }
+
+  //reb la data del component fill (calendari)
+  reciveDate($event){
+    this.clickedDate= $event;
   }
 
   //mostra les sales

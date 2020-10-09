@@ -1,7 +1,7 @@
 import {Component, ChangeDetectionStrategy, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
 import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK, CalendarDateFormatter } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
-import { CustomDateFormatter } from './custom-date-formatter.provider';
+
 
 type CalendarPeriod = 'day' | 'week' | 'month';
 
@@ -41,9 +41,8 @@ function endOfPeriod(period: CalendarPeriod, date: Date): Date {
 @Component({
   selector: 'calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: 'calendar.html',
-  styleUrls: ['calendar.css'],
-  providers:[{ provide: CalendarDateFormatter, useClass: CustomDateFormatter}],
+  templateUrl: '../views/calendar.html',
+  styleUrls: ['../../assets/css/calendar.css'],
 
 // es tracta d'un hack per aconseguir estils que s'apliquin al component intern. La vostra aplicació només hauria d’utilitzar un full d’estil global
   encapsulation: ViewEncapsulation.None,
@@ -55,9 +54,11 @@ export class calendarComponent {
 
   //@Input() locale: string = 'en';
 
-  @Output() viewChange = new EventEmitter<CalendarView>();
-
   @Output() viewDateChange = new EventEmitter<Date>();
+
+  @Output() clickedDateEvent = new EventEmitter<Date>();
+
+  clickedDate: Date;
 
   CalendarView = CalendarView;
 
@@ -70,7 +71,7 @@ export class calendarComponent {
 
   weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
 
-  minDate: Date = subMonths(new Date(),0);
+  minDate: Date = subMonths(new Date(), 0);
 
   maxDate: Date = addMonths(new Date(), 1);
 
@@ -78,10 +79,12 @@ export class calendarComponent {
 
   nextBtnDisabled: boolean = false;
 
-  clickedDate: Date;
-
   constructor() {
     this.dateOrViewChanged();
+  }
+
+  sendDate(){
+    this.clickedDateEvent.emit(this.clickedDate);
   }
 
   increment(): void {

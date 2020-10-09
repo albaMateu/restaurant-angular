@@ -1,15 +1,14 @@
+import { CommonModule } from '@angular/common';
 
 /*calendar*/
 /* Hi ha que instalar npm install --save core-js @* per a que vaja
  i el calendar s'instala en ng add angular-calendar */
 import 'zone.js/dist/zone';
-import { calendarComponent } from './calendar/calendar.component';
-import { MyCalendarModule } from './calendar/calendar.module';
+import { calendarComponent } from './components/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, DateAdapter, CalendarDateFormatter,CalendarMomentDateFormatter, MOMENT} from 'angular-calendar';
+import { CalendarModule, DateAdapter} from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-/*import { adapterFactory } from 'angular-calendar/date-adapters/moment';
-import * as moment from 'moment';*/
+
 
 /* fi calendar*/
 
@@ -30,10 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
+
+/* Per a tindre la data en català */
 import localeEs from '@angular/common/locales/ca';
 import { registerLocaleData } from '@angular/common';
 
 registerLocaleData(localeEs);
+/* fi tindre la data en català */
 
 /*CURS
 import {routing, appRoutingProviders} from './app-routing';
@@ -49,9 +51,11 @@ afegir routing en imports i appRoutingProviders en providers
     errorComponent,
     contacteComponent,
     cartaComponent,
-    reservarComponent
+    reservarComponent,
+    calendarComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -59,8 +63,7 @@ afegir routing en imports i appRoutingProviders en providers
     HttpClientModule,
     CalendarModule.forRoot(
       { provide: DateAdapter, useFactory: adapterFactory },
-     ),
-    MyCalendarModule
+     )
   ],
   providers: [ {provide: LOCALE_ID, useValue: "ca"}],
   bootstrap: [AppComponent, calendarComponent]
