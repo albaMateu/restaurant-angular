@@ -1,16 +1,12 @@
 <div class="row text-center">
 
-  <div class="alert alert-info col-md-12" >
+  <div class="col-md-12" >
     <div *ngIf= "!clickedDate; else exist">
-      <strong>Selecciona dia a reservar </strong>
+      <h5>Selecciona dia a reservar </h5>
     </div>
-    <ng-template #exist>
-        <label>Dia seleccionat: </label>
-        <div class="form-group row text-center">
-        <p><strong>{{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | uppercase}}</strong></p>
-        <button type="button" (click)="sendDate()" class="btn btn-light"> Confirmar dia </button>
-      </div>
-
+    <ng-template #exist class="alert alert-info ">
+        <label>Dia seleccionat: </label> <br>
+        <strong>{{ clickedDate | date: 'EEEE, d  MMMM De yyyy': 'localeEs' | lowercase}}</strong>
     </ng-template>
 
   </div>
@@ -46,7 +42,8 @@
     [weekStartsOn]="weekStartsOn"
     [weekendDays]="weekendDays"
     (beforeViewRender)="beforeMonthViewRender($event)"
-    (dayClicked)="clickedDate = $event.day.date"
+    (dayClicked)="clickedDate = $event.day.date; sendDate()"
   >
   </mwl-calendar-month-view>
+
 

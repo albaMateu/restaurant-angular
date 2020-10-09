@@ -29,13 +29,18 @@ label, select{
   font-size: 18px;
 }
 
+form label{
+  text-align: right;
+}
+
 .jumbotron{
   background-color: white !important;
   border: 1px solid lightgray !important;
 }
 
-
-
+.cartes{
+  padding: 20px;
+}
 @media(min-width: 1550px){
   #imagen img{
     top: -550px;
@@ -55,6 +60,9 @@ label, select{
   #imagen img{
     top: -40%;
   }
+  form label{
+    text-align: start;
+  }
 }
 @media (min-width: 671px) and (max-width: 863px){
   #imagen {
@@ -63,6 +71,10 @@ label, select{
   #imagen img{
     top: -45%;
   }
+  form label{
+    text-align: start;
+  }
+
 }
 @media(min-width: 468px) and (max-width: 670px){
   #imagen {
@@ -71,14 +83,24 @@ label, select{
   #imagen img{
     top: -20%;
   }
+  form label{
+    text-align: start;
+  }
+
 }
 @media(min-width:395px) and (max-width: 467px){
   #imagen {
     height: 250px;
   }
+  form label{
+    text-align: start;
+  }
 }
 @media(max-width:395px){
   #imagen {
     height: 200px;
+  }
+  form label{
+    text-align: start;
   }
 }

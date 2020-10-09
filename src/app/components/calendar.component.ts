@@ -1,7 +1,9 @@
 import {Component, ChangeDetectionStrategy, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
-import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK, CalendarDateFormatter } from 'angular-calendar';
+import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
 
+
+/* CALENDAR TRET DE : https://angular-calendar.com/#/min-max-date */
 
 type CalendarPeriod = 'day' | 'week' | 'month';
 
@@ -67,13 +69,14 @@ export class calendarComponent {
   viewDate: Date = new Date();
 
   locale: string = 'ca';
+
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
 
-  weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
+  weekendDays: number[] = [DAYS_OF_WEEK.SATURDAY, DAYS_OF_WEEK.SUNDAY];
 
-  minDate: Date = subMonths(new Date(), 0);
+  minDate: Date = subDays(new Date(), 1); //deja seleccionar desde hoy
 
-  maxDate: Date = addMonths(new Date(), 1);
+  maxDate: Date = addDays(new Date(), 32); //deja seleccionar hasta dentro de 1 mes
 
   prevBtnDisabled: boolean = false;
 
