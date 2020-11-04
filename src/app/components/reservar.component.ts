@@ -35,6 +35,7 @@ export class reservarComponent{
   }
 
   onSubmit(){
+    this.guardarReserva();
     console.log("Form enviado");
   }
 
@@ -51,7 +52,27 @@ export class reservarComponent{
           console.log (result);
         }else{
           this.sales= result.data;
-          console.log("es bien");
+        }
+      },
+      error =>{
+        console.log("error de reservar.component: ");
+        console.log( <any>error);
+      }
+    ); //fin suscribe
+  }
+
+   //insertar reserva
+   guardarReserva(){
+     console.log("guardar:");
+     console.log( this.reserva);
+    this._reservaService.addReserva(this.reserva).subscribe(
+      result => {
+         if (result.code != 200) {
+          console.log (result);
+        }else{
+          this.reserva= result.data;
+          console.log("es bien:"+result.data);
+          console.log(this.reserva);
         }
       },
       error =>{

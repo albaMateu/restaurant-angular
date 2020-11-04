@@ -20,9 +20,11 @@
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
 
           <div class="form-group row">
-            <label class="col-lg-5 pt-2">Número de persones</label>
+            <label class="col-lg-5 pt-2">Número de persones
+              <span *ngIf="!pers.valid && pers.touched" class="label label-danger">El número de persones és obligatori</span>
+            </label>
             <div class="col-lg-7">
-              <input type="number" name="pers" id="pers" max="40" min="1" class="form-control" required>
+              <input type="number" #pers="ngModel"  [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1" class="form-control" required>
             </div>
           </div> <!-- fin num persones -->
 
@@ -36,19 +38,25 @@
           </div> <!-- fin select group -->
 
           <div class="form-group row">
-            <label class="col-lg-5 pt-2"> Dia </label>
+            <label class="col-lg-5 pt-2"> Dia
+              <span *ngIf="!dia.valid && dia.touched" class="label label-danger">El dia és obligatori</span>
+            </label>
             <div class="col-lg-7">
-              <input type="text" value="{{ clickedDate | date: 'd/MM/yyyy' }}" class="form-control" readonly>
+              <input type="date"  value="{{ clickedDate| date: 'dd/MM/yyyy' }}" class="form-control" readonly>
+              <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia">
+
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="col-lg-5 pt-2"> Hora </label>
+            <label class="col-lg-5 pt-2"> Hora
+              <span *ngIf="!hora.valid && hora.touched" class="label label-danger">L'hora és obligatori</span>
+            </label>
             <div class="col-lg-7">
-              <input type="time" class="form-control">
+              <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora"  class="form-control">
             </div>
           </div>
-
+          <button type="submit" class="btn btn-light" [disabled]="!formReserva.form.valid">Reservar</button>
         </form> <!-- fi formulari -->
 
       </div> <!-- fin carta 2 -->
