@@ -42,8 +42,8 @@
               <span *ngIf="!dia.valid && dia.touched" class="label label-danger">El dia és obligatori</span>
             </label>
             <div class="col-lg-7">
-              <input type="date"  value="{{ clickedDate| date: 'dd/MM/yyyy' }}" class="form-control" readonly>
-              <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia">
+              <input type="text"  #dia="ngModel" name="dia" [(ngModel)]="reserva.dia" value="{{ clickedDate| date: 'dd/MM/yyyy' }}" class="form-control" >
+              <!-- <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"> -->
 
             </div>
           </div>

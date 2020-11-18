@@ -20,15 +20,15 @@ export class ReservaService{
 
 
   getSales(): Observable<any>{
-    return this._http.get(this.url+'/sales');
+    return this._http.get(this.url+'/reserves');
   }
 
   addReserva(reserva:Reserva): Observable <any>{
-    let json = JSON.stringify(reserva);
-    let params = "json="+json;
-    let headers= new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    //let json = JSON.stringify(reserva);
+    //let params = "json="+json;
+    let headers= new HttpHeaders().set('Content-Type','application/json');
     //let headers= new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.url+'/reserva',params, {headers:headers});
+    return this._http.post(this.url+'/reserva/nova',reserva, {headers:headers});
   }
 
 } //fin ReservaService
