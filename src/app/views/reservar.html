@@ -32,7 +32,7 @@
             <label class="col-lg-5 pt-2">Sala</label>
             <div class="col-lg-7">
               <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control">
-                <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom}}</option>
+                <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
               </select>
             </div>
           </div> <!-- fin select group -->
@@ -42,7 +42,9 @@
               <span *ngIf="!dia.valid && dia.touched" class="label label-danger">El dia és obligatori</span>
             </label>
             <div class="col-lg-7">
-              <input type="text"  #dia="ngModel" name="dia" [(ngModel)]="reserva.dia" value="{{ clickedDate| date: 'dd/MM/yyyy' }}" class="form-control" >
+              <input value="{{ clickedDate| date: 'dd/MM/yyyy' }}" class="form-control" disabled>
+              <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia" value="{{ clickedDate }}" style="display: none;">
+
               <!-- <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"> -->
 
             </div>

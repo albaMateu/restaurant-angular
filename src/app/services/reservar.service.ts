@@ -20,7 +20,7 @@ export class ReservaService{
 
 
   getSales(): Observable<any>{
-    return this._http.get(this.url+'/reserves');
+    return this._http.get(this.url+'/sales');
   }
 
   addReserva(reserva:Reserva): Observable <any>{
