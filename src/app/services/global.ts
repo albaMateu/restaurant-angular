@@ -15,5 +15,5 @@ export var GLOBAL = {
 
 //datos configuració BD i backend
 export var CONFIG = {
-    url: 'http://localhost/Restaurant-API/public'
+    url: 'http://localhost/restaurant-api'
 }
