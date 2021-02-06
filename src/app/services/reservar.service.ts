@@ -22,13 +22,15 @@ export class ReservaService{
   getSales(): Observable<any>{
     return this._http.get(this.url+'/v1/sales');
   }
+  getReserves(): Observable<any>{
+    return this._http.get(this.url+'/v1/reserves');
+  }
 
   addReserva(reserva:Reserva): Observable <any>{
     //let json = JSON.stringify(reserva);
     //let params = "json="+json;
     let headers= new HttpHeaders().set('Content-Type','application/json');
-    //let headers= new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.url+'/reserva/nova',reserva, {headers:headers});
+    return this._http.post(this.url+'/reserva/new',reserva, {headers:headers});
   }
 
 } //fin ReservaService

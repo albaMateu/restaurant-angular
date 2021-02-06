@@ -48,7 +48,6 @@ export class reservarComponent{
     this._reservaService.getSales().subscribe(
       result => {
           this.sales= result;
-          console.log("sales ok");
       },
       error =>{
         console.log("error de sales.component: ");
