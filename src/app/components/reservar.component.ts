@@ -29,13 +29,12 @@ export class reservarComponent{
    }
 
   ngOnInit() {
-    console.log("reserva en marxa");
     this.getSales();
   }
 
    onSubmit(){
-  /*  this.guardarReserva();
-    console.log("Form enviado");*/
+    this.guardarReserva();
+    console.log("Form enviado");
   }
 
   //reb la data del component fill (calendari)
@@ -50,7 +49,7 @@ export class reservarComponent{
           this.sales= result;
       },
       error =>{
-        console.log("error de sales.component: ");
+        console.log("error de sales ");
         console.log( <any>error);
       }
     ); //fin suscribe
@@ -62,13 +61,9 @@ export class reservarComponent{
      console.log( this.reserva);
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
-         if (result.code != 200) {
-          console.log (result);
-        }else{
-          this.reserva= result.data;
-          console.log("es bien:"+result.data);
+          this.reserva= result;
+          console.log("es bien: "+result);
           console.log(this.reserva);
-        }
       },
       error =>{
         console.log("error de reservar.component: ");
