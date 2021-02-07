@@ -6,6 +6,7 @@ import { Reserva } from './../models/reserva';
 
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 
 
@@ -19,13 +20,14 @@ export class reservarComponent{
   public sales: sala[];
   public reserva: Reserva;
   public clickedDate: Date;
+  public missatge:string;
 
   constructor(
     private _route:ActivatedRoute,
     private _router: Router,
     private _reservaService: ReservaService
   ) {
-      this.reserva= new Reserva(1,1,"","",this.clickedDate,"",1,"","");
+      this.reserva= new Reserva();
    }
 
   ngOnInit() {
@@ -34,7 +36,6 @@ export class reservarComponent{
 
    onSubmit(){
     this.guardarReserva();
-    console.log("Form enviado");
   }
 
   //reb la data del component fill (calendari)
@@ -57,18 +58,17 @@ export class reservarComponent{
 
    //insertar reserva
    guardarReserva(){
-     console.log("guardar:");
-     console.log( this.reserva);
-    this._reservaService.addReserva(this.reserva).subscribe(
-      result => {
-          this.reserva= result;
-          console.log("es bien: "+result);
-          console.log(this.reserva);
-      },
-      error =>{
-        console.log("error de reservar.component: ");
-        console.log( <any>error);
-      }
-    ); //fin suscribe
+     this.reserva.dia = formatDate(this.clickedDate, 'yyyy-MM-dd', 'ca');
+     console.log(this.reserva);
+     this._reservaService.addReserva(this.reserva).subscribe(
+       result => {
+         this.missatge = result;
+         console.log("guardar reserva: " + this.missatge);
+       },
+       error => {
+         console.log("error de reservar.component-guardar reserva: ");
+         console.log(<any>error);
+       }
+     ); //fin suscribe
   }
 }

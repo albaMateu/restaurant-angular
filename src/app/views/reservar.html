@@ -42,16 +42,13 @@
               <span *ngIf="!dia.valid && dia.touched" class="label label-danger">El dia és obligatori</span>
             </label>
             <div class="col-lg-7">
-              <!-- mostra el valor del calendari en el input -->
-              <input value="{{ clickedDate| date: 'dd/MM/yyyy' }}" class="form-control" disabled>
-              <!-- Agarra el valor del input -->
-              <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia" value="{{ clickedDate }}" style="display: none;">
+              <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"  class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
             </div>
           </div>
 
           <div class="form-group row">
             <label class="col-lg-5 pt-2"> Hora
-              <span *ngIf="!hora.valid && hora.touched" class="label label-danger">L'hora és obligatori</span>
+              <span *ngIf="!hora.valid && hora.touched" class="label label-danger">L'hora és obligatoria</span>
             </label>
             <div class="col-lg-7">
               <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora"  class="form-control">
@@ -59,7 +56,9 @@
           </div>
           <button type="submit" class="btn btn-light" [disabled]="!formReserva.form.valid">Reservar</button>
         </form> <!-- fi formulari -->
-
+        <section>
+          <span> {{missatge}} </span>
+        </section>
       </div> <!-- fin carta 2 -->
     </div>
   </div>
