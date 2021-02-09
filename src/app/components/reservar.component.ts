@@ -71,4 +71,20 @@ export class reservarComponent{
        }
      ); //fin suscribe
   }
-}
+
+  //número de taules necessaries per a la reserva
+  taulesNecesaries(){
+    if(this.reserva.pers < 5){
+      this.reserva.taules=1;
+    }else if(this.reserva.pers%2 == 0) {
+      //si es parell
+      this.reserva.taules= (this.reserva.pers/2)-1;
+    }else {
+      this.reserva.taules= Math.trunc(this.reserva.pers/2);
+    }
+    //descontar num de taules de la reserva de la sala elegida
+  }
+
+
+
+} //fin classe

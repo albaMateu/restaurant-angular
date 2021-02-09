@@ -7,6 +7,7 @@ export class Reserva{
     public tel:string;
     public dia: string;
     public hora: string;
+    public taules: number;
     public sala: number;
     public email: string;
     public coment:string;
