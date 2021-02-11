@@ -24,16 +24,16 @@
               <span *ngIf="!pers.valid && pers.touched" class="label label-danger">El número de persones és obligatori</span>
             </label>
             <div class="col-lg-7">
-              <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1" class="form-control" placeholder="1" required>
+              <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1" class="form-control" required>
             </div>
           </div> <!-- fin num persones -->
 
           <div class="form-group row">
             <label class="col-lg-5 pt-2">Sala</label>
             <div class="col-lg-7">
-              <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control">
-                <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
-              </select>
+              <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
+                <option *ngFor="let sala of sales" [value]="sala.id" [selected]>{{ sala.nom }}</option>
+              </select> 
             </div>
           </div> <!-- fin select group -->
 
@@ -49,7 +49,7 @@
           <div class="form-group row">
             <label class="col-lg-5 pt-2"> Hora </label>
             <div class="col-lg-7">
-              <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora"  class="form-control mb-1" required>
+              <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora"  class="form-control mb-1" step="900" required>
               <span *ngIf="!hora.valid && hora.touched" class="form-control alert-danger">L'hora és obligatoria</span>
             </div>
 
