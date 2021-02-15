@@ -19,7 +19,8 @@ import { formatDate } from '@angular/common';
 export class reservarComponent{
   public sales: sala[];
   public reserva: Reserva;
-  public clickedDate: Date;
+  public clickedDate: Date
+  ;
   public missatge:string;
 
   constructor(
@@ -27,7 +28,7 @@ export class reservarComponent{
     private _router: Router,
     private _reservaService: ReservaService
   ) {
-      this.reserva= new Reserva();
+      this.reserva= new Reserva(1,1);
    }
 
   ngOnInit() {
@@ -58,7 +59,6 @@ export class reservarComponent{
 
    //insertar reserva
    guardarReserva(){
-     this.reserva.dia = formatDate(this.clickedDate, 'yyyy-MM-dd', 'ca');
      console.log(this.reserva);
      this._reservaService.addReserva(this.reserva).subscribe(
        result => {
