@@ -1,3 +1,4 @@
+import { ModalOptionsService } from './services/modals-options.service';
 import { CommonModule } from '@angular/common';
 
 /*calendar*/
@@ -6,17 +7,9 @@ import { CommonModule } from '@angular/common';
 import 'zone.js/dist/zone';
 import { calendarComponent } from './components/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, DateAdapter} from 'angular-calendar';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 /* fi calendar*/
-
-import { reservarComponent } from './components/reservar.component';
-import { cartaComponent } from './components/carta.component';
-import { contacteComponent } from './components/contacte.component';
-import { errorComponent } from './components/error.component';
-import { homeComponent } from './components/home.component';
-import { footerComponent } from './components/footer.component';
-import { menuNavComponent } from './components/menu-nav.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
@@ -32,8 +25,22 @@ import { AppComponent } from './app.component';
 import localeEs from '@angular/common/locales/ca';
 import { registerLocaleData } from '@angular/common';
 
+/* per als modals */
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+/*  els meus components */
+import { reservarComponent } from './components/reservar.component';
+import { cartaComponent } from './components/carta.component';
+import { contacteComponent } from './components/contacte.component';
+import { errorComponent } from './components/error.component';
+import { homeComponent } from './components/home.component';
+import { footerComponent } from './components/footer.component';
+import { menuNavComponent } from './components/menu-nav.component';
+import { modalsOptionsComponent } from './components/modals-options.component';
+
+/*tindre la data en català */
 registerLocaleData(localeEs);
-/* fi tindre la data en català */
+
 
 /*CURS
 import {routing, appRoutingProviders} from './app-routing';
@@ -50,7 +57,8 @@ afegir routing en imports i appRoutingProviders en providers
     contacteComponent,
     cartaComponent,
     reservarComponent,
-    calendarComponent
+    calendarComponent,
+    modalsOptionsComponent
   ],
   imports: [
     CommonModule,
@@ -61,9 +69,10 @@ afegir routing en imports i appRoutingProviders en providers
     HttpClientModule,
     CalendarModule.forRoot(
       { provide: DateAdapter, useFactory: adapterFactory },
-     )
+    ),
+    NgbModule
   ],
-  providers: [ {provide: LOCALE_ID, useValue: "ca"}],
+  providers: [{ provide: LOCALE_ID, useValue: "ca" }, ModalOptionsService],
   bootstrap: [AppComponent, calendarComponent]
 })
 export class AppModule { }

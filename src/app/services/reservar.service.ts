@@ -29,7 +29,7 @@ export class ReservaService{
   addReserva(reserva:Reserva): Observable <any>{
     //let json = JSON.stringify(reserva);
     //let params = "json="+json;
-    let headers= new HttpHeaders().set('Content-Type','application/json');
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(this.url+'/v1/reserva/new',reserva,  /* {headers:headers} */ {responseType: 'text'} );
   }
 

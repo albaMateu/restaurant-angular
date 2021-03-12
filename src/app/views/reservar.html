@@ -32,7 +32,8 @@
             <label class="col-lg-5 pt-2">Sala</label>
             <div class="col-lg-7">
               <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
-                <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
+                <option *ngFor="let sala of sales" [value]="sala.id"
+                >{{ sala.nom }}</option>
               </select>
             </div>
           </div> <!-- fin select group -->
@@ -56,6 +57,7 @@
         </form> <!-- fi formulari -->
         <section>
           <span> {{missatge}} </span>
+          <modal-options></modal-options>
         </section>
       </div> <!-- fin carta 2 -->
     </div>
