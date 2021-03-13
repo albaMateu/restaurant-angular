@@ -1,4 +1,13 @@
-import { ModalOptionsService } from './services/modals-options.service';
+import { reservarComponent } from './components/reservar.component';
+import { cartaComponent } from './components/carta.component';
+import { contacteComponent } from './components/contacte.component';
+import { errorComponent } from './components/error.component';
+import { homeComponent } from './components/home.component';
+import { footerComponent } from './components/footer.component';
+import { menuNavComponent } from './components/menu-nav.component';
+import { modalComponent } from './components/modal.component';
+/*  fi dels meus components */
+
 import { CommonModule } from '@angular/common';
 
 /*calendar*/
@@ -26,17 +35,14 @@ import localeEs from '@angular/common/locales/ca';
 import { registerLocaleData } from '@angular/common';
 
 /* per als modals */
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+/* import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; */
+/* importar dependencia en consola ng add ngx-bootstrap */
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-/*  els meus components */
-import { reservarComponent } from './components/reservar.component';
-import { cartaComponent } from './components/carta.component';
-import { contacteComponent } from './components/contacte.component';
-import { errorComponent } from './components/error.component';
-import { homeComponent } from './components/home.component';
-import { footerComponent } from './components/footer.component';
-import { menuNavComponent } from './components/menu-nav.component';
-import { modalsOptionsComponent } from './components/modals-options.component';
+
+
 
 /*tindre la data en català */
 registerLocaleData(localeEs);
@@ -58,7 +64,7 @@ afegir routing en imports i appRoutingProviders en providers
     cartaComponent,
     reservarComponent,
     calendarComponent,
-    modalsOptionsComponent
+    modalComponent
   ],
   imports: [
     CommonModule,
@@ -70,10 +76,13 @@ afegir routing en imports i appRoutingProviders en providers
     CalendarModule.forRoot(
       { provide: DateAdapter, useFactory: adapterFactory },
     ),
-    NgbModule
+    /* NgbModule */
+    ModalModule.forRoot(),
+    AlertModule.forRoot()
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "ca" }, ModalOptionsService],
-  bootstrap: [AppComponent, calendarComponent]
+  providers: [{ provide: LOCALE_ID, useValue: "ca" }],
+  bootstrap: [AppComponent, calendarComponent],
+  entryComponents: [modalComponent]
 })
 export class AppModule { }
 

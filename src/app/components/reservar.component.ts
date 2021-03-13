@@ -1,13 +1,13 @@
-/* import { calendarComponent } from './calendar.component'; */
+import { modalComponent } from './modal.component';
+
 import { sala } from './../models/sala';
 
 import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
-
+import { MensajesService } from '../services/mensajes.service';
 
 
 @Component({
@@ -21,11 +21,14 @@ export class reservarComponent {
   public reserva: Reserva;
   public clickedDate: Date;
   public missatge: string;
+  public titol: string;
+  public modal: modalComponent;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _reservaService: ReservaService
+    private _reservaService: ReservaService,
+    private _mensajeService: MensajesService
   ) {
 
   }
@@ -55,22 +58,37 @@ export class reservarComponent {
         console.log(<any>error);
       }
     ); //fin suscribe
+    this.prova();
+  }
+  prova() {
+    this.titol = "titol prova";
+    this.missatge = "missatge des de prova";
+    this._mensajeService.alerta(this.titol, this.missatge).subscribe((resposta) => {
+      this.modal.openModal();
+    });
   }
 
   //insertar reserva
   guardarReserva() {
-
     console.log(this.reserva);
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
+        this.titol = "Èxit";
         this.missatge = result;
         console.log("guardar reserva: " + this.missatge);
       },
       error => {
         console.log("error de reservar.component-guardar reserva: ");
         console.log(<any>error);
+        this.titol = "Error";
+        this.missatge = "error de reservar.component-guardar reserva:";
       }
+
     ); //fin suscribe
+
+    this._mensajeService.alerta(this.titol, this.missatge).subscribe((resposta) => {
+      this.modal.openModal();
+    });
   }
 
   //número de taules necessaries per a la reserva

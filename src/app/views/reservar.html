@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div id="imagen">
-    <img class="mx-auto d-block" src="../../assets/images/reserva.jpg" alt="logotipo restaurant">
+    <img class="mx-auto d-block" src="../../assets/images/logo.jpg" alt="logotipo restaurant">
   </div>
-  <h2 class="text-center">
-    <strong>Reservar</strong>
-  </h2>
-  <br>
-  <div class="cartes col-xs-12">
 
-    <div class="row col-lg-10 offset-lg-1 mx-auto jumbotron">
+  <div class="cartes col-lg-10 jumbotron offset-lg-1 mx-auto">
+  <h2 class="text-center">
+          <strong>Reservar</strong>
+        </h2>
+    <div class="row col-lg-12 mx-auto ">
+
       <div id="carta" class="col-lg-5 offset-lg-1">
         <div class="md-form col-lg-12">
           <calendar (clickedDateEvent)= "reciveDate($event)"></calendar>
@@ -21,10 +21,10 @@
 
           <div class="form-group row">
             <label class="col-lg-5 pt-2">Número de persones
-              <span *ngIf="!pers.valid && pers.touched" class="label label-danger">El número de persones és obligatori</span>
             </label>
             <div class="col-lg-7">
               <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1" class="form-control" required>
+              <span *ngIf="!pers.valid && pers.touched" class="label alert-danger">El número de persones és obligatori</span>
             </div>
           </div> <!-- fin num persones -->
 
@@ -57,7 +57,7 @@
         </form> <!-- fi formulari -->
         <section>
           <span> {{missatge}} </span>
-          <modal-options></modal-options>
+          <modal-component> </modal-component>
         </section>
       </div> <!-- fin carta 2 -->
     </div>
