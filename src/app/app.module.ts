@@ -39,19 +39,11 @@ import { registerLocaleData } from '@angular/common';
 /* importar dependencia en consola ng add ngx-bootstrap */
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-
 
 
 /*tindre la data en català */
 registerLocaleData(localeEs);
 
-
-/*CURS
-import {routing, appRoutingProviders} from './app-routing';
-afegir routing en imports i appRoutingProviders en providers
-*/
 
 @NgModule({
   declarations: [
@@ -81,8 +73,7 @@ afegir routing en imports i appRoutingProviders en providers
     AlertModule.forRoot()
   ],
   providers: [{ provide: LOCALE_ID, useValue: "ca" }],
-  bootstrap: [AppComponent, calendarComponent],
-  entryComponents: [modalComponent]
+  bootstrap: [AppComponent, calendarComponent]
 })
 export class AppModule { }
 

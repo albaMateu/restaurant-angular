@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
 import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
 
@@ -46,7 +46,7 @@ function endOfPeriod(period: CalendarPeriod, date: Date): Date {
   templateUrl: '../views/calendar.html',
   styleUrls: ['../../assets/css/calendar.css'],
 
-// es tracta d'un hack per aconseguir estils que s'apliquin al component intern. La vostra aplicació només hauria d’utilitzar un full d’estil global
+  // es tracta d'un hack per aconseguir estils que s'apliquin al component intern. La vostra aplicació només hauria d’utilitzar un full d’estil global
   encapsulation: ViewEncapsulation.None,
 })
 export class calendarComponent {
@@ -84,10 +84,9 @@ export class calendarComponent {
 
   constructor() {
     this.dateOrViewChanged();
-    console.log(this.clickedDate);
   }
 
-  sendDate(){
+  sendDate() {
     this.clickedDateEvent.emit(this.clickedDate);
   }
 

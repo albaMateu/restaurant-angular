@@ -1,8 +1,9 @@
+
 <div class="container-fluid">
   <div id="imagen">
     <img class="mx-auto d-block" src="../../assets/images/logo.jpg" alt="logotipo restaurant">
   </div>
-
+<modal-component> </modal-component>
   <div class="cartes col-lg-10 jumbotron offset-lg-1 mx-auto">
   <h2 class="text-center">
           <strong>Reservar</strong>
@@ -56,8 +57,7 @@
           <button type="submit" class="btn btn-light" [disabled]="!formReserva.form.valid">Reservar</button>
         </form> <!-- fi formulari -->
         <section>
-          <span> {{missatge}} </span>
-          <modal-component> </modal-component>
+
         </section>
       </div> <!-- fin carta 2 -->
     </div>
