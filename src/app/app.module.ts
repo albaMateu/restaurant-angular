@@ -35,10 +35,8 @@ import localeEs from '@angular/common/locales/ca';
 import { registerLocaleData } from '@angular/common';
 
 /* per als modals */
-/* import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; */
-/* importar dependencia en consola ng add ngx-bootstrap */
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { AlertModule } from 'ngx-bootstrap/alert';
+/* importar dependencia en consola ng add ng-bootstrap */
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 /*tindre la data en català */
@@ -56,7 +54,7 @@ registerLocaleData(localeEs);
     cartaComponent,
     reservarComponent,
     calendarComponent,
-    modalComponent
+    modalComponent,
   ],
   imports: [
     CommonModule,
@@ -68,9 +66,7 @@ registerLocaleData(localeEs);
     CalendarModule.forRoot(
       { provide: DateAdapter, useFactory: adapterFactory },
     ),
-    /* NgbModule */
-    ModalModule.forRoot(),
-    AlertModule.forRoot()
+    NgbModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "ca" }],
   bootstrap: [AppComponent, calendarComponent]

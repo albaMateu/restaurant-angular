@@ -1,38 +1,25 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-
+import { Component, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'modal-component',
-  templateUrl: '../views/modal.html'
+  templateUrl: '../views/modal.html',
+  encapsulation: ViewEncapsulation.None
 })
-
 export class modalComponent {
-
-  modalRef: BsModalRef;
+  closeResult: string;
   title: string;
   message: string;
-  question: string;
 
   @ViewChild('templateAlert') templateAlert: TemplateRef<any>;
 
-
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: NgbModal) { }
 
   openModal() {
-    this.modalRef = this.modalService.show(this.templateAlert);
+    this.modalService.open(this.templateAlert, { centered: true });
   }
 
-  hide() {
-    this.modalRef.hide();
-  }
-
-  openConfirmDialog(templatedialog) {
-    this.modalRef = this.modalService.show(templatedialog);
-    this.modalRef.content.onClose.subscribe(result => {
-      console.log('results', result);
-    })
-  }
 }
+
 
 

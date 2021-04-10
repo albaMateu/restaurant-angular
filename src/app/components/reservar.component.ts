@@ -18,8 +18,9 @@ export class reservarComponent {
   public sales: sala[];
   public reserva: Reserva;
   public clickedDate: Date;
+  today: Date = new Date();
 
-  @ViewChild(modalComponent) modal;
+  @ViewChild(modalComponent) modal: modalComponent;
 
   constructor(
     private _route: ActivatedRoute,
@@ -35,8 +36,7 @@ export class reservarComponent {
 
   }
   ngAfterViewInit() {
-    /* console.log(this.modal);
-    this.modalInfo(); */
+    /* this.modalInfo(); */
   }
 
   onSubmit() {

@@ -1,5 +1,5 @@
 .cal-disabled {
-  background-color:#eee;
+  background-color: #eee;
   pointer-events: none;
 }
 
@@ -7,35 +7,43 @@
   opacity: 0.4;
 }
 
-.cal-month-view .cal-cell-row .cal-cell:hover{
- background-color: lightpink;
+.cal-month-view .cal-cell-row .cal-cell:hover {
+  background-color: lightpink;
 }
 
-.cal-month-view .cal-day-cell{
+.cal-month-view .cal-day-cell {
   min-height: auto;
   max-width: 100%;
 }
 
-.cal-month-view .cal-header .cal-cell:hover{
+.cal-month-view .cal-header .cal-cell:hover {
   background-color: white !important;
 }
 
 .cal-month-view .cal-cell-row:hover {
   background-color: white !important;
 }
-.cal-month-view .cal-header .cal-cell{
+.cal-month-view .cal-header .cal-cell {
   font-size: 16px;
   font-weight: 500;
   text-transform: capitalize;
 }
 
-label, select{
+label,
+select {
   font-size: 18px;
 }
 
-h3{
+h3 {
   text-transform: capitalize;
 }
-h3, h5{
-  margin: 20px;
+h3,
+h5 {
+  margin: 5px;
+}
+@media (max-width: 395px) {
+  #calendar,
+  mwl-calendar-month-view {
+    display: none;
+  }
 }

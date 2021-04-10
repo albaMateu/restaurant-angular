@@ -38,10 +38,17 @@ form label {
   background-color: white !important;
   border: 1px solid lightgray !important;
 }
-
-.cartes {
-  padding: 20px;
+#column-right h3 {
+  text-transform: inherit;
 }
+#form-reserva {
+  margin: 50px 10px;
+}
+
+#calendar-input-mobile {
+  display: none;
+}
+
 @media (min-width: 1550px) {
   #imagen img {
     top: -550px;
@@ -97,9 +104,21 @@ form label {
 }
 @media (max-width: 395px) {
   #imagen {
-    height: 200px;
+    height: 100px;
+  }
+  #imagen img {
+    margin-top: 3px;
+    width: 25%;
+    border-radius: 50px;
+    box-shadow: 1px 1px 10px black;
   }
   form label {
     text-align: start;
+  }
+  #calendar-input-mobile {
+    display: block;
+  }
+  #calendar-input-web {
+    display: none;
   }
 }

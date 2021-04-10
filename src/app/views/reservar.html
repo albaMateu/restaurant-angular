@@ -1,65 +1,73 @@
-
+<modal-component> </modal-component>
 <div class="container-fluid">
   <div id="imagen">
     <img class="mx-auto d-block" src="../../assets/images/logo.jpg" alt="logotipo restaurant">
   </div>
-<modal-component> </modal-component>
+
   <div class="cartes col-lg-10 jumbotron offset-lg-1 mx-auto">
-  <h2 class="text-center">
-          <strong>Reservar</strong>
-        </h2>
+    <h2 class="text-center">
+      <strong>Reservar</strong>
+    </h2>
     <div class="row col-lg-12 mx-auto ">
 
-      <div id="carta" class="col-lg-5 offset-lg-1">
+      <div id="column-left" class="col-lg-5 offset-lg-1">
         <div class="md-form col-lg-12">
-          <calendar (clickedDateEvent)= "reciveDate($event)"></calendar>
+          <calendar (clickedDateEvent)="reciveDate($event)"></calendar>
         </div>
-      </div><!-- fin carta 1 -->
+      </div><!-- fin column left -->
 
-      <div id="carta" class="col-lg-4 offset-lg-1">
-        <h5 class="text-center">Informació per a recopilar</h5>
+      <div id="column-right" class="col-lg-4 offset-lg-1">
+        <h3 class="text-center">Informació de la teua reserva</h3>
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
 
-          <div class="form-group row">
-            <label class="col-lg-5 pt-2">Número de persones
-            </label>
-            <div class="col-lg-7">
-              <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1" class="form-control" required>
-              <span *ngIf="!pers.valid && pers.touched" class="label alert-danger">El número de persones és obligatori</span>
-            </div>
-          </div> <!-- fin num persones -->
+          <div id="form-dadesreserva">
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2">Número de persones
+              </label>
+              <div class="col-lg-7">
+                <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1"
+                  class="form-control" required>
+                <span *ngIf="!pers.valid && pers.touched" class="label alert-danger">El número de persones és
+                  obligatori</span>
+              </div>
+            </div> <!-- fin num persones -->
 
-          <div class="form-group row">
-            <label class="col-lg-5 pt-2">Sala</label>
-            <div class="col-lg-7">
-              <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
-                <option *ngFor="let sala of sales" [value]="sala.id"
-                >{{ sala.nom }}</option>
-              </select>
-            </div>
-          </div> <!-- fin select group -->
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2">Sala</label>
+              <div class="col-lg-7">
+                <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
+                  <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
+                </select>
+              </div>
+            </div> <!-- fin select group -->
 
-          <div class="form-group row">
-            <label class="col-lg-5 pt-2"> Dia  </label>
-            <div class="col-lg-7">
-              <input type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia" class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled >
-            </div>
-          </div>
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2"> Dia </label>
+              <div class="col-lg-7">
+                <input id="calendar-input-web" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
+                  class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
+                <input id="calendar-input-mobile" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
+                  class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}"
+                  min="{{today| date: 'yyyy-MM-dd'}}">
+              </div>
+            </div><!-- fin dia -->
 
-          <div class="form-group row">
-            <label class="col-lg-5 pt-2"> Hora </label>
-            <div class="col-lg-7">
-              <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora"  class="form-control mb-1" step="900" min="21:00:00" required>
-              <span *ngIf="!hora.valid && hora.touched" class="label alert-danger">L'hora és obligatoria</span>
-            </div>
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2"> Hora </label>
+              <div class="col-lg-7">
+                <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora" class="form-control mb-1"
+                  step="900" min="21:00:00" required>
+                <span *ngIf="!hora.valid && hora.touched" class="label alert-danger">L'hora és obligatoria</span>
+              </div>
+            </div><!-- fin hora -->
+            <button type="text" class="btn btn-light offset-md-10 col-md-2" >Següent</button>
+          </div> <!-- fin primera part info form -->
 
-          </div>
-          <button type="submit" class="btn btn-light" [disabled]="!formReserva.form.valid">Reservar</button>
+          <div id="form-dadespersonals">
+            <button type="submit" class="btn btn-light offset-md-10 col-md-2" [disabled]="!formReserva.form.valid">Reservar</button>
+          </div><!-- fin segona part info form -->
         </form> <!-- fi formulari -->
-        <section>
-
-        </section>
-      </div> <!-- fin carta 2 -->
+      </div> <!-- fin column right -->
     </div>
   </div>
 </div>

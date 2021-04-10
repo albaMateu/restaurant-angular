@@ -1,6 +1,6 @@
-<div class="row text-center">
+<div id="calendar" class="row text-center">
 
-  <div class="col-md-12" >
+<!--   <div class="col-md-12" >
     <div *ngIf= "!clickedDate; else exist">
       <h5>Selecciona dia a reservar </h5>
     </div>
@@ -11,9 +11,9 @@
       </div>
     </ng-template>
 
-  </div>
+  </div> -->
 
-  <div class="col-md-12">
+  <div class="col-md-4">
     <div class="btn-group">
       <button
         class="btn btn-primary"
@@ -32,8 +32,8 @@
       </button>
     </div>
   </div>
-  <br>
-  <div class="col-md-12">
+   <br>
+  <div class="col-md-4 offset-md-2">
     <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
   </div>
 </div>
