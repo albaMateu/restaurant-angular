@@ -18,7 +18,8 @@ export class reservarComponent {
   public sales: sala[];
   public reserva: Reserva;
   public clickedDate: Date;
-  today: Date = new Date();
+  public today: Date = new Date();
+  public siguiente: boolean = false;
 
   @ViewChild(modalComponent) modal: modalComponent;
 
@@ -49,6 +50,20 @@ export class reservarComponent {
     this.modal.openModal();
   }
 
+  //amaga i mostra una part del form i crida al mètdod disponibilitat
+  next() {
+    /* si el mètodo disponibilitat retorna true */
+    if (this.disponibilitat()) {
+      /* passa a la pestanya següent per a posar les dades */
+      this.siguiente = !this.siguiente;
+    } else {
+      /* mostrar span dient que no hi ha disponibilitat */
+    }
+  }
+  back() {
+    this.siguiente = !this.siguiente;
+  }
+
   //reb la data del component fill (calendari)
   reciveDate($event) {
     this.clickedDate = $event;
@@ -69,7 +84,6 @@ export class reservarComponent {
 
   }
 
-
   //insertar reserva
   guardarReserva() {
     let missatge: string;
@@ -87,6 +101,11 @@ export class reservarComponent {
     ); //fin suscribe
 
     this.modal.openModal();
+  }
+
+  /* comprova si es possible la reserva en eixe dia, hora, nº de persones i sala */
+  disponibilitat() {
+    return true;
   }
 
   //número de taules necessaries per a la reserva
