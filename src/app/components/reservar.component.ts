@@ -18,8 +18,6 @@ export class reservarComponent {
   public sales: sala[];
   public reserva: Reserva;
   public clickedDate: Date;
-  public missatge: string;
-  public titol: string;
 
   @ViewChild(modalComponent) modal;
 
@@ -63,7 +61,8 @@ export class reservarComponent {
         this.sales = result;
       },
       error => {
-        console.log("error de sales ");
+        this.modal.title = "Error";
+        this.modal.message = "No es poden mostrar les sales";
         console.log(<any>error);
       }
     ); //fin suscribe
@@ -73,15 +72,17 @@ export class reservarComponent {
 
   //insertar reserva
   guardarReserva() {
-    console.log(this.reserva);
+    let missatge: string;
+    let estat: string;
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
-        this.modal.title = "Èxit";
-        this.modal.message = result;
+        this.modal.title = result.estat;
+        this.modal.message = result.message;
       },
       error => {
-        this.modal.title = "Error";
-        this.modal.message = "error de reservar.component-guardar reserva: " + <any>error;
+        estat = "Error";
+        missatge = "No s'ha pogut insertar la reserva";
+        console.log("reserva error " + error.message);
       }
     ); //fin suscribe
 
@@ -100,7 +101,5 @@ export class reservarComponent {
     }
     //descontar num de taules de la reserva de la sala elegida
   }
-
-
 
 } //fin classe
