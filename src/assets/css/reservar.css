@@ -48,6 +48,13 @@ form label {
 #calendar-input-mobile {
   display: none;
 }
+/* clase mostrar i ocultar per al ngClass */
+.ocultar {
+  display: none;
+}
+.mostrar {
+  display: block;
+}
 
 @media (min-width: 1550px) {
   #imagen img {
