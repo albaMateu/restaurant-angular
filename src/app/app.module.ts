@@ -6,6 +6,7 @@ import { homeComponent } from './components/home.component';
 import { footerComponent } from './components/footer.component';
 import { menuNavComponent } from './components/menu-nav.component';
 import { modalComponent } from './components/modal.component';
+import { calendarComponent } from './components/calendar.component';
 /*  fi dels meus components */
 
 import { CommonModule } from '@angular/common';
@@ -14,7 +15,6 @@ import { CommonModule } from '@angular/common';
 /* Hi ha que instalar npm install --save core-js @* per a que vaja
  i el calendar s'instala en ng add angular-calendar */
 import 'zone.js/dist/zone';
-import { calendarComponent } from './components/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
@@ -37,6 +37,9 @@ import { registerLocaleData } from '@angular/common';
 /* per als modals */
 /* importar dependencia en consola ng add ng-bootstrap */
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+/* ng add @fortawesome/angular-fontawesome@* */
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 /*tindre la data en català */
@@ -66,10 +69,11 @@ registerLocaleData(localeEs);
     CalendarModule.forRoot(
       { provide: DateAdapter, useFactory: adapterFactory },
     ),
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "ca" }],
-  bootstrap: [AppComponent, calendarComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 

@@ -28,7 +28,13 @@
   font-weight: 500;
   text-transform: capitalize;
 }
+.cal-month-view .cal-cell-top {
+  min-height: 55px;
+}
 
+#calendar {
+  margin: 20px 1px;
+}
 label,
 select {
   font-size: 18px;
@@ -41,9 +47,10 @@ h3,
 h5 {
   margin: 5px;
 }
-@media (max-width: 395px) {
+
+@media (max-width: 736px) {
   #calendar,
   mwl-calendar-month-view {
-    display: none;
+    display: none !important;
   }
 }

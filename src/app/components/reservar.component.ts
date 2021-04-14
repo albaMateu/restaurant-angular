@@ -4,8 +4,9 @@ import { sala } from './../models/sala';
 import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { addDays } from 'date-fns';
 
 
 @Component({
@@ -15,13 +16,15 @@ import { Router, ActivatedRoute } from '@angular/router';
   providers: [ReservaService]
 })
 export class reservarComponent {
+
+  @ViewChild(modalComponent) modal: modalComponent;
+
   public sales: sala[];
   public reserva: Reserva;
   public clickedDate: Date;
-  public today: Date = new Date();
+  public min = new Date();
+  public max: Date = addDays(new Date(), 32);
   public siguiente: boolean = false;
-
-  @ViewChild(modalComponent) modal: modalComponent;
 
   constructor(
     private _route: ActivatedRoute,
@@ -34,17 +37,16 @@ export class reservarComponent {
   ngOnInit() {
     this.reserva = new Reserva(1, 1);
     this.getSales();
-
   }
   ngAfterViewInit() {
-    /* this.modalInfo(); */
+    /* this.modalProva(); */
   }
 
   onSubmit() {
     this.guardarReserva();
   }
 
-  modalInfo() {
+  modalProva() {
     this.modal.title = "titol prova";
     this.modal.message = "missatge des de prova";
     this.modal.openModal();
@@ -88,10 +90,11 @@ export class reservarComponent {
   guardarReserva() {
     let missatge: string;
     let estat: string;
+    this.taulesNecesaries();
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
         this.modal.title = result.estat;
-        this.modal.message = result.message;
+        this.modal.message = result.message + "<br> taules " + this.reserva.taules;
       },
       error => {
         estat = "Error";
@@ -118,7 +121,6 @@ export class reservarComponent {
     } else {
       this.reserva.taules = Math.trunc(this.reserva.pers / 2);
     }
-    //descontar num de taules de la reserva de la sala elegida
   }
 
 } //fin classe

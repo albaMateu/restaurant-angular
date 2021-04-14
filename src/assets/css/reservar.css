@@ -38,11 +38,11 @@ form label {
   background-color: white !important;
   border: 1px solid lightgray !important;
 }
-#column-right h3 {
-  text-transform: inherit;
+h4 {
+  margin: 40px 10px;
 }
 #form-reserva {
-  margin: 50px 10px;
+  margin: 20px 10px;
 }
 
 #calendar-input-mobile {
@@ -109,12 +109,13 @@ form label {
     text-align: start;
   }
 }
-@media (max-width: 395px) {
+@media (max-width: 736px) {
   #imagen {
-    height: 100px;
+    height: auto;
+    padding: 20px;
   }
   #imagen img {
-    margin-top: 3px;
+    vertical-align: middle;
     width: 25%;
     border-radius: 50px;
     box-shadow: 1px 1px 10px black;

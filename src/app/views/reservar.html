@@ -1,13 +1,11 @@
 <modal-component> </modal-component>
-<div class="container-fluid">
+<div class="container-fluid flex-column">
   <div id="imagen">
     <img class="mx-auto d-block" src="../../assets/images/logo.jpg" alt="logotipo restaurant">
   </div>
 
   <div class="cartes col-lg-10 jumbotron offset-lg-1 mx-auto">
-    <h2 class="text-center">
-      <strong>Reservar</strong>
-    </h2>
+
     <div class="row col-lg-12 mx-auto ">
 
       <div id="column-left" class="col-lg-5 offset-lg-1">
@@ -17,7 +15,10 @@
       </div><!-- fin column left -->
 
       <div id="column-right" class="col-lg-4 offset-lg-1">
-        <h3 class="text-center">Informació per a la teua reserva</h3>
+        <h2 class="text-center">
+          <strong>Reservar</strong>
+        </h2>
+        <h4 class="text-center">Quan voldran visitar-nos? </h4>
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
 
           <div id="form-dadesreserva" [ngClass]="{'mostrar': !siguiente, 'ocultar': siguiente}">
@@ -48,7 +49,7 @@
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
                 <input id="calendar-input-mobile" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}"
-                  min="{{today| date: 'yyyy-MM-dd'}}">
+                  min="{{min| date: 'yyyy-MM-dd'}}" max="{{max| date: 'yyyy-MM-dd'}}">
               </div>
             </div><!-- fin dia -->
 
@@ -67,7 +68,41 @@
           <!-- fin primera part info form -->
 
           <div id="form-dadespersonals" [ngClass]="{'mostrar': siguiente, 'ocultar': !siguiente}">
-
+                <div class="form-group row">
+                  <label class="col-lg-5 pt-2">Nom i Cognoms
+                  </label>
+                  <div class="col-lg-7">
+                    <input type="text" #nom="ngModel" [(ngModel)]="reserva.nom" name="nom" id="nom"
+                      class="form-control" required>
+                    <span *ngIf="!nom.valid && nom.touched" class="label alert-danger">El nom és
+                      obligatori</span>
+                  </div>
+                </div> <!-- fin nom -->
+                <div class="form-group row">
+                  <label class="col-lg-5 pt-2">Telèfon
+                  </label>
+                  <div class="col-lg-7">
+                    <input type="tel" #tel="ngModel" [(ngModel)]="reserva.tel" name="tel" id="tel" class="form-control" required>
+                    <span *ngIf="!tel.valid && tel.touched" class="label alert-danger">El telèfon és
+                      obligatori</span>
+                  </div>
+                </div> <!-- fin telèfon -->
+                <div class="form-group row">
+                  <label class="col-lg-5 pt-2">E-mail
+                  </label>
+                  <div class="col-lg-7">
+                    <input type="email" #email="ngModel" [(ngModel)]="reserva.email" name="email" id="email" class="form-control" required>
+                    <span *ngIf="!email.valid && email.touched" class="label alert-danger">L'email és
+                      obligatori</span>
+                  </div>
+                </div> <!-- fin email -->
+                <div class="form-group ">
+                  <label class="col-lg-5 pt-2">Observacions
+                  </label>
+                  <div class="offset-lg-2 col-lg-10 pl-3 pr-0">
+                    <textarea  class="form-control" #coment="ngModel" [(ngModel)]="reserva.coment" name="nom" id="nom" cols="30" rows="3"></textarea>
+                  </div>
+                </div> <!-- fin observacions -->
 
             <div class="form-group row">
               <input type="text" class="btn btn-light col-md-2 offset-md-2 col-sm-2 offset-sm-2" (click)="back()" value="Enrera">

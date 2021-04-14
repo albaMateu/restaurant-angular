@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
 import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
+import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
 
 
 /* CALENDAR TRET DE : https://angular-calendar.com/#/min-max-date */
@@ -50,37 +51,25 @@ function endOfPeriod(period: CalendarPeriod, date: Date): Date {
   encapsulation: ViewEncapsulation.None,
 })
 export class calendarComponent {
-  //@Input() view: CalendarView;
-
-  //@Input() viewDate: Date;
-
-  //@Input() locale: string = 'en';
 
   @Output() viewDateChange = new EventEmitter<Date>();
 
   @Output() clickedDateEvent = new EventEmitter<Date>();
 
   clickedDate: Date;
-
   CalendarView = CalendarView;
-
   view: CalendarView | CalendarPeriod = CalendarView.Month;
-
   viewDate: Date = new Date();
-
   locale: string = 'ca';
-
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
-
   weekendDays: number[] = [DAYS_OF_WEEK.SATURDAY, DAYS_OF_WEEK.SUNDAY];
-
   minDate: Date = subDays(new Date(), 1); //deja seleccionar desde hoy
-
   maxDate: Date = addDays(new Date(), 32); //deja seleccionar hasta dentro de 1 mes
-
   prevBtnDisabled: boolean = false;
-
   nextBtnDisabled: boolean = false;
+  back = faBackward;
+  next = faForward;
+
 
   constructor() {
     this.dateOrViewChanged();

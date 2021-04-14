@@ -1,4 +1,4 @@
-<div id="calendar" class="row text-center">
+<div id="calendar" class="d-flex flex-nowrap">
 
 <!--   <div class="col-md-12" >
     <div *ngIf= "!clickedDate; else exist">
@@ -13,14 +13,14 @@
 
   </div> -->
 
-  <div class="col-md-4">
+  <div class="col-md-4 offset-md-4 order-2">
     <div class="btn-group">
       <button
         class="btn btn-primary"
         (click)="decrement()"
         [disabled]="prevBtnDisabled"
       >
-        Anterior
+        <fa-icon fa-icon [icon]="back"> </fa-icon>
       </button>
       <button class="btn btn-outline-secondary" (click)="today()">Hui</button>
       <button
@@ -28,12 +28,12 @@
         (click)="increment()"
         [disabled]="nextBtnDisabled"
       >
-        Següent
+        <fa-icon fa-icon [icon]="next"> </fa-icon>
       </button>
     </div>
   </div>
    <br>
-  <div class="col-md-4 offset-md-2">
+  <div class="col-md-4 order-1 ">
     <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
   </div>
 </div>
