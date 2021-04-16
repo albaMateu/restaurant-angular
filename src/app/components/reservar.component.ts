@@ -43,7 +43,7 @@ export class reservarComponent {
   }
 
   onSubmit() {
-    this.guardarReserva();
+    /*  this.guardarReserva(); */
   }
 
   modalProva() {
