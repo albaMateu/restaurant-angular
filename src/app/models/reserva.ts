@@ -1,4 +1,4 @@
-import { sala } from './sala';
+import { Sala } from './sala';
 import { formatDate } from '@angular/common';
 
 export class Reserva {
