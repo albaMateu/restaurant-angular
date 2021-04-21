@@ -49,16 +49,17 @@
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
                 <input id="calendar-input-mobile" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}"
-                  min="{{min| date: 'yyyy-MM-dd'}}" max="{{max| date: 'yyyy-MM-dd'}}">
+                  min="{{min_d| date: 'yyyy-MM-dd'}}" max="{{max_d| date: 'yyyy-MM-dd'}}">
               </div>
             </div><!-- fin dia -->
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2"> Hora </label>
+              <label class="col-lg-5"> Hora </label>
               <div class="col-lg-7">
                 <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora" class="form-control mb-1"
-                  step="900" required>
+                  (ngModelChange)= "validarHoraM($event)" required>
                 <span *ngIf="!hora.valid && hora.touched && hora.errors.required" class="label alert-danger">L'hora és obligatoria</span>
+                <span *ngIf="validator_hora"  class="label alert-danger">{{validator_hora}}</span>
               </div>
             </div><!-- fin hora -->
 

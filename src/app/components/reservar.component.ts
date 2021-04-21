@@ -4,12 +4,12 @@ import { modalComponent } from './modal.component';
 import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
-import { Component, ViewChild } from '@angular/core';
+import { Component, Host, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { addDays, differenceInMonths } from 'date-fns';
+import { addDays } from 'date-fns';
 import { formatDate } from '@angular/common';
 import { NgForm } from '@angular/forms';
-import { HOST_ATTR } from '@angular/compiler';
+import { HORARI } from '../services/global';
 
 
 @Component({
@@ -25,18 +25,41 @@ export class reservarComponent {
   public sales: [Sala];
   public reserva: Reserva;
   public clickedDate: Date;
-  public min = new Date();
-  public max: Date = addDays(new Date(), 32);
+  public min_d: Date;
+  public max_d: Date;
   public siguiente: boolean = false;
   public missatge: String;
   public disponible: boolean = false;
+  public min_h_m: string;
+  public max_h_m: string;
+  public min_h_v: string;
+  public max_h_v: string;
+  public validator_hora: string;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _reservaService: ReservaService
   ) {
+    this.max_d = addDays(new Date(), 32);
+    this.min_d = new Date()
+    this.min_h_m = HORARI.inici_m;
+    this.max_h_m = HORARI.final_m;
+    this.min_h_v = HORARI.inici_v;
+    this.max_h_v = HORARI.final_v;
+  }
 
+  validarHoraM(hora) {
+    console.log(hora);
+    console.log((hora >= this.min_h_m && hora <= this.max_h_m) || (hora >= this.min_h_v && hora <= this.max_h_v));
+
+    if ((hora > this.min_h_m && hora < this.max_h_m) || (hora > this.min_h_v && hora < this.max_h_v)) {
+      this.reserva.hora = hora;
+      this.validator_hora = null;
+    } else {
+      this.validator_hora = "L'hora ha d'estar compresa entre les " + this.min_h_m + " i les " + this.max_h_m +
+        " o entre les " + this.min_h_v + " i les " + this.max_h_v;
+    }
   }
 
   ngOnInit() {
@@ -75,7 +98,7 @@ export class reservarComponent {
           /* mostrar span dient que no hi ha disponibilitat */
           this.missatge = "No hi ha taules disponibles per al dia " + formatDate(this.reserva.dia, "dd-MM-yyyy", "ca") +
             " a les " + this.reserva.hora + " en la sala sol·licitada. <br/>" +
-            "Prova altra sala, altre dia o hora different.";
+            "Prova altra sala, altre dia o hora diferent.";
         }
       },
       error => {
