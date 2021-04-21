@@ -6,8 +6,10 @@ import { Reserva } from './../models/reserva';
 
 import { Component, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { addDays } from 'date-fns';
+import { addDays, differenceInMonths } from 'date-fns';
 import { formatDate } from '@angular/common';
+import { NgForm } from '@angular/forms';
+import { HOST_ATTR } from '@angular/compiler';
 
 
 @Component({
@@ -45,8 +47,10 @@ export class reservarComponent {
     /* this.modalProva(); */
   }
 
-  onSubmit() {
+  onSubmit(formReserva: NgForm) {
     this.guardarReserva();
+    formReserva.resetForm(new Reserva(1, 1));
+
   }
 
   modalProva() {
@@ -63,20 +67,19 @@ export class reservarComponent {
         /* si el mètodo disponibilitat retorna true */
         if (res) {
           /* passa a la pestanya següent per a posar les dades */
+          console.log(res);
+
           this.siguiente = !this.siguiente;
 
         } else {
           /* mostrar span dient que no hi ha disponibilitat */
           this.missatge = "No hi ha taules disponibles per al dia " + formatDate(this.reserva.dia, "dd-MM-yyyy", "ca") +
-            " a les " + this.reserva.hora + " en la sala sol·licitada";
-
+            " a les " + this.reserva.hora + " en la sala sol·licitada. <br/>" +
+            "Prova altra sala, altre dia o hora different.";
         }
-        console.log("next");
-        console.log(res);
       },
       error => {
-        console.log(error)
-        console.log("ha salido false");
+        console.log("next ERROR: " + error)
       }
 
     );
@@ -101,12 +104,14 @@ export class reservarComponent {
 
           let ocupades = result.ocup + this.reserva.taules;
 
+          console.log(ocupades);
+          console.log(result.ocup);
+
           //si hi han taules lliures
           if (result.ocup < salaObject.taules) {
 
             //si caben les que necesitem per a la reserva
             if (ocupades <= salaObject.taules) {
-              console.log("disponibilitat");
               resolve(true);
             }
           }
