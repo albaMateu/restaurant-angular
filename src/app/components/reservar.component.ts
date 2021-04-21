@@ -7,6 +7,7 @@ import { Reserva } from './../models/reserva';
 import { Component, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { addDays } from 'date-fns';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -25,6 +26,8 @@ export class reservarComponent {
   public min = new Date();
   public max: Date = addDays(new Date(), 32);
   public siguiente: boolean = false;
+  public missatge: String;
+  public disponible: boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -43,7 +46,7 @@ export class reservarComponent {
   }
 
   onSubmit() {
-    /*  this.guardarReserva(); */
+    this.guardarReserva();
   }
 
   modalProva() {
@@ -54,28 +57,37 @@ export class reservarComponent {
 
   //amaga i mostra una part del form i crida al mètdod disponibilitat
   next() {
-    console.log(this.reserva);
     this.taulesNecesaries();
-    this.disponibilitat();
+    this.disponibilitat().then(
+      res => {
+        /* si el mètodo disponibilitat retorna true */
+        if (res) {
+          /* passa a la pestanya següent per a posar les dades */
+          this.siguiente = !this.siguiente;
 
+        } else {
+          /* mostrar span dient que no hi ha disponibilitat */
+          this.missatge = "No hi ha taules disponibles per al dia " + formatDate(this.reserva.dia, "dd-MM-yyyy", "ca") +
+            " a les " + this.reserva.hora + " en la sala sol·licitada";
 
-    /* si el mètodo disponibilitat retorna true */
-    if (true) {
-      /* passa a la pestanya següent per a posar les dades */
-      this.siguiente = !this.siguiente;
-    } else {
-      /* mostrar span dient que no hi ha disponibilitat */
-      /* missatge= "No hi ha taules ocupades per al dia " +this.reserva.dia+
-          " a les "+ this.reserva.hora +" en la sala sol·licitada"; */
-    }
+        }
+        console.log("next");
+        console.log(res);
+      },
+      error => {
+        console.log(error)
+        console.log("ha salido false");
+      }
+
+    );
   }
+
   back() {
     this.siguiente = !this.siguiente;
   }
   /* comprova si es possible la reserva en eixe dia, hora, nº de persones i sala */
   disponibilitat() {
 
-    console.log("hola disponibilidad");
     let salaObject = this.getSala(this.reserva.sala);
     var args: Object = {
       dia: this.reserva.dia,
@@ -83,28 +95,31 @@ export class reservarComponent {
       hora: this.reserva.hora
     };
 
-    this._reservaService.getTaulesOcupades(args).subscribe(
-      result => {
-        let ocupades = result + this.reserva.taules;
-        console.log(result);
+    return new Promise((resolve, reject) => {
+      this._reservaService.getTaulesOcupades(args).subscribe(
+        result => {
 
-        //si hi han taules lliures
-        if (result < salaObject.taules) {
-          console.log("taules ocupades =" + result);
-          //si caben les que necesitem per a la reserva
-          if (ocupades <= salaObject.taules) {
-            console.log("disponibilitat");
-            return true;
+          let ocupades = result.ocup + this.reserva.taules;
+
+          //si hi han taules lliures
+          if (result.ocup < salaObject.taules) {
+
+            //si caben les que necesitem per a la reserva
+            if (ocupades <= salaObject.taules) {
+              console.log("disponibilitat");
+              resolve(true);
+            }
           }
-        }
-        console.log("taules ocupades. Total sala:  " + salaObject.taules);
-        return false
-      },
-      error => {
-        console.log("disponibilitat error " + error.message);
-      }
-    )
+          resolve(false);
 
+        },
+        error => {
+          console.log("disponibilitat error " + error.message);
+          reject(false);
+        }
+      );
+    }
+    )
   }
 
   //busca una sala per id

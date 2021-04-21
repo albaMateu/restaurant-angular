@@ -37,7 +37,7 @@ export class ReservaService {
   getTaulesOcupades(args: Object): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     //si retorna json, headers, si retorna soles text, response type
-    return this._http.post(this.url + '/v1/ocupades', args, /* { headers: headers } */  { responseType: 'text' });
+    return this._http.post(this.url + '/v1/ocupades', args, { headers: headers }  /* { responseType: 'text' } */);
   }
 
 } //fin ReservaService

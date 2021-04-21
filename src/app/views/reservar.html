@@ -62,6 +62,8 @@
               </div>
             </div><!-- fin hora -->
 
+            <span *ngIf="missatge" class="label alert-danger">{{missatge}}</span>
+
             <input type="text" class="btn btn-light offset-md-10 col-md-2" (click)="next()"  value="Següent"
             [disabled]="!hora.valid || !pers.valid">
 
@@ -110,7 +112,7 @@
 
             <div class="form-group row">
               <input type="text" class="btn btn-light col-md-2 offset-md-2 col-sm-2 offset-sm-2" (click)="back()" value="Enrera">
-              <button type="submit" class="btn btn-light offset-md-6 col-sm-2 col-xs-2 offset-sm-6"
+              <button type="reset" class="btn btn-light offset-md-6 col-sm-2 col-xs-2 offset-sm-6"
                 [disabled]="!formReserva.form.valid">Reservar</button>
             </div>
           </div>
