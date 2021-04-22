@@ -71,8 +71,8 @@ export class reservarComponent {
 
   onSubmit(formReserva: NgForm) {
     this.guardarReserva();
-    this.back();
-    formReserva.resetForm(new Reserva(1, 1));
+    /*     this.back();
+        formReserva.resetForm(new Reserva(1, 1)); */
 
   }
 
@@ -80,6 +80,29 @@ export class reservarComponent {
     this.modal.title = "titol prova";
     this.modal.message = "missatge des de prova";
     this.modal.openModal();
+  }
+
+  //envia el mail confirmació reserva
+  sendEmail(title, missatge) {
+    this._reservaService.sendEmailConfirm(this.reserva).subscribe(
+      result => {
+        console.log("send email reservar: " + result);
+
+        if (result) {
+          this.modal.message = missatge + '<br/> Rebràs un email de confirmació de la teua reserva. <br>' +
+            'Si no el rebs, revisa la safata spam ';
+        } else {
+          this.modal.message = missatge + "<br/> OOH no ... <br/>Ha hagut un problema amb l'enviament del email de confirmació." +
+            "<br/> Pots confirmar la teua reserva enviant un email o cridant al telèfon que apareix a la web. <br/> Disculpa les molèsties.";
+        }
+        this.modal.title = title;
+        this.modal.openModal();
+      },
+      error => {
+        console.log("envio email error " + error.message);
+      }
+    ); //fin suscribe
+
   }
 
   //amaga i mostra una part del form i crida al mètdod disponibilitat
@@ -185,17 +208,15 @@ export class reservarComponent {
   guardarReserva() {
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
-        this.modal.title = result.estat;
-        this.modal.message = result.message;
+        this.sendEmail(result.estat, result.message);
       },
       error => {
         this.modal.title = "Error";
         this.modal.message = "No s'ha pogut insertar la reserva";
         console.log("reserva error " + error.message);
+        this.modal.openModal();
       }
     ); //fin suscribe
-
-    this.modal.openModal();
   }
 
   //número de taules necessaries per a la reserva

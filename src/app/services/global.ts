@@ -2,7 +2,7 @@
 //datos restaurant
 export var GLOBAL = {
   nom: 'Resti restaurant',
-  adreca: 'Carrer del buen comer, 33',
+  adreca: 'Carrer Gourmet, 33',
   cp: 46723,
   poblacio: 'Almoines',
   provincia: 'València',

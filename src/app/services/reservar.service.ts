@@ -40,4 +40,10 @@ export class ReservaService {
     return this._http.post(this.url + '/v1/ocupades', args, { headers: headers }  /* { responseType: 'text' } */);
   }
 
+  sendEmailConfirm(reserva: Reserva) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    //si retorna json, headers, si retorna soles test, response type
+    return this._http.post(this.url + '/v1/reserva/mail', reserva, { headers: headers } /* { responseType: 'text' } */);
+  }
+
 } //fin ReservaService
