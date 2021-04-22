@@ -4,7 +4,7 @@ import { modalComponent } from './modal.component';
 import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
-import { Component, Host, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { addDays } from 'date-fns';
 import { formatDate } from '@angular/common';
@@ -50,7 +50,6 @@ export class reservarComponent {
   }
 
   validarHoraM(hora) {
-    console.log(hora);
     console.log((hora >= this.min_h_m && hora <= this.max_h_m) || (hora >= this.min_h_v && hora <= this.max_h_v));
 
     if ((hora > this.min_h_m && hora < this.max_h_m) || (hora > this.min_h_v && hora < this.max_h_v)) {
@@ -72,6 +71,7 @@ export class reservarComponent {
 
   onSubmit(formReserva: NgForm) {
     this.guardarReserva();
+    this.back();
     formReserva.resetForm(new Reserva(1, 1));
 
   }
@@ -90,7 +90,7 @@ export class reservarComponent {
         /* si el mètodo disponibilitat retorna true */
         if (res) {
           /* passa a la pestanya següent per a posar les dades */
-          console.log(res);
+          console.log("next " + res);
 
           this.siguiente = !this.siguiente;
 
@@ -126,9 +126,6 @@ export class reservarComponent {
         result => {
 
           let ocupades = result.ocup + this.reserva.taules;
-
-          console.log(ocupades);
-          console.log(result.ocup);
 
           //si hi han taules lliures
           if (result.ocup < salaObject.taules) {

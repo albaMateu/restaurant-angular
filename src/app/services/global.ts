@@ -12,12 +12,12 @@ export var GLOBAL = {
   long: ''
 }
 
-//datos horari
+//datos horari (cierre és hora de tancar i final és última hora per a reservar)
 export var HORARI = {
   inici_m: "12:30",
-  final_m: "15:30", //ultima hora per a reservar
+  final_m: "15:30",
   inici_v: "20:30",
-  final_v: "23:45", //ultima hora per a reservar
+  final_v: "23:45",
   cierre_m: "17:00",
   cierre_v: "1:00",
   semana_txt: "Dimarts a Diumenge"
