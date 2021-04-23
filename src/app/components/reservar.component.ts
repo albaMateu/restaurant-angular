@@ -49,9 +49,7 @@ export class reservarComponent {
     this.max_h_v = HORARI.final_v;
   }
 
-  validarHoraM(hora) {
-    console.log((hora >= this.min_h_m && hora <= this.max_h_m) || (hora >= this.min_h_v && hora <= this.max_h_v));
-
+  validarHoraM(hora: string) {
     if ((hora > this.min_h_m && hora < this.max_h_m) || (hora > this.min_h_v && hora < this.max_h_v)) {
       this.reserva.hora = hora;
       this.validator_hora = null;
@@ -70,9 +68,7 @@ export class reservarComponent {
   }
 
   onSubmit(formReserva: NgForm) {
-    this.guardarReserva();
-    /*     this.back();
-        formReserva.resetForm(new Reserva(1, 1)); */
+    this.guardarReserva(formReserva);
 
   }
 
@@ -83,12 +79,11 @@ export class reservarComponent {
   }
 
   //envia el mail confirmació reserva
-  sendEmail(title, missatge) {
+  sendEmail(title: string, missatge: string) {
+
     this._reservaService.sendEmailConfirm(this.reserva).subscribe(
       result => {
-        console.log("send email reservar: " + result);
-
-        if (result) {
+        if (result.envio) {
           this.modal.message = missatge + '<br/> Rebràs un email de confirmació de la teua reserva. <br>' +
             'Si no el rebs, revisa la safata spam ';
         } else {
@@ -113,8 +108,6 @@ export class reservarComponent {
         /* si el mètodo disponibilitat retorna true */
         if (res) {
           /* passa a la pestanya següent per a posar les dades */
-          console.log("next " + res);
-
           this.siguiente = !this.siguiente;
 
         } else {
@@ -133,6 +126,7 @@ export class reservarComponent {
 
   back() {
     this.siguiente = !this.siguiente;
+
   }
   /* comprova si es possible la reserva en eixe dia, hora, nº de persones i sala */
   disponibilitat() {
@@ -187,8 +181,6 @@ export class reservarComponent {
     this.clickedDate = $event;
   }
 
-
-
   //mostra les sales
   getSales() {
     this._reservaService.getSales().subscribe(
@@ -205,11 +197,14 @@ export class reservarComponent {
   }
 
   //insertar reserva
-  guardarReserva() {
+  guardarReserva(formReserva: NgForm) {
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
         this.sendEmail(result.estat, result.message);
+        formReserva.resetForm(new Reserva(1, 1));
+        this.back();
       },
+
       error => {
         this.modal.title = "Error";
         this.modal.message = "No s'ha pogut insertar la reserva";
