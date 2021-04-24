@@ -1,4 +1,4 @@
-#navMenu{
+#navMenu {
   /* background-color: #1976d2; */
   background-color: whitesmoke;
   border-bottom-color: grey;
@@ -6,20 +6,24 @@
   font-size: 1.5em;
 }
 
-#navMenu a{
+#navMenu a {
   font-size: 120%;
 }
-.titulo{
+.titulo {
   font-size: x-large !important;
   font-weight: bold;
   font-style: italic;
 }
-.menu{
+.menu {
   text-align: left;
 }
 
-#logo{
-/*width:7%;
+#logo {
+  /*width:7%;
   height:7%; */
   border-radius: 50%;
+}
+.idioma {
+  border: none;
+  background-color: transparent;
 }

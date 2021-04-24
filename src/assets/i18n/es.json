@@ -1,0 +1,14 @@
+{
+  "menuNav":{
+    "home": "Inicio",
+    "carta": "Carta",
+    "reservar": "Reservar",
+    "contacte": "Contacto"
+  },
+
+  "error404":{
+    "boto":"Volver al inicio",
+    "titol":"Ooops! La página que buscas puede ser se la hayan comido, dale al botón para volver."
+  }
+
+}

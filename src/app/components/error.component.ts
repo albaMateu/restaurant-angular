@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from "@angular/core";
 
 @Component({
@@ -5,11 +6,12 @@ import { Component } from "@angular/core";
   templateUrl: '../views/error.html',
   styleUrls: ['../../assets/css/error.css']
 })
-export class errorComponent{
-  public titulo:string;
+export class errorComponent {
+  public titulo: string;
 
-  constructor(){
-    this.titulo="Ooops! La pàgina que busques pot ser se l'han menjada, dona-li al botó per tornar.";
+  constructor(private translate: TranslateService) {
+    this.titulo = "Ooops! La pàgina que busques pot ser se l'han menjada, dona-li al botó per tornar.";
+    this.translate.instant('error404.titol');
   }
 
 }

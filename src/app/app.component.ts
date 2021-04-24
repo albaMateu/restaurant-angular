@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title: string;
   public href: string = "";
 
-  constructor(private router: Router) {
-    this.title = "Restaurant";
+  constructor(private router: Router, private translate: TranslateService) {
+    translate.setDefaultLang('es');
   }
 
   ngOnInit() {
     this.href = this.router.url;
-    //console.log(this.router.url);
   }
+
 }

@@ -24,7 +24,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing';
@@ -41,9 +41,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 /* ng add @fortawesome/angular-fontawesome@* */
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+/* traduccions instalar npm install @ngx-translate/core @ngx-translate/http-loader --save */
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+
 
 /*tindre la data en català */
 registerLocaleData(localeEs);
+
+/* Per a la traducció */
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -70,7 +79,14 @@ registerLocaleData(localeEs);
       { provide: DateAdapter, useFactory: adapterFactory },
     ),
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [{ provide: LOCALE_ID, useValue: "ca" }],
   bootstrap: [AppComponent]
