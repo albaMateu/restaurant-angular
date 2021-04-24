@@ -67,11 +67,8 @@ export class reservarComponent {
     /* this.modalProva(); */
   }
 
-  onSubmit(formReserva: NgForm) {
-    this.guardarReserva(formReserva);
-    /*  setTimeout(function () {
-       window.location.reload();
-     }, 5000); */
+  onSubmit() {
+    this.guardarReserva();
 
   }
 
@@ -167,40 +164,8 @@ export class reservarComponent {
     )
   }
 
-  //busca una sala per id
-  getSala(id: number) {
-    var sala = null;
-    for (const s of this.sales) {
-      if (s.id == id) {
-        sala = s;
-      }
-    }
-    return sala;
-
-  }
-
-  //reb la data del component fill (calendari)
-  reciveDate($event) {
-    this.clickedDate = $event;
-  }
-
-  //mostra les sales
-  getSales() {
-    this._reservaService.getSales().subscribe(
-      result => {
-        this.sales = result;
-      },
-      error => {
-        this.modal.title = "Error";
-        this.modal.message = "No es poden mostrar les sales";
-        console.log(<any>error);
-      }
-    ); //fin suscribe
-
-  }
-
   //insertar reserva
-  guardarReserva(formReserva: NgForm) {
+  guardarReserva() {
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
         this.sendEmail(result.estat, result.message);
@@ -218,6 +183,11 @@ export class reservarComponent {
     ); //fin suscribe
   }
 
+  //reb la data del component fill (calendari)
+  reciveDate($event) {
+    this.clickedDate = $event;
+  }
+
   //número de taules necessaries per a la reserva
   taulesNecesaries() {
     if (this.reserva.pers < 5) {
@@ -229,5 +199,33 @@ export class reservarComponent {
       this.reserva.taules = Math.trunc(this.reserva.pers / 2);
     }
   }
+  //mostra les sales
+  getSales() {
+    this._reservaService.getSales().subscribe(
+      result => {
+        this.sales = result;
+      },
+      error => {
+        this.modal.title = "Error";
+        this.modal.message = "No es poden mostrar les sales";
+        console.log("ERROR- no es poden mostrar les sales");
+      }
+    ); //fin suscribe
+
+  }
+  //busca una sala per id
+  getSala(id: number) {
+    var sala = null;
+    for (const s of this.sales) {
+      if (s.id == id) {
+        sala = s;
+      }
+    }
+    return sala;
+  }
+
+
+
+
 
 } //fin classe

@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: '../views/menu-nav.html',
   styleUrls: ['../../assets/css/menu-nav.css']
 })
-export class menuNavComponent{
-  public nom:string;
+export class menuNavComponent {
+  public nom: string;
 
-  constructor(){
-    this.nom=GLOBAL.nom;
+  constructor() {
+    this.nom = GLOBAL.nom;
   }
 
   ngOnInit() {
-    console.log("Menu-nav en marxa!");
+
   }
 
 
