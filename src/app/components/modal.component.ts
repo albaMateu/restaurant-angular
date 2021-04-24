@@ -18,6 +18,9 @@ export class modalComponent {
   openModal() {
     this.modalService.open(this.templateAlert, { centered: true });
   }
+  recargar() {
+    window.location.reload();
+  }
 
 }
 

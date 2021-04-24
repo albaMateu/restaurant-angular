@@ -69,6 +69,9 @@ export class reservarComponent {
 
   onSubmit(formReserva: NgForm) {
     this.guardarReserva(formReserva);
+    /*  setTimeout(function () {
+       window.location.reload();
+     }, 5000); */
 
   }
 
@@ -201,8 +204,9 @@ export class reservarComponent {
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
         this.sendEmail(result.estat, result.message);
-        formReserva.resetForm(new Reserva(1, 1));
-        this.back();
+        /* formReserva.resetForm(new Reserva(1, 1)); */
+
+        /* this.back(); */
       },
 
       error => {
