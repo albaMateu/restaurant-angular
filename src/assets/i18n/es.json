@@ -9,6 +9,41 @@
   "error404":{
     "boto":"Volver al inicio",
     "titol":"Ooops! La página que buscas puede ser se la hayan comido, dale al botón para volver."
+  },
+  "calendar": {
+    "today": "hoy"
+  },
+  "carta":{
+    "titol":"Cartas",
+    "menuDia": "Menú comida",
+    "menuNit": "Menú cena"
+  },
+    "reservar":{
+    "titol": "Reservar",
+    "subtitol1": "¿Cuándo querrán visitarnos?",
+    "pers": "Número de personas",
+    "sala": "Sala",
+    "dia": "Día",
+    "hora": "Hora",
+    "subtitol2": "Con quién nos pondremos en contacto en caso necesario?",
+    "name":"Nombre y apellidos",
+    "tel": "Teléfono",
+    "email": "Email",
+    "coment": "¿Alguna observación a tener en cuenta?",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "Submit": "Reservar"
+  },
+  "reservar-errors":{
+    "pers-required": "El número de personas es obligatorio",
+    "hora-required": "La hora es obligatoria",
+    "hora-valide": "",
+    "missatge-disponible": "",
+    "nom-required" : "El nombre es obligatorio",
+    "tel-required": "El telèfon es obligatorio",
+    "tel-valide": "El teléfono no es válido",
+    "email-required": "El e-mail es obligatorio",
+    "email-valide": "El e-mail no es válido"
   }
 
 }

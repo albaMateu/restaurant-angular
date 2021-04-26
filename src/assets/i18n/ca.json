@@ -1,6 +1,5 @@
 {
   "menuNav":{
-    "home": "Inici",
     "carta": "Carta",
     "reservar": "Reservar",
     "contacte": "Contacte"
@@ -8,5 +7,41 @@
    "error404":{
     "boto":"Tornar a l'inici",
     "titol":"Ooops! La pàgina que busques pot ser se l'han menjada, dona-li al botó per a tornar."
+  },
+  "calendar": {
+    "today": "hui"
+  },
+  "carta":{
+    "titol":"Cartes",
+    "menuDia": "Menú dinar",
+    "menuNit": "Menú sopar"
+  },
+  "reservar":{
+    "titol": "Reservar",
+    "subtitol1": "Quan voldran visitar-nos?",
+    "pers": "Número de persones",
+    "sala": "Sala",
+    "dia": "Dia",
+    "hora": "Hora",
+    "subtitol2": "Amb qui ens posarem en contacte en cas necessari?",
+    "name": "Nom i cognoms",
+    "tel": "Telèfon",
+    "email": "Email",
+    "coment": "Alguna observació a tenir en compte?",
+    "next": "Següent",
+    "back": "Enrera",
+    "Submit": "Reservar"
+  },
+  "reservar-errors":{
+    "pers-required": "El número de persones és obligatori",
+    "hora-required": "L'hora és obligatoria",
+    "hora-valide": "",
+    "missatge-disponible": "",
+    "nom-required" : "El nom és obligatori",
+    "tel-required": "El telèfon és obligatori",
+    "tel-valide": "El telèfon no és vàlid",
+    "email-required": "El e-mail és obligatori",
+    "email-valide": "El e-mail no és vàlid"
   }
+
 }
