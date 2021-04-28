@@ -6,7 +6,7 @@
 
   <div class="cartes col-lg-10 jumbotron offset-lg-1 mx-auto">
     <h2 class="text-center">
-      <strong>Reservar</strong>
+      <strong>{{ "reservar.titol" | translate }}</strong>
     </h2>
 
     <div class="row col-lg-12 mx-auto ">
@@ -21,20 +21,21 @@
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
 
           <div id="form-dadesreserva" [ngClass]="{'mostrar': !siguiente, 'ocultar': siguiente}">
-            <h4 class="text-center">Quan voldran visitar-nos? </h4>
+            <h4 class="text-center">{{ "reservar.subtitol1" | translate }}</h4>
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">Número de persones
+              <label class="col-lg-5 pt-2">{{ "reservar.pers" | translate }}
               </label>
               <div class="col-lg-7">
                 <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1"
                   class="form-control" required>
-                <span *ngIf="!pers.valid && pers.touched && pers.errors.required " class="label alert-danger">El número de persones és obligatori</span>
+                <span *ngIf="!pers.valid && pers.touched && pers.errors.required " class="label alert-danger">{{
+                  "reservar-errors.pers-required" | translate }}</span>
               </div>
             </div> <!-- fin num persones -->
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">Sala</label>
+              <label class="col-lg-5 pt-2">{{ "reservar.sala" | translate }}</label>
               <div class="col-lg-7">
                 <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
                   <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
@@ -43,78 +44,91 @@
             </div> <!-- fin select group -->
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2"> Dia </label>
+              <label class="col-lg-5 pt-2"> {{ "reservar.dia" | translate }} </label>
               <div class="col-lg-7">
                 <input id="calendar-input-web" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
                 <input id="calendar-input-mobile" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
-                  class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}"
-                  min="{{min_d| date: 'yyyy-MM-dd'}}" max="{{max_d| date: 'yyyy-MM-dd'}}">
+                  class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" min="{{min_d| date: 'yyyy-MM-dd'}}"
+                  max="{{max_d| date: 'yyyy-MM-dd'}}">
               </div>
             </div><!-- fin dia -->
 
             <div class="form-group row">
-              <label class="col-lg-5"> Hora </label>
+              <label class="col-lg-5"> {{ "reservar.hora" | translate }} </label>
               <div class="col-lg-7">
                 <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora" class="form-control mb-1"
-                  (ngModelChange)= "validarHoraM($event)" required>
-                <span *ngIf="!hora.valid && hora.touched && hora.errors.required" class="label alert-danger">L'hora és obligatoria</span>
-                <span *ngIf="validator_hora"  class="label alert-danger">{{validator_hora}}</span>
+                  (ngModelChange)="validarHoraM($event)" required>
+                <span *ngIf="!hora.valid && hora.touched && hora.errors.required" class="label alert-danger">{{
+                  "reservar-errors.hora-required" | translate }}</span>
+                <span *ngIf="validator_hora" class="label alert-danger">{{ validator_hora}}</span>
               </div>
             </div><!-- fin hora -->
 
-            <span *ngIf="missatge" class="label alert-danger missatge form-group row offset-md-5 col-md-7" [innerHTML]="missatge"></span>
 
-            <input type="text" class="btn btn-light offset-md-10 col-md-2" (click)="next()"  value="Següent"
-            [disabled]="!hora.valid || !pers.valid">
+            <span *ngIf="missatge" class="label alert-danger missatge form-group row offset-md-5 col-md-7"
+              [innerHTML]="missatge"></span>
+
+            <input type="text" class="btn btn-light offset-md-9 col-md-3" (click)="next()"
+              value='{{ "reservar.next" | translate }}' [disabled]="!hora.valid || !pers.valid">
 
           </div>
           <!-- fin primera part info form -->
 
           <div id="form-dadespersonals" [ngClass]="{'mostrar': siguiente, 'ocultar': !siguiente}">
-            <h4 class="text-center">Dades de contacte </h4>
-                <div class="form-group row">
-                  <label class="col-lg-5 pt-2">Nom i Cognoms
-                  </label>
-                  <div class="col-lg-7">
-                    <input type="text" #nom="ngModel" [(ngModel)]="reserva.nom" name="nom" id="nom" class="form-control" required>
-                    <span *ngIf="!nom.valid && nom.touched && nom.errors.required" class="label alert-danger">El nom és obligatori</span>
-                  </div>
-                </div> <!-- fin nom -->
-                <div class="form-group row">
-                  <label class="col-lg-5 pt-2">Telèfon
-                  </label>
-                  <div class="col-lg-7">
-                    <input type="tel" #tel="ngModel" [(ngModel)]="reserva.tel" name="tel" id="tel" class="form-control" pattern="(\+34|0034|34)?[ -]*(6|7|9)[ -]*([0-9][ -]*){8}" required>
-                    <div *ngIf="tel.touched && !tel.valid">
-                      <span *ngIf="tel.errors.required && tel.touched" class="label alert-danger">El telèfon és obligatori</span>
-                      <span *ngIf="tel.errors.pattern" class="label alert-danger">El telèfon no és vàlid</span>
-                    </div>
-                  </div>
-                </div> <!-- fin telèfon -->
-                <div class="form-group row">
-                  <label class="col-lg-5 pt-2">Email
-                  </label>
-                  <div class="col-lg-7">
-                    <input type="email" #email="ngModel" [(ngModel)]="reserva.email" name="email" id="email" class="form-control" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" required>
-                    <div *ngIf="!email.valid && email.touched">
-                      <span *ngIf=" email.errors.required && email.touched"  class="label alert-danger">L'email és obligatori</span>
-                      <span *ngIf="email.errors.pattern" class="label alert-danger">L'email no és vàlid</span>
-                    </div>
-                  </div>
-                </div> <!-- fin email -->
-                <div class="form-group ">
-                  <label class="col-lg-9 pl-1 pr-2">Alguna observació a tenir en compte?
-                  </label>
-                  <div class="offset-lg-2 col-lg-10 pr-0">
-                    <textarea  class="form-control" #coment="ngModel" [(ngModel)]="reserva.coment" name="coment" id="coment"  cols="30" rows="3"></textarea>
-                  </div>
-                </div> <!-- fin observacions -->
+            <h4 class="text-center">{{ "reservar.subtitol2" | translate }}</h4>
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2">{{ "reservar.name" | translate }}
+              </label>
+              <div class="col-lg-7">
+                <input type="text" #nom="ngModel" [(ngModel)]="reserva.nom" name="nom" id="nom" class="form-control"
+                  required>
+                <span *ngIf="!nom.valid && nom.touched && nom.errors.required" class="label alert-danger">{{
+                  "reservar-errors.nom-required" | translate }}</span>
+              </div>
+            </div> <!-- fin nom -->
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2">{{ "reservar.tel" | translate }}
+              </label>
+              <div class="col-lg-7">
+                <input type="tel" #tel="ngModel" [(ngModel)]="reserva.tel" name="tel" id="tel" class="form-control"
+                  pattern="(\+34|0034|34)?[ -]*(6|7|9)[ -]*([0-9][ -]*){8}" required>
+                <div *ngIf="tel.touched && !tel.valid">
+                  <span *ngIf="tel.errors.required && tel.touched" class="label alert-danger">{{
+                    "reservar-errors.tel-required" | translate }}</span>
+                  <span *ngIf="tel.errors.pattern" class="label alert-danger">{{ "reservar-errors.tel-valide" |
+                    translate }}</span>
+                </div>
+              </div>
+            </div> <!-- fin telèfon -->
+            <div class="form-group row">
+              <label class="col-lg-5 pt-2">{{ "reservar.email" | translate }}
+              </label>
+              <div class="col-lg-7">
+                <input type="email" #email="ngModel" [(ngModel)]="reserva.email" name="email" id="email"
+                  class="form-control" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" required>
+                <div *ngIf="!email.valid && email.touched">
+                  <span *ngIf=" email.errors.required && email.touched" class="label alert-danger">{{
+                    "reservar-errors.email-required" | translate }}</span>
+                  <span *ngIf="email.errors.pattern" class="label alert-danger">{{ "reservar-errors.email-valide" |
+                    translate }}</span>
+                </div>
+              </div>
+            </div> <!-- fin email -->
+            <div class="form-group ">
+              <label class="col-lg-9 pl-1 pr-2">{{ "reservar.coment" | translate }}
+              </label>
+              <div class="offset-lg-2 col-lg-10 pr-0">
+                <textarea class="form-control" #coment="ngModel" [(ngModel)]="reserva.coment" name="coment" id="coment"
+                  cols="30" rows="3"></textarea>
+              </div>
+            </div> <!-- fin observacions -->
 
             <div class="form-group row">
-              <input type="text" class="btn btn-light col-md-2 offset-md-2 col-sm-2 offset-sm-2" (click)="back()" value="Enrera">
-              <button type="submit" class="btn btn-light offset-md-6 col-sm-2 col-xs-2 offset-sm-6"
-                [disabled]="!formReserva.form.valid">Reservar</button>
+              <input type="text" class="btn btn-light col-md-3 offset-md-2 col-sm-3 offset-sm-2" (click)="back()"
+                value='{{ "reservar.back" | translate }}'>
+              <button type="submit" class="btn btn-light offset-md-5 col-sm-2 col-xs-2 offset-sm-5"
+                [disabled]="!formReserva.form.valid">{{ "reservar.submit" | translate }}</button>
             </div>
           </div>
           <!-- fin segona part info form -->

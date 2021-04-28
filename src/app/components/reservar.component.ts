@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Sala } from './../models/sala';
 import { modalComponent } from './modal.component';
 
@@ -5,10 +6,8 @@ import { ReservaService } from './../services/reservar.service';
 import { Reserva } from './../models/reserva';
 
 import { Component, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { addDays } from 'date-fns';
 import { formatDate } from '@angular/common';
-import { NgForm } from '@angular/forms';
 import { HORARI } from '../services/global';
 
 
@@ -37,9 +36,8 @@ export class reservarComponent {
   public validator_hora: string;
 
   constructor(
-    private _route: ActivatedRoute,
-    private _router: Router,
-    private _reservaService: ReservaService
+    private _reservaService: ReservaService,
+    private translate: TranslateService
   ) {
     this.max_d = addDays(new Date(), 32);
     this.min_d = new Date()
@@ -54,8 +52,12 @@ export class reservarComponent {
       this.reserva.hora = hora;
       this.validator_hora = null;
     } else {
-      this.validator_hora = "L'hora ha d'estar compresa entre les " + this.min_h_m + " i les " + this.max_h_m +
-        " o entre les " + this.min_h_v + " i les " + this.max_h_v;
+      this.validator_hora = this.translate.instant("reservar-errors.hora-valide", {
+        min_h_m: this.min_h_m,
+        max_h_m: this.max_h_m,
+        min_h_v: this.min_h_v,
+        max_h_v: this.max_h_v
+      });
     }
   }
 
@@ -63,34 +65,23 @@ export class reservarComponent {
     this.reserva = new Reserva(1, 1);
     this.getSales();
   }
-  ngAfterViewInit() {
-    /* this.modalProva(); */
-  }
 
   onSubmit() {
     this.guardarReserva();
 
   }
 
-  modalProva() {
-    this.modal.title = "titol prova";
-    this.modal.message = "missatge des de prova";
-    this.modal.openModal();
-  }
-
   //envia el mail confirmació reserva
-  sendEmail(title: string, missatge: string) {
+  sendEmail() {
 
     this._reservaService.sendEmailConfirm(this.reserva).subscribe(
       result => {
         if (result.envio) {
-          this.modal.message = missatge + '<br/> Rebràs un email de confirmació de la teua reserva. <br>' +
-            'Si no el rebs, revisa la safata spam ';
+          this.modal.message = 'reservar.modal-message';
         } else {
-          this.modal.message = missatge + "<br/> OOH no ... <br/>Ha hagut un problema amb l'enviament del email de confirmació." +
-            "<br/> Pots confirmar la teua reserva enviant un email o cridant al telèfon que apareix a la web. <br/> Disculpa les molèsties.";
+          this.modal.message = "reservar-errors.modal-message-email";
         }
-        this.modal.title = title;
+        this.modal.title = 'reservar.modal-title';
         this.modal.openModal();
       },
       error => {
@@ -112,15 +103,15 @@ export class reservarComponent {
 
         } else {
           /* mostrar span dient que no hi ha disponibilitat */
-          this.missatge = "No hi ha taules disponibles per al dia " + formatDate(this.reserva.dia, "dd-MM-yyyy", "ca") +
-            " a les " + this.reserva.hora + " en la sala sol·licitada. <br/>" +
-            "Prova altra sala, altre dia o hora diferent.";
+          this.missatge = this.translate.instant('reservar-errors.missatge-disponible', {
+            dia: formatDate(this.reserva.dia, "dd-MM-yyyy", "ca"),
+            hora: this.reserva.hora
+          });
         }
       },
       error => {
         console.log("next ERROR: " + error)
       }
-
     );
   }
 
@@ -168,15 +159,16 @@ export class reservarComponent {
   guardarReserva() {
     this._reservaService.addReserva(this.reserva).subscribe(
       result => {
-        this.sendEmail(result.estat, result.message);
-        /* formReserva.resetForm(new Reserva(1, 1)); */
-
-        /* this.back(); */
+        if (result.code) {
+          this.sendEmail();
+        } else {
+          this.modal.title = 'reservar-errors.modal-title';
+          this.modal.message = "reservar-errors.modal-message";
+        }
       },
-
       error => {
-        this.modal.title = "Error";
-        this.modal.message = "No s'ha pogut insertar la reserva";
+        this.modal.title = 'reservar-errors.modal-title';
+        this.modal.message = "reservar-errors.modal-message";
         console.log("reserva error " + error.message);
         this.modal.openModal();
       }
@@ -206,9 +198,7 @@ export class reservarComponent {
         this.sales = result;
       },
       error => {
-        this.modal.title = "Error";
-        this.modal.message = "No es poden mostrar les sales";
-        console.log("ERROR- no es poden mostrar les sales");
+        console.log("ERROR- no es poden mostrar les sales" + error);
       }
     ); //fin suscribe
 

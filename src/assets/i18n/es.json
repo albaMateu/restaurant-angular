@@ -1,24 +1,23 @@
 {
-  "menuNav":{
+  "menuNav": {
     "home": "Inicio",
     "carta": "Carta",
     "reservar": "Reservar",
     "contacte": "Contacto"
   },
-
-  "error404":{
-    "boto":"Volver al inicio",
-    "titol":"Ooops! La página que buscas puede ser se la hayan comido, dale al botón para volver."
+  "error404": {
+    "boto": "Volver al inicio",
+    "titol": "Ooops! La página que buscas puede ser se la hayan comido, dale al botón para volver."
   },
   "calendar": {
     "today": "hoy"
   },
-  "carta":{
-    "titol":"Cartas",
+  "carta": {
+    "titol": "Cartas",
     "menuDia": "Menú comida",
     "menuNit": "Menú cena"
   },
-    "reservar":{
+  "reservar": {
     "titol": "Reservar",
     "subtitol1": "¿Cuándo querrán visitarnos?",
     "pers": "Número de personas",
@@ -26,24 +25,28 @@
     "dia": "Día",
     "hora": "Hora",
     "subtitol2": "Con quién nos pondremos en contacto en caso necesario?",
-    "name":"Nombre y apellidos",
+    "name": "Nombre y apellidos",
     "tel": "Teléfono",
     "email": "Email",
     "coment": "¿Alguna observación a tener en cuenta?",
     "next": "Siguiente",
     "back": "Atrás",
-    "Submit": "Reservar"
+    "submit": "Reservar",
+    "modal-title": "Enhorabuena!",
+    "modal-message": "Reserva realizada con éxito. <br/> Recibirás un email de confirmación de tu reserva. <br> Si no lo recibes, revisa la bandeja de Spam."
   },
-  "reservar-errors":{
+  "reservar-errors": {
     "pers-required": "El número de personas es obligatorio",
     "hora-required": "La hora es obligatoria",
-    "hora-valide": "",
-    "missatge-disponible": "",
-    "nom-required" : "El nombre es obligatorio",
+    "hora-valide": "La hora tiene que ser entre las {{min_h_m}} y las {{max_h_m}} o entre las {{min_h_v}} y las {{max_h_v}}",
+    "missatge-disponible": "No hay mesas disponibles pare el día {{dia}} a las {{hora}} en la sala solicitada. <br/> Prueba otra sala, otro día u hora diferente.",
+    "nom-required": "El nombre es obligatorio",
     "tel-required": "El telèfon es obligatorio",
     "tel-valide": "El teléfono no es válido",
     "email-required": "El e-mail es obligatorio",
-    "email-valide": "El e-mail no es válido"
+    "email-valide": "El e-mail no es válido",
+    "modal-title": "OOH no ...",
+    "modal-message": "No se ha podido realizar la reserva",
+    "modal-message-email": "La reserva se ha realizado con éxito. <br/> Ha habido algún problema con el envío del email de confirmación. <br/> Puedes confirmar tu reserva enviando un email o llamando al teléfono que aparece en la web. <br/> Disculpe las molestias."
   }
-
 }
