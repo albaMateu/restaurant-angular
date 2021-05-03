@@ -1,4 +1,4 @@
-#navMenu {
+.navbar {
   /* background-color: #1976d2; */
   background-color: whitesmoke;
   border-bottom-color: grey;
@@ -6,7 +6,7 @@
   font-size: 1.5em;
 }
 
-#navMenu a {
+.navbar a {
   font-size: 120%;
 }
 .titulo {
@@ -14,16 +14,44 @@
   font-weight: bold;
   font-style: italic;
 }
-.menu {
-  text-align: left;
+#mobileNav {
+  justify-content: center;
 }
+
 
 #logo {
   /*width:7%;
   height:7%; */
   border-radius: 50%;
 }
-.idioma {
+.branding span{
+  margin-left: 15px;
+}
+
+.selectorIdioma {
   border: none;
-  background-color: transparent;
+  background-color: transparent;  
+}
+
+/* per a mòbil */
+@media only screen and (max-width: 600px) {
+  .menu{
+    order: 1;
+  }
+  .branding{
+    order: 2;
+    text-align: center;   
+  }
+  .branding a{
+    margin: 0;
+  }
+  .idioma{
+    order: 3;
+  }
+ .branding span{
+    display: none !important;
+  }
+  #navMenu{
+    align-items: baseline;
+  }
 }

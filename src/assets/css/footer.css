@@ -1,28 +1,20 @@
 #footer{
-  /* width: 100%;
-  border-top: 3px solid grey;
-  padding-top: 10px;*/
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
   margin-top: 3px;
-  /* padding: 70px 0 0; */
   position: relative;
   clear: both;
   font-size: 1.2em;
   width: 100%;
 }
 
-/* #footer .container .row > div {
-  margin-bottom: 25px;
-} */
 
 .light{
-  padding: 70px 0 0;
-  margin-bottom: 70px;
+  padding: 20px 0 0;
+  margin-bottom: 20px;
 }
 
 .container{
-  /* padding: 70px 0 0; */
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -31,27 +23,31 @@
   background-color: white;
 }
 
-#footer .contact {
+#footer .contact, #footer .horari {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+#footer .horari{
+  margin-top: 35px;;
+}
 
-#footer .contact li p{
+#footer .contact li p, #footer .horari li p{
   margin: 1.5%;
   padding: 0;
 }
 
-#footer .contact i {
+#footer .contact i,#footer .horari i {
   display: block;
   float: left;
   font-size: 1.2em;
   position: relative;
   width: 16px;
-  margin-right: 5px;
+  margin-right: 10px;
   text-align: center;
   margin-top: 1px;
 }
+
 
 #maps{
   position:relative;

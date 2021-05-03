@@ -1,26 +1,38 @@
-  <nav id="navMenu" class="navbar navbar-expand-sm navbar-light">
-    <a class=" titulo navbar-brand" href="#">
-      <img id="logo" src="../assets/images/logo.jpg" width="70" height="70" class="d-inline-block align-middle" alt="logotipo">
-      {{nom}}
+<nav id="navMenu" class="navbar navbar-expand-sm navbar-light">
+
+  <div class="branding col-lg-2 offset-lg-1 col-6">
+    <a class="titulo navbar-brand" href="#">
+      <img id="logo" src="../assets/images/logo.jpg" width="70" height="70" class="d-inline-block align-middle"
+        alt="logotipo">
+      <span>{{nom}} </span>
     </a>
+
+  </div>
+
+  <div class="col-lg-6 col-3 menu">
     <!-- data-target i aria-controls es el nom del id del div que volem ocultar, per aixo porta #davant -->
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar"
-    aria-controls="#navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mobileNav"
+      aria-controls="#mobileNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  <div class="collapse navbar-collapse menu" id="navbar">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" [routerLink]="['/carta']" [routerLinkActive]="['activado']">{{ 'menuNav.carta' | translate }}</a>
-      <a class="nav-item nav-link" [routerLink]="['/reservar']" [routerLinkActive]="['activado']">{{ 'menuNav.reservar' | translate }}</a>
-      <a class="nav-item nav-link" [routerLink]="['/contacte']" [routerLinkActive]="['activado']">{{ 'menuNav.contacte' | translate }}</a>
-    </div>
-    <div class="offset-lg-9 col-lg-2">
-      <select #langSelect class="idioma" (change)="translate.use(langSelect.value)">
-        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
-          {{ lang }}
-        </option>
-      </select>
+    <div id="mobileNav" class="collapse navbar-collapse navbar-nav navbar-toggler-right ">
+      <a class="nav-item nav-link" [routerLink]="['/carta']" [routerLinkActive]="['activado']">{{ 'menuNav.carta' |
+        translate }}</a>
+      <a class="nav-item nav-link" [routerLink]="['/reservar']" [routerLinkActive]="['activado']">{{
+        'menuNav.reservar'
+        | translate }}</a>
+      <a class="nav-item nav-link" [routerLink]="['/contacte']" [routerLinkActive]="['activado']">{{
+        'menuNav.contacte'
+        | translate }}</a>
     </div>
   </div>
-  </nav>
 
+  <div class="col-lg-1 offset-lg-1 col-3 text-right idioma">
+    <select #langSelect class="selectorIdioma" (change)="translate.use(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
+        {{ lang }}
+      </option>
+    </select>
+  </div>
+
+</nav>

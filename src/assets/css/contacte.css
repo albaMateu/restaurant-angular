@@ -64,11 +64,6 @@ ul{
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
-.social-icons li i{
-  margin-left: 7px;
-  margin-top: 7px !important;
-}
-
 .social-icons li a {
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;

@@ -1,5 +1,6 @@
 import { GLOBAL, HORARI } from './../services/global';
 import { Component } from "@angular/core";
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class contacteComponent {
   public f_v: string;
   public semana_txt: string;
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.adreca = GLOBAL.adreca;
     this.cp = GLOBAL.cp;
     this.poblacio = GLOBAL.poblacio;
@@ -31,7 +32,7 @@ export class contacteComponent {
     this.i_v = HORARI.inici_v;
     this.f_m = HORARI.cierre_m;
     this.f_v = HORARI.cierre_v;
-    this.semana_txt = HORARI.semana_txt;
+    this.semana_txt = translate.instant("contacte.setmana");
 
   }
 

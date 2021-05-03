@@ -61,7 +61,7 @@
                   (ngModelChange)="validarHoraM($event)" required>
                 <span *ngIf="!hora.valid && hora.touched && hora.errors.required" class="label alert-danger">{{
                   "reservar-errors.hora-required" | translate }}</span>
-                <span *ngIf="validator_hora" class="label alert-danger">{{ validator_hora}}</span>
+                <span *ngIf="validator_hora" class="label alert-danger">{{ validator_hora }}</span>
               </div>
             </div><!-- fin hora -->
 

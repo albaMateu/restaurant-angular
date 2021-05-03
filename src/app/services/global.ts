@@ -19,8 +19,7 @@ export var HORARI = {
   inici_v: "20:30",
   final_v: "23:45",
   cierre_m: "17:00",
-  cierre_v: "1:00",
-  semana_txt: "Dimarts a Diumenge"
+  cierre_v: "1:00"
 }
 
 //datos configuració BD i backend

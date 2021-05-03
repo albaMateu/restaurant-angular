@@ -1,33 +1,58 @@
 <footer id="footer">
   <div class="container light" *ngIf="_router.url != '/contacte'">
-    <div class="row" >
-      <div class="col-lg-4 col-xs-12">
+    <div class="row">
+      <div class="col-lg-3 col-xs-12">
         <div class="contact-details">
-          <h4><strong>Contacte</strong></h4>
+          <h4><strong>{{"contacte.titol" | translate}}</strong></h4>
           <ul class="contact">
-            <li><p><i class="fa fa-map-marker"></i><strong>Adreça:</strong> {{adreca}}</p></li>
-            <li><p class="ml-4"> {{cp}}-{{poblacio}} ({{provincia}})</p></li>
-            <li><p><i class="fa fa-phone"></i> <strong>Tel:</strong> {{tel}}</p></li>
-            <li><p><i class="fa fa-envelope"></i> <strong>E-mail:</strong> <a href="mailto:{{email}}"> {{email}}</a></p></li>
-            <li><p><i class="fa fa-calendar"></i> <strong>Horari</strong></p></li>
-            <li><p class="ml-4"> De {{semana_txt}}</p></li>
-            <li><p class="ml-4"> De {{i_m}} a {{f_m}} hores.</p></li>
-            <li><p class="ml-4"> De {{i_v}} a {{f_v}} hores.</p></li>
+            <li>
+              <p><i class="fa fa-map-marker"></i><strong>{{"contacte.adreca" | translate}}:</strong> {{adreca}}</p>
+            </li>
+            <li>
+              <p class="ml-4"> {{cp}}-{{poblacio}} ({{provincia}})</p>
+            </li>
+            <li>
+              <p><i class="fa fa-phone"></i> <strong>{{"contacte.tel" | translate}}:</strong> {{tel}}</p>
+            </li>
+            <li>
+              <p><i class="fa fa-envelope"></i> <strong>{{"contacte.mail" | translate}}:</strong> <a
+                  href="mailto:{{email}}"> {{email}}</a></p>
+            </li>
           </ul>
         </div>
       </div>
-      <div class="col-lg-6 col-xs-12">
-        <div id="maps" >
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6206.2779048558305!2d-0.1862970234803927!3d38.94365386825406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61e8f8d17491b1%3A0x51822c904de87daf!2sAlmoines%2C%20Valencia!5e0!3m2!1ses!2ses!4v1619019476241!5m2!1ses!2ses"
-          frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" ></iframe>
+      <div class="col-lg-3 col-xs-12">
+        <ul ul class="horari">
+          <li>
+            <p><i class="fa fa-calendar"></i> <strong>{{"contacte.horari" | translate}}</strong></p>
+          </li>
+          <li>
+            <p class="ml-4"> De {{semana_txt | translate}}</p>
+          </li>
+          <li>
+            <p class="ml-4"> De {{i_m}} a {{f_m}} h.</p>
+          </li>
+          <li>
+            <p class="ml-4"> De {{i_v}} a {{f_v}} h.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-xs-12">
+        <div id="maps">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6206.2779048558305!2d-0.1862970234803927!3d38.94365386825406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61e8f8d17491b1%3A0x51822c904de87daf!2sAlmoines%2C%20Valencia!5e0!3m2!1ses!2ses!4v1619019476241!5m2!1ses!2ses"
+            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
       </div>
-      <div class="col-lg-2 col-xs-12">
-        <h4><strong>Segueix-nos</strong></h4>
+      <div class="col-lg-2 col-xs-12 text-center">
+        <h4><strong>{{"contacte.follow" | translate}}</strong></h4>
         <ul class="social-icons">
-          <li class="social-icons-facebook"><a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-          <li class="social-icons-twitter"><a href="https://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-          <li class="social-icons-linkedin"><a href="https://www.linkedin.com/in/albamateu/" target="_blank" title="Linkedin Alba Mateu"><i class="fa fa-linkedin"></i></a></li>
+          <li class="social-icons-facebook"><a href="https://www.facebook.com/" target="_blank" title="Facebook"><i
+                class="fa fa-facebook"></i></a></li>
+          <li class="social-icons-twitter"><a href="https://www.twitter.com/" target="_blank" title="Twitter"><i
+                class="fa fa-twitter"></i></a></li>
+          <li class="social-icons-linkedin"><a href="https://www.linkedin.com/in/albamateu/" target="_blank"
+              title="Linkedin Alba Mateu"><i class="fa fa-linkedin"></i></a></li>
         </ul>
       </div>
     </div>
@@ -41,17 +66,18 @@
           </a>
         </div>
         <div class="col-lg-4 col-xs-12 vertical">
-          <p class="text-center">© Copyright 2020. Tots els drets reservats. </p>
+          <p class="text-center">{{"footer.copyright" | translate}}</p>
         </div>
         <div class="col-lg-2 col-xs-12 vertical">
-          <p class="text-center"><a href="https://www.linkedin.com/in/albamateu/" target="_blank" title="Linkedin Alba Mateu">Creat per: {{autora}}</a></p>
+          <p class="text-center"><a href="https://www.linkedin.com/in/albamateu/" target="_blank"
+              title="Linkedin Alba Mateu">{{"footer.by" | translate}} {{autora}}</a></p>
         </div>
         <div class="col-lg-4 col-xs-12 vertical">
           <nav id="sub-menu">
             <ul>
               <li><a routerLink="#">FAQ's</a></li>
               <li><a routerLink="#">Sitemap</a></li>
-              <li><a routerLink="/contacte">Contacte</a></li>
+              <li><a routerLink="/contacte">{{"menuNav.contacte" | translate}}</a></li>
             </ul>
           </nav>
         </div>
