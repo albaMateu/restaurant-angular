@@ -1,6 +1,6 @@
 <nav id="navMenu" class="navbar navbar-expand-sm navbar-light">
 
-  <div class="branding col-lg-2 offset-lg-1 col-6">
+  <div class="branding col-lg-2 offset-lg-1 col-4">
     <a class="titulo navbar-brand" href="#">
       <img id="logo" src="../assets/images/logo.jpg" width="70" height="70" class="d-inline-block align-middle"
         alt="logotipo">
@@ -9,13 +9,14 @@
 
   </div>
 
-  <div class="col-lg-6 col-3 menu">
+  <div class="col-lg-6 col-4 menu">
     <!-- data-target i aria-controls es el nom del id del div que volem ocultar, per aixo porta #davant -->
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mobileNav"
-      aria-controls="#mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler
+    " type="button" data-toggle="collapse" data-target="#mobileNav" aria-controls="#mobileNav" aria-expanded="false"
+      aria-label="Menú">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="mobileNav" class="collapse navbar-collapse navbar-nav navbar-toggler-right ">
+    <div id="mobileNav" class="collapse navbar-collapse navbar-nav">
       <a class="nav-item nav-link" [routerLink]="['/carta']" [routerLinkActive]="['activado']">{{ 'menuNav.carta' |
         translate }}</a>
       <a class="nav-item nav-link" [routerLink]="['/reservar']" [routerLinkActive]="['activado']">{{
@@ -27,12 +28,19 @@
     </div>
   </div>
 
-  <div class="col-lg-1 offset-lg-1 col-3 text-right idioma">
-    <select #langSelect class="selectorIdioma" (change)="translate.use(langSelect.value)">
-      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
-        {{ lang }}
-      </option>
-    </select>
+  <div class="col-lg-1 offset-lg-1 col-4 text-right selectorIdioma">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Idioma
+      </button>
+      <div class="dropdown-menu idioma" aria-labelledby="dropdownMenu">
+        <button class="dropdown-item" type="button" *ngFor="let idioma of idiomes" [value]="idioma.lang"
+          (click)="translate.use(idioma.lang)">{{ idioma.nom }}</button>
+
+      </div>
+    </div>
   </div>
+
 
 </nav>

@@ -18,7 +18,6 @@
   justify-content: center;
 }
 
-
 #logo {
   /*width:7%;
   height:7%; */
@@ -28,24 +27,36 @@
   margin-left: 15px;
 }
 
-.selectorIdioma {
+.idioma{
   border: none;
-  background-color: transparent;  
+   background-color: whitesmoke; 
+  min-width: max-content;
+}
+.selectorIdioma .btn{
+  background-color: lightgray; 
+}
+.dropdown{
+  inline-size: fit-content;
+  /* margin-left: 10px; */
 }
 
 /* per a mòbil */
 @media only screen and (max-width: 600px) {
   .menu{
     order: 1;
+    padding: 0;
+  }
+  #mobileNav{
+    align-items: flex-start;
   }
   .branding{
     order: 2;
-    text-align: center;   
+    text-align: center;
   }
   .branding a{
     margin: 0;
   }
-  .idioma{
+  .selectorIdioma{
     order: 3;
   }
  .branding span{
