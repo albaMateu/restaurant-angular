@@ -37,7 +37,7 @@
   padding: 0;
 }
 
-#footer .contact i,#footer .horari i {
+#footer .contact i, #footer .horari i {
   display: block;
   float: left;
   font-size: 1.2em;
@@ -196,11 +196,11 @@ a, a:hover{
     text-align: center;
   }
 
-  .contact li i{
+  .contact li i, .horari li i{
     visibility: hidden;
   }
 
-  #footer .contact i {
+  #footer .contact i,  #footer .horari i {
     text-align: center;
   }
 
