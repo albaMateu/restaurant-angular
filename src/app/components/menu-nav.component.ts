@@ -11,10 +11,11 @@ import { calendarComponent } from './calendar.component';
 })
 export class menuNavComponent {
   public nom: string;
-  public idiomes: Array<object> = [
+  public idiomes: Array<any> = [
     { "lang": "es", "nom": "Español" },
     { "lang": "ca", "nom": "Català" }
   ];
+  public lang: string = "Español";
 
   @ViewChild(calendarComponent) calendar: calendarComponent;
 
@@ -31,7 +32,11 @@ export class menuNavComponent {
   getLang(lang: string) {
     this.translate.use(lang);
     LANG.actual = lang;
-    this.calendar.dateOrViewChanged();
+    this.idiomes.forEach(idioma => {
+      if (lang == idioma.lang) {
+        this.lang = idioma.nom;
+      }
+    });
   }
 
 }
