@@ -46,3 +46,5 @@ testem.log
 Thumbs.db
 src/app/paginaBorrar.html
 src/app/Restaurant-web.code-workspace
+
+Restaurant-web.code-workspace

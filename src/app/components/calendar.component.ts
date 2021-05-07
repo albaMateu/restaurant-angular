@@ -1,8 +1,9 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
+import { Component, ViewEncapsulation, EventEmitter, Output, ChangeDetectionStrategy, } from '@angular/core';
 import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
 import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
 import { LANG } from '../services/global';
+
 
 
 /* CALENDAR TRET DE : https://angular-calendar.com/#/min-max-date */
@@ -48,7 +49,7 @@ function endOfPeriod(period: CalendarPeriod, date: Date): Date {
   templateUrl: '../views/calendar.html',
   styleUrls: ['../../assets/css/calendar.css'],
 
-  // es tracta d'un hack per aconseguir estils que s'apliquin al component intern. La vostra aplicació només hauria d’utilitzar un full d’estil global
+  // es tracta d'un hack per aconseguir estils que s'apliquin al component intern.
   encapsulation: ViewEncapsulation.None
 })
 export class calendarComponent {
@@ -61,7 +62,7 @@ export class calendarComponent {
   CalendarView = CalendarView;
   view: CalendarView | CalendarPeriod = CalendarView.Month;
   viewDate: Date = new Date();
-  locale: string = LANG.actual;
+  /* locale: string; */
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
   weekendDays: number[] = [DAYS_OF_WEEK.SATURDAY, DAYS_OF_WEEK.SUNDAY];
   minDate: Date = subDays(new Date(), 1); //deja seleccionar desde hoy
@@ -72,10 +73,14 @@ export class calendarComponent {
   next = faForward;
 
 
+
   constructor() {
     this.dateOrViewChanged();
-  }
 
+  }
+  getLocale() {
+    return LANG.actual;
+  }
   sendDate() {
     this.clickedDateEvent.emit(this.clickedDate);
   }

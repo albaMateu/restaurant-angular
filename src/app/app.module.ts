@@ -45,7 +45,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 /* traduccions instalar npm install @ngx-translate/core @ngx-translate/http-loader --save */
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { langService } from './services/lang.service';
+
 
 
 /*importar els idiomes */
@@ -92,9 +92,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [{
-    provide: LOCALE_ID,
-    deps: [langService],
-    useFactory: (langService) => langService.getLang()
+    provide: LOCALE_ID, useValue: 'es'
   }],
   bootstrap: [AppComponent]
 })

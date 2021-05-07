@@ -21,6 +21,7 @@ export class reservarComponent {
 
   @ViewChild(modalComponent) modal: modalComponent;
 
+
   public sales: [Sala];
   public reserva: Reserva;
   public clickedDate: Date;
@@ -65,6 +66,7 @@ export class reservarComponent {
     this.reserva = new Reserva(1, 1);
     this.getSales();
   }
+
 
   onSubmit() {
     this.guardarReserva();

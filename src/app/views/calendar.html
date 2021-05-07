@@ -26,11 +26,11 @@
   </div>
   <br>
   <div class="col-md-4 order-1 ">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):getLocale() }}</h3>
   </div>
 </div>
 
-<mwl-calendar-month-view [viewDate]="viewDate" [locale]="locale" [weekStartsOn]="weekStartsOn"
+<mwl-calendar-month-view [viewDate]="viewDate" [locale]="getLocale()" [weekStartsOn]="weekStartsOn"
   [weekendDays]="weekendDays" (beforeViewRender)="beforeMonthViewRender($event)"
   (dayClicked)="clickedDate = $event.day.date; sendDate()">
 </mwl-calendar-month-view>

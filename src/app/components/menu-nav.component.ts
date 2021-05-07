@@ -1,6 +1,7 @@
 import { GLOBAL, LANG } from './../services/global';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { calendarComponent } from './calendar.component';
 
 
 @Component({
@@ -15,9 +16,10 @@ export class menuNavComponent {
     { "lang": "ca", "nom": "Català" }
   ];
 
+  @ViewChild(calendarComponent) calendar: calendarComponent;
+
   constructor(public translate: TranslateService) {
     translate.addLangs(['es', 'ca']);
-
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/es|ca/) ? browserLang : 'es');
   }
@@ -29,6 +31,7 @@ export class menuNavComponent {
   getLang(lang: string) {
     this.translate.use(lang);
     LANG.actual = lang;
+    this.calendar.dateOrViewChanged();
   }
 
 }
