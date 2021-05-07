@@ -26,3 +26,7 @@ export var HORARI = {
 export var CONFIG = {
   url: 'http://localhost/restaurant-api'
 }
+
+export var LANG = {
+  actual: 'es'
+}

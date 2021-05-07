@@ -36,7 +36,7 @@
       </button>
       <div class="dropdown-menu idioma" aria-labelledby="dropdownMenu">
         <button class="dropdown-item" type="button" *ngFor="let idioma of idiomes" [value]="idioma.lang"
-          (click)="translate.use(idioma.lang)">{{ idioma.nom }}</button>
+          (click)="getLang(idioma.lang)">{{ idioma.nom }}</button>
 
       </div>
     </div>

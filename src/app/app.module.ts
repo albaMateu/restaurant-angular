@@ -30,8 +30,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 
-/* Per a tindre la data en català */
-import localeEs from '@angular/common/locales/ca';
+/* idiomes disponibles */
+import localeCa from '@angular/common/locales/ca';
+import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 
 /* per als modals */
@@ -44,9 +45,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 /* traduccions instalar npm install @ngx-translate/core @ngx-translate/http-loader --save */
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { langService } from './services/lang.service';
 
 
-/*tindre la data en català */
+/*importar els idiomes */
+registerLocaleData(localeCa);
 registerLocaleData(localeEs);
 
 /* Per a la traducció */
@@ -88,7 +91,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "ca" }],
+  providers: [{
+    provide: LOCALE_ID,
+    deps: [langService],
+    useFactory: (langService) => langService.getLang()
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

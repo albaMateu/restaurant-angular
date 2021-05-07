@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation, EventEmitter, Ou
 import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
 import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
+import { LANG } from '../services/global';
 
 
 /* CALENDAR TRET DE : https://angular-calendar.com/#/min-max-date */
@@ -48,7 +49,7 @@ function endOfPeriod(period: CalendarPeriod, date: Date): Date {
   styleUrls: ['../../assets/css/calendar.css'],
 
   // es tracta d'un hack per aconseguir estils que s'apliquin al component intern. La vostra aplicació només hauria d’utilitzar un full d’estil global
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class calendarComponent {
 
@@ -60,7 +61,7 @@ export class calendarComponent {
   CalendarView = CalendarView;
   view: CalendarView | CalendarPeriod = CalendarView.Month;
   viewDate: Date = new Date();
-  locale: string = 'ca';
+  locale: string = LANG.actual;
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
   weekendDays: number[] = [DAYS_OF_WEEK.SATURDAY, DAYS_OF_WEEK.SUNDAY];
   minDate: Date = subDays(new Date(), 1); //deja seleccionar desde hoy
@@ -89,6 +90,7 @@ export class calendarComponent {
 
   today(): void {
     this.changeDate(new Date());
+
   }
 
   dateIsValid(date: Date): boolean {
@@ -100,10 +102,10 @@ export class calendarComponent {
     this.dateOrViewChanged();
   }
 
-  changeView(view: CalendarPeriod): void {
-    this.view = view;
-    this.dateOrViewChanged();
-  }
+  /*   changeView(view: CalendarPeriod): void {
+      this.view = view;
+      this.dateOrViewChanged();
+    } */
 
   dateOrViewChanged(): void {
     this.prevBtnDisabled = !this.dateIsValid(
