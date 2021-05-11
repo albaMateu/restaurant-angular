@@ -1,68 +1,71 @@
-.navbar {
+.container {
   /* background-color: #1976d2; */
   background-color: whitesmoke;
   border-bottom-color: grey;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-size: 1.5em;
+  max-width: 100%;
 }
-
+.row{
+  align-items: baseline;
+}
+ 
+#menuNav {
+  justify-content: center;
+}
 .navbar a {
   font-size: 120%;
 }
-.titulo {
-  font-size: x-large !important;
+a{
+  color: grey;
+}
+.name{
+  font-size: x-large;
   font-weight: bold;
   font-style: italic;
 }
-#mobileNav {
-  justify-content: center;
-}
-
 #logo {
   /*width:7%;
   height:7%; */
   border-radius: 50%;
 }
-.branding span{
+#branding span{
   margin-left: 15px;
 }
 
-.idioma{
-  border: none;
-   background-color: whitesmoke; 
-  min-width: max-content;
-}
-.selectorIdioma .btn{
+#selectorIdioma .btn{
   background-color:#d3d3d338; 
 }
-.dropdown{
-  inline-size: fit-content;
-  margin-left: 10px;
+
+.idioma{
+  min-width: fit-content;
+  border: none;
+  background-color: whitesmoke; 
 }
 
 /* per a mòbil */
 @media only screen and (max-width: 600px) {
-  .menu{
+  #menu{
     order: 1;
     padding: 0;
+    /* align-items: baseline; */
   }
-  #mobileNav{
+  #menuNav{
     align-items: flex-start;
   }
-  .branding{
+
+  #branding{
     order: 2;
-    text-align: center;
+    text-align: center !important;
   }
-  .branding a{
+  #branding a{
     margin: 0;
   }
-  .selectorIdioma{
-    order: 3;
-  }
- .branding span{
+  #branding span{
     display: none !important;
   }
-  #navMenu{
-    align-items: baseline;
+  #selectorIdioma{
+    order: 3;
   }
+  
 }

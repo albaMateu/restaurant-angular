@@ -24,9 +24,9 @@
             <h4 class="text-center">{{ "reservar.subtitol1" | translate }}</h4>
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">{{ "reservar.pers" | translate }}
+              <label class="col-2 col-lg-5 pt-2">{{ "reservar.pers" | translate }}
               </label>
-              <div class="col-lg-7">
+              <div class="col-10 col-lg-7">
                 <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1"
                   class="form-control" required>
                 <span *ngIf="!pers.valid && pers.touched && pers.errors.required " class="label alert-danger">{{
@@ -35,8 +35,8 @@
             </div> <!-- fin num persones -->
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">{{ "reservar.sala" | translate }}</label>
-              <div class="col-lg-7">
+              <label class="col-2 col-lg-5 pt-2">{{ "reservar.sala" | translate }}</label>
+              <div class="col-10 col-lg-7">
                 <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
                   <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
                 </select>
@@ -44,8 +44,8 @@
             </div> <!-- fin select group -->
 
             <div class="form-group row">
-              <label class="col-lg-5 pt-2"> {{ "reservar.dia" | translate }} </label>
-              <div class="col-lg-7">
+              <label class="col-md-2 col-lg-5 pt-2"> {{ "reservar.dia" | translate }} </label>
+              <div class="col-md-10 col-lg-7">
                 <input id="calendar-input-web" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
                 <input id="calendar-input-mobile" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
@@ -55,8 +55,8 @@
             </div><!-- fin dia -->
 
             <div class="form-group row">
-              <label class="col-lg-5"> {{ "reservar.hora" | translate }} </label>
-              <div class="col-lg-7">
+              <label class="col-2 col-lg-5"> {{ "reservar.hora" | translate }} </label>
+              <div class="col-10 col-lg-7">
                 <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora" class="form-control mb-1"
                   (ngModelChange)="validarHoraM($event)" required>
                 <span *ngIf="!hora.valid && hora.touched && hora.errors.required" class="label alert-danger">{{

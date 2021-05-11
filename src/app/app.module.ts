@@ -4,7 +4,7 @@ import { contacteComponent } from './components/contacte.component';
 import { errorComponent } from './components/error.component';
 import { homeComponent } from './components/home.component';
 import { footerComponent } from './components/footer.component';
-import { menuNavComponent } from './components/menu-nav.component';
+import { headerComponent } from './components/header.component';
 import { modalComponent } from './components/modal.component';
 import { calendarComponent } from './components/calendar.component';
 /*  fi dels meus components */
@@ -61,7 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    menuNavComponent,
+    headerComponent,
     footerComponent,
     homeComponent,
     errorComponent,

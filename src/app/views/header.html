@@ -1,0 +1,45 @@
+<div class="container ">
+    <div class="row">
+        <div id="branding" class="col-4 col-lg-2 offset-lg-1 text-left">
+            <a class="name navbar-brand" href="#">
+                <img id="logo" src="../assets/images/logo.jpg" width="70" height="70"
+                    class="d-inline-block align-middle" alt="logotipo">
+                <span> {{nom}} </span>
+            </a>
+        </div>
+        <div id="menu" class="col-4 col-lg-6">
+            <nav id="navMenu" class="navbar navbar-expand-sm navbar-light menu">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNav"
+                    aria-controls="#menuNav" aria-expanded="false" aria-label="Menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="menuNav" class="collapse navbar-collapse navbar-nav">
+                    <a class="nav-item nav-link" [routerLink]="['/carta']" [routerLinkActive]="['activado']">{{
+                        'menuNav.carta' |
+                        translate }}</a>
+                    <a class="nav-item nav-link" [routerLink]="['/reservar']" [routerLinkActive]="['activado']">{{
+                        'menuNav.reservar'
+                        | translate }}</a>
+                    <a class="nav-item nav-link" [routerLink]="['/contacte']" [routerLinkActive]="['activado']">{{
+                        'menuNav.contacte'
+                        | translate }}</a>
+                </div>
+            </nav>
+        </div>
+        <div id="selectorIdioma" class="col-4 col-lg-2">
+            <div class="dropdown text-right col-6">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{lang}}
+                </button>
+                <div class="dropdown-menu idioma" aria-labelledby="dropdownMenu">
+                    <button class="dropdown-item" type="button" *ngFor="let idioma of idiomes" [value]="idioma.lang"
+                        (click)="getLang(idioma.lang)">{{ idioma.nom }}</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

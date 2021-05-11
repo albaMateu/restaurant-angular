@@ -44,7 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-src/app/paginaBorrar.html
 src/app/Restaurant-web.code-workspace
 
 Restaurant-web.code-workspace
+src/app/views/header-old.html

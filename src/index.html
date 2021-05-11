@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ca">
+
 <head>
   <meta charset="utf-8">
   <title>Restaurant</title>
@@ -13,11 +14,11 @@
   <script type="text/javascript" src="assets/jquery.min.js"></script>
 
   <!-- Bootstrap-->
-  <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css"/>
-  <script type="text/javascript" src="assets/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css" />
+  <script type="text/javascript" src="assets/bootstrap-4.5.0-dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- nuestro estilo -->
-  <link rel="stylesheet"  href="./assets/css/style.css"/>
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- iconos fontawesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- font google -->
@@ -25,6 +26,7 @@
   <!-- rooter -->
   <base href="/">
 </head>
+
 <body>
   <app-root>
     <div class="d-flex justify-content-center">
@@ -35,25 +37,26 @@
   </app-root>
 
   <!-- Boton hacia arriba -->
-  <a class="ir-arriba fixed-bottom"  javascript:void(0) title="Volver arriba">
+  <a class="ir-arriba fixed-bottom" javascript:void(0) title="Volver arriba">
     <span class="fa-stack">
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
     </span>
   </a>
 </body>
+
 </html>
 
 <script>
-  $(document).ready(function(){ //Hacia arriba
-  irArriba();
+  $(document).ready(function () { //Hacia arriba
+    irArriba();
   });
 
-  function irArriba(){
-    $('.ir-arriba').click(function(){ $('body,html').animate({ scrollTop:'0px' },1000); });
-    $(window).scroll(function(){
-      if($(this).scrollTop() > 0){ $('.ir-arriba').slideDown(600); }else{ $('.ir-arriba').slideUp(600); }
+  function irArriba() {
+    $('.ir-arriba').click(function () { $('body,html').animate({ scrollTop: '0px' }, 1000); });
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 0) { $('.ir-arriba').slideDown(600); } else { $('.ir-arriba').slideUp(600); }
     });
-    $('.ir-abajo').click(function(){ $('body,html').animate({ scrollTop:'1000px' },1000); });
+    $('.ir-abajo').click(function () { $('body,html').animate({ scrollTop: '1000px' }, 1000); });
   }
 </script>

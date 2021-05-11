@@ -1,15 +1,15 @@
-import { GLOBAL, LANG } from './../services/global';
+import { GLOBAL, LANG } from '../services/global';
 import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { calendarComponent } from './calendar.component';
 
 
 @Component({
-  selector: 'menu-nav',
-  templateUrl: '../views/menu-nav.html',
-  styleUrls: ['../../assets/css/menu-nav.css']
+  selector: 'header-comp',
+  templateUrl: '../views/header.html',
+  styleUrls: ['../../assets/css/header.css']
 })
-export class menuNavComponent {
+export class headerComponent {
   public nom: string;
   public idiomes: Array<any> = [
     { "lang": "es", "nom": "Español" },

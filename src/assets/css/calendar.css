@@ -8,7 +8,10 @@
 }
 
 .cal-month-view .cal-cell-row .cal-cell:hover {
-  background-color: lightpink;
+  background-color: #e8fde7;
+}
+.cal-month-view .cal-day-cell.cal-today {
+    background-color: #b3d7ff80;
 }
 
 .cal-month-view .cal-day-cell {
