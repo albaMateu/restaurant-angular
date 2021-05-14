@@ -19,7 +19,7 @@
   "reservar": {
     "titol": "Reservar",
     "subtitol1": "Quan voldran visitar-nos?",
-    "pers": "Número de persones",
+    "pers": "Nº de persones",
     "sala": "Sala",
     "dia": "Dia",
     "hora": "Hora",
@@ -47,6 +47,10 @@
     "modal-title": "OOH no ...",
     "modal-message": "No s'ha pogut realitzar la reserva",
     "modal-message-email": "La reserva s'ha realitzat amb èxit <br/>Ha hagut un problema amb l'enviament del email de confirmació.<br/> Pots confirmar la teua reserva enviant un email o cridant al telèfon que apareix a la web. <br/> Disculpa les molèsties."
+  },
+  "sales": {
+    "terrassa": "Terrassa",
+    "restaurant": "Restaurant"
   },
   "home": {
     "description": "La tendència culinària del nostre restaurant és mantenir un bon equilibri entre la imaginació i el bon gust pels aliments. Treballem cuina mediterrània i peix fresc per excel·lència, acompanyat de bons vins del nostre celler. Cada dia el restaurant és un punt de trobada entre hostes i coneixedors de la bona taula."

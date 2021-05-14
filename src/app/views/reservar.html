@@ -1,22 +1,22 @@
 <modal-component> </modal-component>
-<div class="container-fluid flex-column">
+<div class="container-fluid mx-auto pb-5 pr-5 pl-5">
   <div id="imagen">
     <img class="mx-auto d-block" src="../../assets/images/logo.jpg" alt="logotipo restaurant">
   </div>
 
-  <div class="cartes col-lg-10 jumbotron offset-lg-1 mx-auto">
+  <div class="cartes jumbotron mx-auto">
     <h2 class="text-center">
       <strong>{{ "reservar.titol" | translate }}</strong>
     </h2>
 
-    <div class="row col-lg-12 mx-auto ">
-      <div id="column-left" class="col-lg-5 offset-lg-1">
-        <div class="md-form col-lg-12">
+    <div class="row">
+      <div id="column-left" class="col-xl-5 offset-xl-1 col-sm-10 offset-sm-1">
+        <div class="md-form col-sm-12">
           <calendar (clickedDateEvent)="reciveDate($event)"></calendar>
         </div>
-      </div><!-- fin column left -->
+      </div><!-- fin column left col-xl-4 offset-xl-1 col-sm-6 offset-sm-3 -->
 
-      <div id="column-right" class="col-lg-4 offset-lg-1">
+      <div id="column-right" class="col-xl-4 offset-xl-1 col-sm-6 offset-sm-3">
 
         <form #formReserva="ngForm" (ngSubmit)="onSubmit()" id="form-reserva" class="form-horizontal">
 
@@ -24,9 +24,9 @@
             <h4 class="text-center">{{ "reservar.subtitol1" | translate }}</h4>
 
             <div class="form-group row">
-              <label class="col-2 col-lg-5 pt-2">{{ "reservar.pers" | translate }}
+              <label class="col-12 col-lg-5 pt-2">{{ "reservar.pers" | translate }}
               </label>
-              <div class="col-10 col-lg-7">
+              <div class="col-12 col-lg-7">
                 <input type="number" #pers="ngModel" [(ngModel)]="reserva.pers" name="pers" id="pers" max="40" min="1"
                   class="form-control" required>
                 <span *ngIf="!pers.valid && pers.touched && pers.errors.required " class="label alert-danger">{{
@@ -35,17 +35,17 @@
             </div> <!-- fin num persones -->
 
             <div class="form-group row">
-              <label class="col-2 col-lg-5 pt-2">{{ "reservar.sala" | translate }}</label>
-              <div class="col-10 col-lg-7">
+              <label class="col-12 col-lg-5 pt-2">{{ "reservar.sala" | translate }}</label>
+              <div class="col-12 col-lg-7">
                 <select #sala="ngModel" name="sala" [(ngModel)]="reserva.sala" class="form-control" required>
-                  <option *ngFor="let sala of sales" [value]="sala.id">{{ sala.nom }}</option>
+                  <option *ngFor="let sala of sales" [value]="sala.id">{{ "sales."+ sala.nom | translate}}</option>
                 </select>
               </div>
             </div> <!-- fin select group -->
 
             <div class="form-group row">
-              <label class="col-md-2 col-lg-5 pt-2"> {{ "reservar.dia" | translate }} </label>
-              <div class="col-md-10 col-lg-7">
+              <label class="col-12 col-lg-5 pt-2"> {{ "reservar.dia" | translate }} </label>
+              <div class="col-12 col-lg-7">
                 <input id="calendar-input-web" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
                   class="form-control" value="{{ clickedDate| date: 'yyyy-MM-dd' }}" disabled>
                 <input id="calendar-input-mobile" type="date" #dia="ngModel" name="dia" [(ngModel)]="reserva.dia"
@@ -55,8 +55,8 @@
             </div><!-- fin dia -->
 
             <div class="form-group row">
-              <label class="col-2 col-lg-5"> {{ "reservar.hora" | translate }} </label>
-              <div class="col-10 col-lg-7">
+              <label class="col-12 col-lg-5"> {{ "reservar.hora" | translate }} </label>
+              <div class="col-12 col-lg-7">
                 <input type="time" #hora="ngModel" name="hora" [(ngModel)]="reserva.hora" class="form-control mb-1"
                   (ngModelChange)="validarHoraM($event)" required>
                 <span *ngIf="!hora.valid && hora.touched && hora.errors.required" class="label alert-danger">{{
@@ -69,7 +69,7 @@
             <span *ngIf="missatge" class="label alert-danger missatge form-group row offset-md-5 col-md-7"
               [innerHTML]="missatge"></span>
 
-            <input type="text" class="btn btn-light offset-md-9 col-md-3" (click)="next()"
+            <input type="text" class="btn btn-light offset-8 col-4" (click)="next()"
               value='{{ "reservar.next" | translate }}' [disabled]="!hora.valid || !pers.valid">
 
           </div>
@@ -78,9 +78,9 @@
           <div id="form-dadespersonals" [ngClass]="{'mostrar': siguiente, 'ocultar': !siguiente}">
             <h4 class="text-center">{{ "reservar.subtitol2" | translate }}</h4>
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">{{ "reservar.name" | translate }}
+              <label class="col-12 col-lg-5 pt-2">{{ "reservar.name" | translate }}
               </label>
-              <div class="col-lg-7">
+              <div class="col-12 col-lg-7">
                 <input type="text" #nom="ngModel" [(ngModel)]="reserva.nom" name="nom" id="nom" class="form-control"
                   required>
                 <span *ngIf="!nom.valid && nom.touched && nom.errors.required" class="label alert-danger">{{
@@ -88,9 +88,9 @@
               </div>
             </div> <!-- fin nom -->
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">{{ "reservar.tel" | translate }}
+              <label class="col-12 col-lg-5 pt-2">{{ "reservar.tel" | translate }}
               </label>
-              <div class="col-lg-7">
+              <div class="col-12 col-lg-7">
                 <input type="tel" #tel="ngModel" [(ngModel)]="reserva.tel" name="tel" id="tel" class="form-control"
                   pattern="(\+34|0034|34)?[ -]*(6|7|9)[ -]*([0-9][ -]*){8}" required>
                 <div *ngIf="tel.touched && !tel.valid">
@@ -102,9 +102,9 @@
               </div>
             </div> <!-- fin telèfon -->
             <div class="form-group row">
-              <label class="col-lg-5 pt-2">{{ "reservar.email" | translate }}
+              <label class="col-12 col-lg-5 pt-2">{{ "reservar.email" | translate }}
               </label>
-              <div class="col-lg-7">
+              <div class="col-12 col-lg-7">
                 <input type="email" #email="ngModel" [(ngModel)]="reserva.email" name="email" id="email"
                   class="form-control" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" required>
                 <div *ngIf="!email.valid && email.touched">
@@ -116,19 +116,18 @@
               </div>
             </div> <!-- fin email -->
             <div class="form-group ">
-              <label class="col-lg-9 pl-1 pr-2">{{ "reservar.coment" | translate }}
+              <label class="col-12 p-0">{{ "reservar.coment" | translate }}
               </label>
-              <div class="offset-lg-2 col-lg-10 pr-0">
+              <div class="col-12 p-0">
                 <textarea class="form-control" #coment="ngModel" [(ngModel)]="reserva.coment" name="coment" id="coment"
                   cols="30" rows="3"></textarea>
               </div>
             </div> <!-- fin observacions -->
 
-            <div class="form-group row">
-              <input type="text" class="btn btn-light col-md-3 offset-md-2 col-sm-3 offset-sm-2" (click)="back()"
-                value='{{ "reservar.back" | translate }}'>
-              <button type="submit" class="btn btn-light offset-md-5 col-sm-2 col-xs-2 offset-sm-5"
-                [disabled]="!formReserva.form.valid">{{ "reservar.submit" | translate }}</button>
+            <div class="form-group row p-2">
+              <input type="text" class="btn btn-light col-4" (click)="back()" value='{{ "reservar.back" | translate }}'>
+              <button type="submit" class="btn btn-light offset-4 col-4" [disabled]="!formReserva.form.valid">{{
+                "reservar.submit" | translate }}</button>
             </div>
           </div>
           <!-- fin segona part info form -->

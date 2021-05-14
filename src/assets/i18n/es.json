@@ -20,7 +20,7 @@
   "reservar": {
     "titol": "Reservar",
     "subtitol1": "¿Cuándo querrán visitarnos?",
-    "pers": "Número de personas",
+    "pers": "Nº de personas",
     "sala": "Sala",
     "dia": "Día",
     "hora": "Hora",
@@ -48,6 +48,10 @@
     "modal-title": "OOH no ...",
     "modal-message": "No se ha podido realizar la reserva",
     "modal-message-email": "La reserva se ha realizado con éxito. <br/> Ha habido algún problema con el envío del email de confirmación. <br/> Puedes confirmar tu reserva enviando un email o llamando al teléfono que aparece en la web. <br/> Disculpe las molestias."
+  },
+  "sales": {
+    "terrassa": "Terraza",
+    "restaurant": "Restaurante"
   },
   "home": {
     "description": "La tendencia culinaria de nuestro restaurante es mantener un buen equilibrio entre la imaginación y el buen gusto por los alimentos. Trabajamos cocina mediterránea y pescados frescos por excelencia, acompañado de buenos vinos de nuestra bodega. Cada día el restaurante es un punto de encuentro entre huéspedes y conocedores de la buena mesa."

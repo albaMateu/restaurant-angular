@@ -51,6 +51,7 @@ h5 {
   margin: 5px;
 }
 
+/*  mobil */
 @media (max-width: 736px) {
   #calendar,
   mwl-calendar-month-view {

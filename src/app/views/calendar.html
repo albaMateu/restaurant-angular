@@ -1,6 +1,7 @@
-<div id="calendar" class="d-flex flex-nowrap">
+<div id="calendar" class="container">
 
-  <!--   <div class="col-md-12" >
+  <!-- d-flex flex-nowrap 
+      <div class="col-md-12" >
     <div *ngIf= "!clickedDate; else exist">
       <h5>Selecciona dia a reservar </h5>
     </div>
@@ -12,25 +13,25 @@
     </ng-template>
 
   </div> -->
-
-  <div class="col-md-4 offset-md-4 order-2">
-    <div class="btn-group">
-      <button class="btn btn-primary" (click)="decrement()" [disabled]="prevBtnDisabled">
-        <fa-icon fa-icon [icon]="back"> </fa-icon>
-      </button>
-      <button class="btn btn-outline-secondary" (click)="today()">{{ 'calendar.today'| translate }}</button>
-      <button class="btn btn-primary" (click)="increment()" [disabled]="nextBtnDisabled">
-        <fa-icon fa-icon [icon]="next"> </fa-icon>
-      </button>
+  <div class="row">
+    <div class="col-4 offset-4 col-lg-5 offset-lg-1 order-2 text-right">
+      <div class="btn-group">
+        <button class="btn btn-primary" (click)="decrement()" [disabled]="prevBtnDisabled">
+          <fa-icon fa-icon [icon]="back"> </fa-icon>
+        </button>
+        <button class="btn btn-outline-secondary" (click)="today()">{{ 'calendar.today'| translate }}</button>
+        <button class="btn btn-primary" (click)="increment()" [disabled]="nextBtnDisabled">
+          <fa-icon fa-icon [icon]="next"> </fa-icon>
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="col-4 col-lg-6 order-1">
+      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):getLocale() }}</h3>
     </div>
   </div>
-  <br>
-  <div class="col-md-4 order-1 ">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):getLocale() }}</h3>
-  </div>
+  <mwl-calendar-month-view [viewDate]="viewDate" [locale]="getLocale()" [weekStartsOn]="weekStartsOn"
+    [weekendDays]="weekendDays" (beforeViewRender)="beforeMonthViewRender($event)"
+    (dayClicked)="clickedDate = $event.day.date; sendDate()">
+  </mwl-calendar-month-view>
 </div>
-
-<mwl-calendar-month-view [viewDate]="viewDate" [locale]="getLocale()" [weekStartsOn]="weekStartsOn"
-  [weekendDays]="weekendDays" (beforeViewRender)="beforeMonthViewRender($event)"
-  (dayClicked)="clickedDate = $event.day.date; sendDate()">
-</mwl-calendar-month-view>
