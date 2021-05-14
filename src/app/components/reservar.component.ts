@@ -27,7 +27,7 @@ export class reservarComponent {
   public clickedDate: Date;
   public min_d: Date;
   public max_d: Date;
-  public siguiente: boolean = true;
+  public siguiente: boolean = false;
   public missatge: String;
   public disponible: boolean = false;
   public min_h_m: string;
