@@ -2,7 +2,6 @@ import { Component, ViewEncapsulation, EventEmitter, Output, ChangeDetectionStra
 import { CalendarMonthViewDay, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { subMonths, addMonths, addDays, addWeeks, subDays, subWeeks, startOfMonth, endOfMonth, startOfWeek, endOfWeek, startOfDay, endOfDay } from 'date-fns';
 import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
-import { LANG } from '../services/global';
 
 
 
@@ -79,7 +78,7 @@ export class calendarComponent {
 
   }
   getLocale() {
-    return LANG.actual;
+    return localStorage.lang;
   }
   sendDate() {
     this.clickedDateEvent.emit(this.clickedDate);

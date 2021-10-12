@@ -5,14 +5,13 @@ import { Component } from "@angular/core";
   templateUrl: '../views/home.html',
   styleUrls: ['../../assets/css/home.css']
 })
-export class homeComponent{
+export class homeComponent {
 
 
-  constructor(){
+  constructor() {
 
   }
   ngOnInit() {
-    console.log('Home en marxa');
   }
 
 
