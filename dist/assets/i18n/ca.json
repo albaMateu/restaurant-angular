@@ -32,7 +32,7 @@
     "back": "Enrera",
     "submit": "Reservar",
     "modal-title": "Enhorabona!",
-    "modal-message": "Reserva realitzada amb èxit. <br/> Rebràs un email de confirmació de la teua reserva. <br> Si no el rebs, revisa la safata spam"
+    "modal-message": "Reserva realitzada amb èxit. <br/> Rebràs un email de confirmació de la teua reserva. <br> Si no el rebs, revisa la safata spam. <p class='text-danger'> En la demo no es guarden reserves ni s'envien e-mails.</p>"
   },
   "reservar-errors": {
     "pers-required": "El número de persones és obligatori",

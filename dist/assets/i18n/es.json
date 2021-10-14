@@ -33,7 +33,7 @@
     "back": "Atrás",
     "submit": "Reservar",
     "modal-title": "Enhorabuena!",
-    "modal-message": "Reserva realizada con éxito. <br/> Recibirás un email de confirmación de tu reserva. <br> Si no lo recibes, revisa la bandeja de Spam."
+    "modal-message": "Reserva realizada con éxito. <br/> Recibirás un email de confirmación de tu reserva. <br> Si no lo recibes, revisa la bandeja de Spam. <p class='text-danger'> En la demo no se guardan reservas ni se envían e-mails.</p>"
   },
   "reservar-errors": {
     "pers-required": "El número de personas es obligatorio",
