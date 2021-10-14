@@ -24,6 +24,7 @@ export var HORARI = {
 
 //datos configuració BD i backend
 export var CONFIG = {
-  url: 'http://localhost/restaurant-api'
+  /*   url: 'http://localhost/restaurant-api' */
+  url: 'https://apirestaurant.almape.dev'
 }
 
