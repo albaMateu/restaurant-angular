@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ca">
+
+<head>
+  <meta charset="utf-8">
+  <title>Restaurant</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="El mejor restaurante de Gandia, reserva mesa online.">
+  <meta name="keywords" content="restaurant, comer gandia, reservar la safor">
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.jpg">
+
+  <!-- jQuery-->
+  <script type="text/javascript" src="assets/jquery.min.js"></script>
+
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="assets/bootstrap-4.5.0-dist/css/bootstrap.min.css" />
+  <script type="text/javascript" src="assets/bootstrap-4.5.0-dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- nuestro estilo -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- iconos fontawesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- font google -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <!-- rooter -->
+  <base href="./"><link rel="stylesheet" href="styles.7681c1117d0b26991727.css"></head>
+
+<body>
+  <app-root>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Cargando...</span>
+      </div>
+    </div>
+  </app-root>
+
+  <!-- Boton hacia arriba -->
+  <a class="ir-arriba fixed-bottom" javascript:void(0) title="Volver arriba">
+    <span class="fa-stack">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+<script src="runtime-es2015.1eba213af0b233498d9d.js" type="module"></script><script src="runtime-es5.1eba213af0b233498d9d.js" nomodule defer></script><script src="polyfills-es5.2aa8d04c93235acfc0cd.js" nomodule defer></script><script src="polyfills-es2015.9ddf7ee8e3f42b05c6a4.js" type="module"></script><script src="main-es2015.a465c46c9f28d13fb9f0.js" type="module"></script><script src="main-es5.a465c46c9f28d13fb9f0.js" nomodule defer></script></body>
+
+</html>
+
+<script>
+  $(document).ready(function () { //Hacia arriba
+    irArriba();
+  });
+
+  function irArriba() {
+    $('.ir-arriba').click(function () { $('body,html').animate({ scrollTop: '0px' }, 1000); });
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 0) { $('.ir-arriba').slideDown(600); } else { $('.ir-arriba').slideUp(600); }
+    });
+    $('.ir-abajo').click(function () { $('body,html').animate({ scrollTop: '1000px' }, 1000); });
+  }
+</script>

@@ -1,0 +1,72 @@
+{
+  "menuNav": {
+    "home": "Inicio",
+    "carta": "Carta",
+    "reservar": "Reservar",
+    "contacte": "Contacto"
+  },
+  "error404": {
+    "boto": "Volver al inicio",
+    "titol": "Ooops! La página que buscas puede ser se la hayan comido, dale al botón para volver."
+  },
+  "calendar": {
+    "today": "hoy"
+  },
+  "carta": {
+    "titol": "Cartas",
+    "menuDia": "Menú comida",
+    "menuNit": "Menú cena"
+  },
+  "reservar": {
+    "titol": "Reservar",
+    "subtitol1": "¿Cuándo querrán visitarnos?",
+    "pers": "Nº de personas",
+    "sala": "Sala",
+    "dia": "Día",
+    "hora": "Hora",
+    "subtitol2": "Con quién nos pondremos en contacto en caso necesario?",
+    "name": "Nombre y apellidos",
+    "tel": "Teléfono",
+    "email": "Email",
+    "coment": "¿Alguna observación a tener en cuenta?",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "submit": "Reservar",
+    "modal-title": "Enhorabuena!",
+    "modal-message": "Reserva realizada con éxito. <br/> Recibirás un email de confirmación de tu reserva. <br> Si no lo recibes, revisa la bandeja de Spam."
+  },
+  "reservar-errors": {
+    "pers-required": "El número de personas es obligatorio",
+    "hora-required": "La hora es obligatoria",
+    "hora-valide": "La hora tiene que ser entre las {{min_h_m}} y las {{max_h_m}} o entre las {{min_h_v}} y las {{max_h_v}}",
+    "missatge-disponible": "No hay mesas disponibles pare el día {{dia}} a las {{hora}} en la sala solicitada. <br/> Prueba otra sala, otro día u hora diferente.",
+    "nom-required": "El nombre es obligatorio",
+    "tel-required": "El telèfon es obligatorio",
+    "tel-valide": "El teléfono no es válido",
+    "email-required": "El e-mail es obligatorio",
+    "email-valide": "El e-mail no es válido",
+    "modal-title": "OOH no ...",
+    "modal-message": "No se ha podido realizar la reserva",
+    "modal-message-email": "La reserva se ha realizado con éxito. <br/> Ha habido algún problema con el envío del email de confirmación. <br/> Puedes confirmar tu reserva enviando un email o llamando al teléfono que aparece en la web. <br/> Disculpe las molestias."
+  },
+  "sales": {
+    "terrassa": "Terraza",
+    "restaurant": "Restaurante"
+  },
+  "home": {
+    "description": "La tendencia culinaria de nuestro restaurante es mantener un buen equilibrio entre la imaginación y el buen gusto por los alimentos. Trabajamos cocina mediterránea y pescados frescos por excelencia, acompañado de buenos vinos de nuestra bodega. Cada día el restaurante es un punto de encuentro entre huéspedes y conocedores de la buena mesa."
+  },
+  "contacte": {
+    "titol": "Contáctenos",
+    "follow": "Síguenos",
+    "adreca": "Dirección",
+    "tel": "Tel",
+    "mail": "E-mail",
+    "horari": "Horario",
+    "setmana": "Martes a Domingo"
+  },
+  "footer": {
+    "copyright": "© Copyright 2020. Todos los derechos reservados.",
+    "by": "Creado por "
+  }
+}

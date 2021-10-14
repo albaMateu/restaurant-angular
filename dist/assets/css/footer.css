@@ -1,0 +1,213 @@
+#footer{
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  margin-top: 3px;
+  position: relative;
+  clear: both;
+  font-size: 1.2em;
+  width: 100%;
+}
+
+
+.light{
+  padding: 20px 0 0;
+  margin-bottom: 20px;
+}
+
+.container{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+}
+
+#footer .contact, #footer .horari {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#footer .horari{
+  margin-top: 35px;;
+}
+
+#footer .contact li p, #footer .horari li p{
+  margin: 1.5%;
+  padding: 0;
+}
+
+#footer .contact i, #footer .horari i {
+  display: block;
+  float: left;
+  font-size: 1.2em;
+  position: relative;
+  width: 16px;
+  margin-right: 10px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+
+#maps{
+  position:relative;
+  padding-right:20%;
+  height: 100%;
+}
+
+#maps iframe{
+  height:100%;
+  width:100%;
+  top:0px;
+  left:0px;
+  border-radius: 5%;
+}
+
+
+/* Social Icons */
+.social-icons {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.social-icons li{
+  display: inline-block;
+  margin: -1px 5px 0 0;
+  padding: 0;
+  border-radius: 100%;
+  overflow: visible;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.social-icons li a {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: #FFF;
+  border-radius: 100%;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  color: #333 !important;
+  text-decoration: none;
+}
+
+.social-icons li:hover a {
+  background: #171717;
+  color: #FFF !important;
+}
+
+.social-icons li:hover.social-icons-facebook a {
+  background: #3b5a9a;
+}
+
+.social-icons li:hover.social-icons-twitter a {
+  background: #1aa9e1;
+}
+.social-icons li:hover.social-icons-linkedin a {
+  background: #0073b2;
+}
+
+/* footer copyright */
+
+.footer-copyright {
+  /* margin-top: 70px; */
+  padding-top: 0;;
+  margin-bottom: 0;
+  vertical-align: middle;
+  border-top: 1px solid #DDD;
+}
+
+.footer-copyright li{
+  margin: -1px 1px 0 0;
+  text-decoration: none;
+}
+
+#footer .logo {
+  display: block;
+  width: 50%;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.vertical, .vertical p{
+ margin: auto !important;
+}
+
+#sub-menu{
+  text-align: center;
+  width: 100%;
+}
+
+#sub-menu ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0 !important;;
+}
+
+#sub-menu ul li {
+    border-left: 1px solid grey;
+    display: inline-block;
+    line-height: 15px; /*altura de la linia que dibuixa entre els li*/
+    padding: 0 8px;
+    vertical-align: text-bottom;
+}
+
+a, a:hover{
+  color: grey !important;
+  text-decoration: none;
+}
+
+#sub-menu ul li:first-child {
+  border: medium none;
+  padding-left: 0;
+}
+
+@media (max-width: 991.98px){
+  #footer{
+    padding-bottom: 40px;
+  }
+
+  #footer .logo {
+    width: 30%;
+  }
+
+  .light{
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  #sub-menu ul {
+    padding-top: 1%;
+    margin-bottom: 5%;
+  }
+
+  #footer .footer-copyright p {
+    padding-top: 0;
+  }
+
+  #footer .container .row > div {
+    text-align: center;
+  }
+
+  .contact li i, .horari li i{
+    visibility: hidden;
+  }
+
+  #footer .contact i,  #footer .horari i {
+    text-align: center;
+  }
+
+  #maps{
+    padding: 10px;
+  }
+
+
+}
+

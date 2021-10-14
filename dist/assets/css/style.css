@@ -1,0 +1,22 @@
+@import "../../../node_modules/angular-calendar/css/angular-calendar.css";
+#main{
+  margin-top: 80px;
+}
+
+#header{
+  height: 80px;
+}
+
+/*Flecha para hacer la pagina hacia arriba*/
+.ir-arriba{
+  display:none;
+  background-repeat:no-repeat;
+  font-size:20px;
+  color:grey;
+  cursor:pointer;
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  z-index:2;
+  text-align: right;
+}
