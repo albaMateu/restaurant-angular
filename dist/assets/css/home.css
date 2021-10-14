@@ -1,0 +1,53 @@
+.carrusel{
+  margin: 0;
+  padding: 0;
+}
+
+.banner div img{
+  height: 89.5vh !important;
+}
+
+ #imagen-logo{
+   padding: 25px;
+ }
+
+ #imagen-logo img{
+   box-shadow: black 3px 3px 10px;
+   border-radius: 50%;
+   height: 200px;
+   margin: 25px;
+ }
+
+ #texto{
+   margin-bottom: 50px;
+ }
+
+ #texto p{
+  font-size: 26px;
+ }
+
+
+ /* movils i tablets */
+@media (max-width: 991.98px) {
+  .banner div img{
+    height: 40vh !important;
+  }
+
+  #imagen-logo{
+    padding: 25px;
+  }
+
+  #imagen-logo img{
+    height: 120px;
+    margin: 25px;
+  }
+
+  #texto{
+    margin-bottom: 25px;
+  }
+
+  #texto p{
+    font-size: 18px;
+   }
+
+}
