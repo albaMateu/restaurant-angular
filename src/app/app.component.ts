@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   public href: string = "";
+  public footer: boolean = true;
 
   constructor(private router: Router, private translate: TranslateService) {
     translate.setDefaultLang('es');
@@ -16,6 +17,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.href = this.router.url;
+
   }
 
 }

@@ -11,9 +11,7 @@ import { Observable } from 'rxjs';
 export class ReservaService {
   public url: string;
 
-  constructor(
-    public _http: HttpClient
-  ) {
+  constructor(public _http: HttpClient) {
     this.url = CONFIG.url;
   }
 
@@ -41,7 +39,7 @@ export class ReservaService {
 
   sendEmailConfirm(reserva: Reserva): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    //si retorna json, headers, si retorna soles test, response type
+    //si retorna json, headers, si retorna soles text, response type
     return this._http.post(this.url + '/v1/reserva/mail', reserva, { headers: headers } /* { responseType: 'text' } */);
   }
 

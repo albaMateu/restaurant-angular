@@ -46,6 +46,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+/* login i registre */
+import { RegisterComponent } from './components/register.component';
+import { LoginComponent } from './components/login.component';
+
 
 
 /*importar els idiomes */
@@ -70,6 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     reservarComponent,
     calendarComponent,
     modalComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,

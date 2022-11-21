@@ -1,0 +1,20 @@
+<div class="autentication">
+  <div class="login">
+    <form class="custom-form" method="post">
+      <h1 class="text-center">Iniciar sesión</h1>
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
+      <!-- <button type="submit" (click)="login()">Log in</button> -->
+    </form>
+  </div>
+
+  <div class="register">
+    <form class="custom-form" method="post">
+      <h1 class="text-center">Cuenta nueva</h1>
+      <input type="email" [(ngModel)]="email_new" name="email" placeholder="Email" required />
+      <input type="password" [(ngModel)]="password_new" name="password" placeholder="Password" required />
+      <input type="password" [(ngModel)]="confirmPassword" name="password" placeholder="Repeat the password" required />
+      <button type="submit" (click)="register()">Registrarme</button>
+    </form>
+  </div>
+</div>

@@ -7,6 +7,10 @@ import { homeComponent } from './components/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+/* login i registre */
+import { RegisterComponent } from './components/register.component';
+import { LoginComponent } from './components/login.component';
+
 
 //curs
 //import { ModuleWithProviders } from '@angular/core';
@@ -14,12 +18,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 //rutes
 const appRoutes: Routes = [
-  {path: '', component: homeComponent},
-  {path: 'home', component: homeComponent},
-  {path: 'contacte', component: contacteComponent},
-  {path: 'carta', component: cartaComponent},
-  {path: 'reservar', component: reservarComponent},
-  {path: '**', component: errorComponent}
+  { path: '', component: homeComponent },
+  { path: 'home', component: homeComponent },
+  { path: 'contacte', component: contacteComponent },
+  { path: 'carta', component: cartaComponent },
+  { path: 'reservar', component: reservarComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', component: errorComponent }
 ];
 
 @NgModule({

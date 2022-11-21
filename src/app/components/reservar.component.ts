@@ -200,7 +200,7 @@ export class reservarComponent {
         this.sales = result;
       },
       error => {
-        console.log("ERROR- no es poden mostrar les sales" + error);
+        console.log("ERROR- no es poden mostrar les sales" + error.message);
       }
     ); //fin suscribe
 

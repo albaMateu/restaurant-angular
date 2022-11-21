@@ -36,10 +36,7 @@ export class footerComponent {
     this.f_v = HORARI.cierre_v;
     this.semana_txt = translate.instant("contacte.setmana");
 
-  }
-  ngOnInit() {
-  }
 
-
+  }
 
 }

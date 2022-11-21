@@ -1,0 +1,55 @@
+.autentication {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.login,
+.register {
+    margin-bottom: 10rem;
+    font-size: 16px;
+    width: 30%;
+}
+
+.custom-form {
+    margin: 0px auto;
+    background: white;
+    padding: 2rem 3rem;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 9px #cbced1;
+    margin-top: 10rem;
+}
+
+.custom-form input {
+    display: block;
+    margin: 2rem 0;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0.5em;
+    border: solid 1px;
+    background: white;
+}
+
+.custom-form button {
+    letter-spacing: 0.15em;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #3a2b15;
+    width: 100%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+    border: none;
+}
+
+/* @media (max-width: 768px) {
+
+    .login,
+    .register {
+        max-width: 100%;
+    }
+
+} */

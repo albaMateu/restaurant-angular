@@ -1,22 +1,45 @@
 @import "../../../node_modules/angular-calendar/css/angular-calendar.css";
-#main{
-  margin-top: 80px;
+
+
+#main {
+  /* margin-top: 80px; */
+  min-height: calc(100% - 81px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
-#header{
+#header {
   height: 80px;
+  flex-shrink: 0;
 }
 
 /*Flecha para hacer la pagina hacia arriba*/
-.ir-arriba{
-  display:none;
-  background-repeat:no-repeat;
-  font-size:20px;
-  color:grey;
-  cursor:pointer;
-  position:fixed;
-  bottom:10px;
-  right:10px;
-  z-index:2;
+.ir-arriba {
+  display: none;
+  background-repeat: no-repeat;
+  font-size: 20px;
+  color: grey;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
   text-align: right;
+}
+
+/* fer que el footer estiga sempre baix de tot */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#footer {
+  margin-top: auto;
+  flex-shrink: 0;
 }
