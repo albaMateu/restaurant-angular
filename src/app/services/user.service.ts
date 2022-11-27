@@ -21,7 +21,7 @@ export class UserService {
     }
 
     getUserByEmail(email: string): Observable<any> {
-        return this._http.post(this.url + '/v1/user/email/', email, { headers: this.headers });
+        return this._http.post(this.url + '/v1/user/email', email, { headers: this.headers });
     }
 
     /*  login(hash: string): Observable<any> {
