@@ -65,6 +65,8 @@ export class LoginComponent {
             if (email) {
                 this._userService.getUserByEmail(email).subscribe(
                     result => {
+                        console.log(result.exist);
+
                         resolve(result.exist);
                     },
                     error => {
