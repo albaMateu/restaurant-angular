@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Md5 } from 'ts-md5';
 import { modalComponent } from './modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -24,7 +24,8 @@ export class LoginComponent {
     public confirmPassword: string;
     public passwordError: boolean;
 
-    constructor(public _userService: UserService) {
+    constructor(public _userService: UserService,
+        private translate: TranslateService) {
 
     }
 
@@ -32,7 +33,7 @@ export class LoginComponent {
     getToken(): string {
         this._userService.getToken().subscribe(
             result => {
-                console.log(result.token);
+                console.log("gettoken:" + result.token);
 
                 return result.token;
             },
@@ -47,7 +48,7 @@ export class LoginComponent {
     getTokenByEmail(email: string): string {
         this._userService.getTokenByEmail(email).subscribe(
             result => {
-                console.log(result.token);
+                console.log("gettokenbyemail:" + result.token);
 
                 return result.token;
             },
@@ -65,7 +66,7 @@ export class LoginComponent {
             if (email) {
                 this._userService.getUserByEmail(email).subscribe(
                     result => {
-                        console.log(result.exist);
+                        console.log("existUser:" + result.exist);
 
                         resolve(result.exist);
                     },
@@ -90,7 +91,7 @@ export class LoginComponent {
         const userExist = await this.existUser(this.email_new);
 
 
-        if (!userExist && this.password_new === this.confirmPassword) {
+        if (!userExist && this.password_new === this.confirmPassword && this.password_new !== "") {
 
             //demanar token
             const token = this.getToken();
@@ -107,24 +108,26 @@ export class LoginComponent {
             //envia email:hash:token
             this._userService.register(user_encode).subscribe(
                 result => {
-                    console.log(result);
+                    console.log("register:" + result);
 
-                    /* this.modal.title = 'Enhorabueana';
-                    this.modal.message = "Tu cuenta ha sido registrada";
-                    this.modal.openModal(); */
+                    this.modal.title = 'reservar-errors.modal-title';
+                    this.modal.message = "Compte creat amb èxit";
                 },
                 error => {
                     console.log(error.message);
+                    this.modal.title = 'reservar-errors.modal-title';
+                    this.modal.message = "Hem tingut problemes per crear el compte, prova més tard";
+                    this.modal.openModal();
                 }
             );
 
         } else {
 
-            console.log("usuario existente");
+            console.log("usuario existente o pwd vacía");
 
-            /* this.modal.title = 'Error';
-            this.modal.message = "Este usuario ya existe";
-            this.modal.openModal(); */
+            this.modal.title = 'reservar-errors.modal-title';
+            this.modal.message = "Ha hagut un problema. Revisa les dades.";
+            this.modal.openModal();
 
         }
 

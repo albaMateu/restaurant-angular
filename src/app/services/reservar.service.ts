@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ReservaService {
   public url: string;
+  public headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(public _http: HttpClient) {
     this.url = CONFIG.url;
@@ -26,21 +27,20 @@ export class ReservaService {
   addReserva(reserva: Reserva): Observable<any> {
     //let json = JSON.stringify(reserva);
     //let params = "json="+json;
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
     //si retorna json, headers, si retorna soles test, response type
-    return this._http.post(this.url + '/v1/reserva/new', reserva, { headers: headers } /* { responseType: 'text' } */);
+    return this._http.post(this.url + '/v1/reserva/new', reserva, { headers: this.headers } /* { responseType: 'text' } */);
   }
 
   getTaulesOcupades(args: Object): Observable<any> {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
     //si retorna json, headers, si retorna soles text, response type
-    return this._http.post(this.url + '/v1/ocupades', args, { headers: headers }  /* { responseType: 'text' } */);
+    return this._http.post(this.url + '/v1/ocupades', args, { headers: this.headers }  /* { responseType: 'text' } */);
   }
 
   sendEmailConfirm(reserva: Reserva): Observable<any> {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
     //si retorna json, headers, si retorna soles text, response type
-    return this._http.post(this.url + '/v1/reserva/mail', reserva, { headers: headers } /* { responseType: 'text' } */);
+    return this._http.post(this.url + '/v1/reserva/mail', reserva, { headers: this.headers } /* { responseType: 'text' } */);
   }
 
 } //fin ReservaService

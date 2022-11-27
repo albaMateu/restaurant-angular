@@ -29,6 +29,6 @@ export class UserService {
      } */
 
     register(hash: string): Observable<any> {
-        return this._http.post(this.url + '/v1/user/login', hash, { headers: this.headers });
+        return this._http.post(this.url + '/v1/user/register', hash, { headers: this.headers });
     }
 }
