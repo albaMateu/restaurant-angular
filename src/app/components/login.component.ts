@@ -91,7 +91,9 @@ export class LoginComponent {
         const userExist = await this.existUser(this.email_new);
 
 
-        if (!userExist && this.password_new === this.confirmPassword && this.password_new !== "") {
+        if (!userExist && this.password_new === this.confirmPassword && this.password_new) {
+
+
 
             //demanar token
             const token = this.getToken();
@@ -109,12 +111,19 @@ export class LoginComponent {
             this._userService.register(user_encode).subscribe(
                 result => {
                     console.log("register:" + result);
+                    if (result.code === 200) {
+                        this.modal.title = 'reservar-errors.modal-title';
+                        this.modal.message = "Compte creat amb èxit";
+                    } else {
+                        this.modal.title = 'reservar-errors.modal-title';
+                        this.modal.message = "Hem tingut problemes per crear el compte, prova més tard";
+                    }
 
-                    this.modal.title = 'reservar-errors.modal-title';
-                    this.modal.message = "Compte creat amb èxit";
+                    this.modal.openModal();
+
                 },
                 error => {
-                    console.log(error.message);
+                    console.log(error);
                     this.modal.title = 'reservar-errors.modal-title';
                     this.modal.message = "Hem tingut problemes per crear el compte, prova més tard";
                     this.modal.openModal();
